@@ -2,7 +2,7 @@
 
 const GITHUB_USERNAME = 'earlchirchir';
 
-// Hydrated Fallback Repositories Data
+// Hydrated Fallback Repositories Data (Updated with Title-Case Names)
 const FALLBACK_REPOS = [
   {
     id: 1310065999,
@@ -19,54 +19,54 @@ const FALLBACK_REPOS = [
   },
   {
     id: 1309916364,
-    name: 'abb-crb-15000-kinematics',
-    html_url: 'https://github.com/earlchirchir/abb-crb-15000-kinematics',
+    name: 'ABB-CRB-15000-Kinematics',
+    html_url: 'https://github.com/earlchirchir/ABB-CRB-15000-Kinematics',
     description: 'Forward & Inverse Kinematics solver and 3D trajectory simulation for the ABB GoFa CRB 15000 collaborative robot.',
     language: 'MATLAB',
     stargazers_count: 0,
     forks_count: 0,
     size: 26027,
     updated_at: '2026-07-23T13:22:55Z',
-    clone_url: 'https://github.com/earlchirchir/abb-crb-15000-kinematics.git',
+    clone_url: 'https://github.com/earlchirchir/ABB-CRB-15000-Kinematics.git',
     topics: ['robotics', 'kinematics', 'matlab', 'cobot', 'trajectory-planning']
   },
   {
     id: 577751420,
-    name: 'onBoardMonitoringSystem',
-    html_url: 'https://github.com/earlchirchir/onBoardMonitoringSystem',
+    name: 'Onboard-Monitoring-System',
+    html_url: 'https://github.com/earlchirchir/Onboard-Monitoring-System',
     description: 'Real-time telemetry and on-board sensor monitoring dashboard web interface for embedded hardware.',
     language: 'JavaScript',
     stargazers_count: 0,
     forks_count: 0,
     size: 569,
     updated_at: '2026-07-19T02:11:24Z',
-    clone_url: 'https://github.com/earlchirchir/onBoardMonitoringSystem.git',
+    clone_url: 'https://github.com/earlchirchir/Onboard-Monitoring-System.git',
     topics: ['telemetry', 'javascript', 'monitoring', 'embedded-ui']
   },
   {
     id: 1300808846,
-    name: 'spatial-rpr-robot',
-    html_url: 'https://github.com/earlchirchir/spatial-rpr-robot',
+    name: 'Spatial-RPR-Robot',
+    html_url: 'https://github.com/earlchirchir/Spatial-RPR-Robot',
     description: 'Spatial RPR (Revolute-Prismatic-Revolute) manipulator workspace analysis and kinematic model.',
     language: 'MATLAB',
     stargazers_count: 0,
     forks_count: 0,
     size: 615,
     updated_at: '2026-07-14T18:27:26Z',
-    clone_url: 'https://github.com/earlchirchir/spatial-rpr-robot.git',
+    clone_url: 'https://github.com/earlchirchir/Spatial-RPR-Robot.git',
     topics: ['matlab', 'robotics', 'manipulator', 'spatial-kinematics']
   },
   {
     id: 1300568574,
-    name: 'ABB-CRB-15000-Robotic-Arm-Kinematics-Trajectory-Planning',
-    html_url: 'https://github.com/earlchirchir/ABB-CRB-15000-Robotic-Arm-Kinematics-Trajectory-Planning',
+    name: 'ABB-CRB-15000-Kinematics-Trajectory-Planning',
+    html_url: 'https://github.com/earlchirchir/ABB-CRB-15000-Kinematics-Trajectory-Planning',
     description: 'Comprehensive MATLAB toolbox for ABB CRB 15000 robotic arm inverse dynamics and cubic spline path planning.',
     language: 'MATLAB',
     stargazers_count: 0,
     forks_count: 0,
     size: 52,
     updated_at: '2026-07-14T14:56:22Z',
-    clone_url: 'https://github.com/earlchirchir/ABB-CRB-15000-Robotic-Arm-Kinematics-Trajectory-Planning.git',
+    clone_url: 'https://github.com/earlchirchir/ABB-CRB-15000-Kinematics-Trajectory-Planning.git',
     topics: ['robot-arm', 'matlab', 'trajectory-planning', 'kinematics']
   },
   {
@@ -97,16 +97,29 @@ const FALLBACK_REPOS = [
   },
   {
     id: 716050464,
-    name: 'IOT-Weighing-Solution-for-Bulk-Bins',
-    html_url: 'https://github.com/earlchirchir/IOT-Weighing-Solution-for-Bulk-Bins',
+    name: 'IoT-Weighing-Solution-for-Bulk-Bins',
+    html_url: 'https://github.com/earlchirchir/IoT-Weighing-Solution-for-Bulk-Bins',
     description: 'IoT weight sensing telemetry platform using load cells, HX711 amplifier, and cloud MQTT integration.',
     language: 'C++',
     stargazers_count: 0,
     forks_count: 0,
     size: 1120,
     updated_at: '2026-07-10T11:20:00Z',
-    clone_url: 'https://github.com/earlchirchir/IOT-Weighing-Solution-for-Bulk-Bins.git',
+    clone_url: 'https://github.com/earlchirchir/IoT-Weighing-Solution-for-Bulk-Bins.git',
     topics: ['iot', 'sensors', 'mqtt', 'esp32', 'cplusplus']
+  },
+  {
+    id: 716050465,
+    name: 'Load-Sensor-Modules-PCB',
+    html_url: 'https://github.com/earlchirchir/Load-Sensor-Modules-PCB',
+    description: 'Custom PCB layout accommodating 6 load sensor modules for modular plug-and-play hardware sensing.',
+    language: 'Hardware',
+    stargazers_count: 0,
+    forks_count: 0,
+    size: 229,
+    updated_at: '2026-07-09T18:23:56Z',
+    clone_url: 'https://github.com/earlchirchir/Load-Sensor-Modules-PCB.git',
+    topics: ['pcb-design', 'hardware', 'electronics', 'load-cell', 'sensors']
   }
 ];
 
@@ -168,7 +181,7 @@ function updateStats() {
   statRepos.textContent = repositories.length;
   
   const langs = new Set(repositories.map(r => r.language).filter(Boolean));
-  statLanguages.textContent = `${langs.size} Languages`;
+  statLanguages.textContent = `${langs.size} Tech Stack`;
   
   const totalStars = repositories.reduce((acc, r) => acc + (r.stargazers_count || 0), 0);
   statStars.textContent = totalStars;
