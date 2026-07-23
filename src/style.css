@@ -179,9 +179,60 @@ body {
   gap: 6px;
 }
 
+.contact-info-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.contact-item {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.contact-item:hover {
+  color: var(--accent-cyan);
+}
+
+.status-badges-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.status-badge {
+  padding: 5px 13px;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.badge-uk {
+  background: rgba(244, 63, 94, 0.12);
+  color: #fb7185;
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+.badge-remote {
+  background: rgba(52, 211, 153, 0.12);
+  color: var(--accent-emerald);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+}
+
 .profile-actions {
   display: flex;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
 /* Buttons */
@@ -189,15 +240,27 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 20px;
+  padding: 10px 18px;
   border-radius: var(--radius-md);
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 600;
   cursor: pointer;
   transition: var(--transition-fast);
   text-decoration: none;
   border: none;
+}
+
+.btn-cv {
+  background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+  color: #0f172a;
+  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.35);
+}
+
+.btn-cv:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(251, 191, 36, 0.5);
+  color: #0f172a;
 }
 
 .btn-primary {
