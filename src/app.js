@@ -235,7 +235,10 @@ async function fetchUserRepos() {
     
     const liveData = await res.json();
     if (Array.isArray(liveData) && liveData.length > 0) {
-      repositories = liveData;
+      // Merge live GitHub API data with custom Google Sites project showcases
+      const liveNames = new Set(liveData.map(r => r.name.toLowerCase()));
+      const customShowcases = FALLBACK_REPOS.filter(r => !liveNames.has(r.name.toLowerCase()));
+      repositories = [...liveData, ...customShowcases];
       statStatus.textContent = 'Live (Sync)';
     }
   } catch (err) {
