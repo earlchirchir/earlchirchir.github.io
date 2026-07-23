@@ -124,7 +124,7 @@ const FALLBACK_REPOS = [
   {
     id: 990000001,
     name: 'Automated-Shopping-Cart',
-    html_url: 'https://sites.google.com/view/earl-chirchir/automatedshoppingcart',
+    html_url: 'https://github.com/earlchirchir/Automated-Shopping-Cart',
     description: 'Autonomous smart shopping cart system featuring RFID item scanning, load-cell weight verification, and telemetry billing integration.',
     language: 'C++',
     stargazers_count: 0,
@@ -137,7 +137,7 @@ const FALLBACK_REPOS = [
   {
     id: 990000002,
     name: 'Odi2-Deafblind-Assistive-Device',
-    html_url: 'https://sites.google.com/view/earl-chirchir/odi2-for-deablind-project-page',
+    html_url: 'https://github.com/earlchirchir/Odi2-Deafblind-Assistive-Device',
     description: 'Tactile-to-audio & haptic assistive communication hardware interface designed to enable seamless interaction for deafblind individuals.',
     language: 'C++',
     stargazers_count: 0,
@@ -150,7 +150,7 @@ const FALLBACK_REPOS = [
   {
     id: 990000003,
     name: 'Eggcellent-Automated-Chicken-Coop',
-    html_url: 'https://sites.google.com/view/earl-chirchir/eggcellent',
+    html_url: 'https://github.com/earlchirchir/Eggcellent-Automated-Chicken-Coop',
     description: 'Smart agricultural IoT coop environment controller with climate regulation, scheduled door actuators, and feeder monitoring.',
     language: 'C++',
     stargazers_count: 0,
