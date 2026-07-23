@@ -58,6 +58,9 @@
       </div>
       
       <div class="profile-actions">
+        <button id="contact-btn" class="btn btn-contact">
+          <i class="fa-solid fa-paper-plane"></i> Contact Me
+        </button>
         <a id="cv-link" href="./cv.html" target="_blank" rel="noopener noreferrer" class="btn btn-cv">
           <i class="fa-solid fa-file-pdf"></i> CV / Resume
         </a>
@@ -102,6 +105,104 @@
         <div class="edu-info">
           <h3>UK Graduate Visa (Until June 2027)</h3>
           <p>Full-Time UK Work Eligibility — Open to Remote & Relocation</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MSc Dissertation Feature Spotlight -->
+    <section class="spotlight-section">
+      <div class="spotlight-card">
+        <div class="spotlight-header">
+          <span class="spotlight-badge"><i class="fa-solid fa-atom"></i> MSc Dissertation Research Spotlight</span>
+          <span class="spotlight-date">Kingston University London (2024 - 2025)</span>
+        </div>
+        <h2 class="spotlight-title">Trajectory Planning for an ABB CRB 15000 Robot Using Bang-Coast-Bang Time Law</h2>
+        <p class="spotlight-desc">Formulated mathematical kinematic solvers, inverse dynamics, and time-optimal velocity profiles for the ABB GoFa collaborative arm. Reduced robot joint jerk and cycle execution time through MATLAB cubic spline interpolation and RoboDK 3D simulation validation.</p>
+        
+        <div class="spotlight-grid">
+          <div class="spotlight-metric">
+            <span class="metric-val">81%</span>
+            <span class="metric-lbl">Dissertation Score</span>
+          </div>
+          <div class="spotlight-metric">
+            <span class="metric-val">~25%</span>
+            <span class="metric-lbl">Cycle Efficiency Gain</span>
+          </div>
+          <div class="spotlight-metric">
+            <span class="metric-val">RoboDK</span>
+            <span class="metric-lbl">3D Trajectory Verification</span>
+          </div>
+        </div>
+
+        <div class="spotlight-actions">
+          <a href="https://github.com/earlchirchir/ABB-CRB-15000-Kinematics" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <i class="fa-solid fa-code"></i> View Trajectory Solver Repository
+          </a>
+          <a href="https://github.com/earlchirchir/ABB-CRB-15000-Kinematics-Trajectory-Planning" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <i class="fa-solid fa-chart-line"></i> Path Planning Toolbox
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Engineering Skills & Competencies Matrix -->
+    <section class="skills-matrix-section">
+      <h2 class="section-title"><i class="fa-solid fa-layer-group"></i> Core Engineering Competencies</h2>
+      <div class="skills-grid">
+        <div class="skill-category-card">
+          <div class="skill-cat-header">
+            <i class="fa-solid fa-robot cat-icon"></i>
+            <h3>Robotics & Kinematics</h3>
+          </div>
+          <ul class="skill-items">
+            <li><i class="fa-solid fa-check"></i> Trajectory Planning & Optimization</li>
+            <li><i class="fa-solid fa-check"></i> Bang-Coast-Bang Time Law</li>
+            <li><i class="fa-solid fa-check"></i> Forward & Inverse Kinematics</li>
+            <li><i class="fa-solid fa-check"></i> MATLAB & RoboDK 3D Simulation</li>
+            <li><i class="fa-solid fa-check"></i> Collaborative Robotics (ABB GoFa)</li>
+          </ul>
+        </div>
+
+        <div class="skill-category-card">
+          <div class="skill-cat-header">
+            <i class="fa-solid fa-microchip cat-icon"></i>
+            <h3>Embedded Systems & Firmware</h3>
+          </div>
+          <ul class="skill-items">
+            <li><i class="fa-solid fa-check"></i> ESP32 & Arduino C++ Frameworks</li>
+            <li><i class="fa-solid fa-check"></i> FreeRTOS Task Scheduling</li>
+            <li><i class="fa-solid fa-check"></i> LVGL v9 Touch GUI Interfaces</li>
+            <li><i class="fa-solid fa-check"></i> Nextion Industrial HMIs</li>
+            <li><i class="fa-solid fa-check"></i> Sensor Telemetry & Actuator Drivers</li>
+          </ul>
+        </div>
+
+        <div class="skill-category-card">
+          <div class="skill-cat-header">
+            <i class="fa-solid fa-drafting-compass cat-icon"></i>
+            <h3>CAD & PCB Hardware Design</h3>
+          </div>
+          <ul class="skill-items">
+            <li><i class="fa-solid fa-check"></i> Siemens NX & SolidWorks 3D CAD</li>
+            <li><i class="fa-solid fa-check"></i> Autodesk Inventor Modeling</li>
+            <li><i class="fa-solid fa-check"></i> KiCAD & AutoDesk Eagle PCBs</li>
+            <li><i class="fa-solid fa-check"></i> Fritzing Circuit Prototyping</li>
+            <li><i class="fa-solid fa-check"></i> Precision Soldering & Assembly</li>
+          </ul>
+        </div>
+
+        <div class="skill-category-card">
+          <div class="skill-cat-header">
+            <i class="fa-solid fa-network-wired cat-icon"></i>
+            <h3>IoT & Data Engineering</h3>
+          </div>
+          <ul class="skill-items">
+            <li><i class="fa-solid fa-check"></i> Wi-Fi / MQTT / HTTP Telemetry</li>
+            <li><i class="fa-solid fa-check"></i> SQL Databases & Web APIs</li>
+            <li><i class="fa-solid fa-check"></i> Power BI Real-Time Dashboards</li>
+            <li><i class="fa-solid fa-check"></i> JSON Data Interchange Protocols</li>
+            <li><i class="fa-solid fa-check"></i> Python & Data Science Pipelines</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -212,10 +313,45 @@
         <span id="copy-toast" class="toast-msg" style="display: none;">Copied to clipboard!</span>
       </div>
 
-      <div class="modal-actions">
-        <a id="modal-github-link" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-          <i class="fa-brands fa-github"></i> Open on GitHub
+  <!-- Contact Modal -->
+  <div id="contact-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-card">
+      <button id="contact-modal-close" class="modal-close-btn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-header">
+        <span class="lang-badge" style="background: rgba(56, 189, 248, 0.15); color: var(--accent-cyan);"><i class="fa-solid fa-envelope"></i> Get In Touch</span>
+        <h3 style="margin-top: 6px;">Contact Earl Chirchir</h3>
+      </div>
+      <p class="modal-description">Looking for a Graduate Mechatronic Engineer, Robotics Firmware Engineer, or Embedded Systems Developer? Feel free to reach out via any channel below:</p>
+
+      <div class="contact-modal-options">
+        <a href="mailto:earlchirchir@outlook.com" class="contact-option-btn option-email">
+          <div class="option-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div class="option-info">
+            <span class="option-label">Direct Email</span>
+            <span class="option-val">earlchirchir@outlook.com</span>
+          </div>
         </a>
+        
+        <a href="tel:+447425243365" class="contact-option-btn option-phone">
+          <div class="option-icon"><i class="fa-solid fa-phone"></i></div>
+          <div class="option-info">
+            <span class="option-label">Direct Call / WhatsApp</span>
+            <span class="option-val">+44 7425 243365</span>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/in/earl-chirchir/" target="_blank" rel="noopener noreferrer" class="contact-option-btn option-linkedin">
+          <div class="option-icon"><i class="fa-brands fa-linkedin"></i></div>
+          <div class="option-info">
+            <span class="option-label">LinkedIn Message</span>
+            <span class="option-val">linkedin.com/in/earl-chirchir</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="modal-meta" style="margin-top: 20px;">
+        <div class="meta-item"><i class="fa-solid fa-location-dot"></i> Swansea, Wales, UK</div>
+        <div class="meta-item"><i class="fa-solid fa-passport"></i> UK Graduate Visa (Until June 2027)</div>
       </div>
     </div>
   </div>
