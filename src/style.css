@@ -223,6 +223,18 @@ body {
   color: #ffffff;
 }
 
+.btn-hackster {
+  background: linear-gradient(135deg, #1ab394 0%, #11806a 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(26, 179, 148, 0.35);
+}
+
+.btn-hackster:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(26, 179, 148, 0.5);
+  color: #ffffff;
+}
+
 .btn-secondary {
   background: rgba(255, 255, 255, 0.06);
   color: var(--text-main);
