@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Earl Chirchir - CV & Resume | Graduate Mechatronic Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    :root {
+      --primary: #0f172a;
+      --accent: #0284c7;
+      --text: #334155;
+      --text-dark: #0f172a;
+      --bg-light: #f8fafc;
+      --border: #e2e8f0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background-color: var(--bg-light);
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+    .cv-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 48px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      border: 1px solid var(--border);
+    }
+    .cv-header {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 24px;
+      margin-bottom: 28px;
+    }
+    .name-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.4rem;
+      color: var(--primary);
+      font-weight: 800;
+    }
+    .subtitle {
+      font-size: 1.25rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 14px;
+      font-size: 0.92rem;
+    }
+    .contact-grid a, .contact-grid span {
+      color: var(--text);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .contact-grid a:hover { color: var(--accent); }
+    .badge {
+      display: inline-block;
+      background: #e0f2fe;
+      color: #0369a1;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      margin-top: 10px;
+    }
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1.5px solid var(--border);
+      padding-bottom: 6px;
+      margin: 28px 0 16px;
+    }
+    p { margin-bottom: 12px; font-size: 0.96rem; }
+    ul { list-style: disc; padding-left: 20px; margin-bottom: 16px; }
+    li { margin-bottom: 6px; font-size: 0.94rem; }
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-weight: 700;
+      color: var(--text-dark);
+      font-size: 1.05rem;
+    }
+    .item-sub {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+    .date-loc {
+      color: #64748b;
+      font-weight: 500;
+      font-size: 0.88rem;
+    }
+    .print-bar {
+      max-width: 900px;
+      margin: 0 auto 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .btn-print {
+      background: var(--primary);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-print:hover { background: var(--accent); }
+    @media print {
+      body { background: white; padding: 0; }
+      .cv-container { box-shadow: none; border: none; padding: 0; }
+      .print-bar { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="print-bar">
+    <a href="index.html" class="btn-print"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+    <button onclick="window.print()" class="btn-print"><i class="fa-solid fa-print"></i> Print / Save as PDF</button>
+  </div>
+
+  <div class="cv-container">
+    <header class="cv-header">
+      <div class="name-title">
+        <h1>Earl Chirchir</h1>
+        <span class="subtitle">Graduate Mechatronic Engineer</span>
+      </div>
+      <div class="contact-grid">
+        <a href="mailto:earlchirchir@outlook.com"><i class="fa-solid fa-envelope"></i> earlchirchir@outlook.com</a>
+        <a href="tel:+447425243365"><i class="fa-solid fa-phone"></i> +44 7425 243365</a>
+        <span><i class="fa-solid fa-location-dot"></i> Swansea, SA18BB, UK (Open to relocate)</span>
+        <a href="https://linkedin.com/in/earl-chirchir" target="_blank"><i class="fa-brands fa-linkedin"></i> linkedin.com/in/earl-chirchir</a>
+        <a href="https://github.com/earlchirchir" target="_blank"><i class="fa-brands fa-github"></i> github.com/earlchirchir</a>
+      </div>
+      <span class="badge"><i class="fa-solid fa-passport"></i> UK Graduate Visa (Valid until June 2027, Full-Time Work Rights)</span>
+    </header>
+
+    <section>
+      <h2 class="section-title">Summary</h2>
+      <p>Mechatronic Engineer (MSc, Distinction) with 3+ years experience in the design, development and integration of automation and embedded systems within industrial and manufacturing environments. Strong technical capability in robotics and trajectory planning, control systems, embedded programming and CAD/CAM design, with proven experience delivering solutions from concept and simulation through to implementation. A collaborative engineer with a practical, problem-solving mindset, committed to developing reliable, scalable and safety-conscious automation solutions aligned with modern industrial and sustainability standards.</p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Education</h2>
+      <div style="margin-bottom: 16px;">
+        <div class="item-header">
+          <span>MSc Mechatronic Systems — Passed with Distinction</span>
+          <span class="date-loc">01/2024 – 02/2025 | Kingston University, UK</span>
+        </div>
+        <p><strong>Key Modules:</strong> Individual Project (81%), Entrepreneurship & Quality Management (85%), Control Systems with Embedded Implementation (79%), Mechatronic Design & Automation (63%).<br>
+        <strong>Dissertation:</strong> Trajectory Planning for an ABB CRB 15000 Robot Using Bang-Coast-Bang Time Law.</p>
+      </div>
+
+      <div>
+        <div class="item-header">
+          <span>BSc Mechatronic Engineering — Upper Second Class Honors (2:1)</span>
+          <span class="date-loc">09/2013 – 11/2018 | JKUAT, Kenya</span>
+        </div>
+        <p><strong>Key Modules:</strong> Automation and Robotics, Instrumentation and Control, Thermodynamics, Microprocessors, Mechatronic Systems Design.<br>
+        <strong>Leadership:</strong> Co-led Engineering Students in the Innovation Club.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Technical Skills</h2>
+      <ul>
+        <li><strong>Robotics & Trajectory Planning:</strong> MATLAB, RoboDK, Bang-Coast-Bang time laws, Kinematics solver design.</li>
+        <li><strong>Computer Aided Design (CAD/CAM):</strong> NX Siemens, Autodesk Inventor, SolidWorks.</li>
+        <li><strong>Programming Languages:</strong> C++ (Arduino/ESP32), MATLAB, Python.</li>
+        <li><strong>Circuit Design & PCB Fabrication:</strong> KiCAD, AutoDesk Eagle, Fritzing, Proteus.</li>
+        <li><strong>Embedded Programming & Hardware:</strong> Arduino & ESP32 frameworks, FreeRTOS, LVGL v9, electronic sensors, actuators, Nextion HMIs.</li>
+        <li><strong>Languages & Communication:</strong> English (IELTS 8.0/9.0, Pearson Test of English 77 pts).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="section-title">Key Engineering Achievements</h2>
+      <ul>
+        <li><strong>Optimised Robotic Trajectory Planning:</strong> Solved trajectory optimization for an ABB CRB 15000 collaborative robot using a Bang-Coast-Bang time law in MATLAB & RoboDK.</li>
+        <li><strong>Industrial IoT Telemetry Deployment:</strong> Designed & deployed an industrial IoT telemetry logging system for tea-picking machinery, increasing remote data accuracy by ~40% via SQL & Power BI.</li>
+        <li><strong>Industrial HMI Development:</strong> Engineered Nextion HMI interfaces for industrial weighing and production systems, increasing machine operational uptime.</li>
+        <li><strong>End-to-End Data Integration Architecture:</strong> Linked microcontrollers to remote servers using JSON-based data interchange for real-time analytics.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="section-title">Work Experience</h2>
+      
+      <div style="margin-bottom: 16px;">
+        <div class="item-header">Development Engineer</div>
+        <div class="item-sub">OJE Engineering <span class="date-loc">| 11/2022 – 12/2024 | Kenya</span></div>
+        <ul>
+          <li>Led maintenance of an IoT-based device for remote data logging for tea-picking machinery across 2 industries.</li>
+          <li>Designed and implemented Nextion HMI displays for industrial weighing bins, increasing machine uptime.</li>
+          <li>Supervised remote web server and SQL database configurations using Postman for secure IoT data handling.</li>
+          <li>Programmed & debugged Arduino Nano embedded systems for industrial automation.</li>
+        </ul>
+      </div>
+
+      <div style="margin-bottom: 16px;">
+        <div class="item-header">Enforcement & Consumer Protection Engineer</div>
+        <div class="item-sub">Energy and Petroleum Regulatory Authority (EPRA) <span class="date-loc">| 01/2019 – 12/2019 | Kenya</span></div>
+        <ul>
+          <li>Supported regulatory operations in the petroleum sector, licensing, construction permits, and fuel price monitoring.</li>
+          <li>Contributed to electric power sub-sector regulation, reviewing and approving electricity consumption meters.</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="item-header">Systems Engineer Intern</div>
+        <div class="item-sub">Fab Lab Nairobi Maker Space <span class="date-loc">| 07/2017 – 09/2017 | Kenya</span></div>
+        <ul>
+          <li>Developed a microcontroller-based calculator using Arduino and C++. Designed PCBs in KiCAD & Eagle.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Awards & Certifications</h2>
+      <ul>
+        <li>🥇 <strong>1st Place, Aspiring Innovator Intervarsity Competition:</strong> Riara University (01/2018) – Innovative Business Category: <em>Design & Fabrication of an Automated Chicken Coop</em>.</li>
+        <li><strong>Certifications:</strong> Data Science (Moringa School), HTML5 & CSS3 (Pirple Inc.), Python Certificate (Programming Hub), Autodesk Inventor Essential Training (LinkedIn Learning).</li>
+      </ul>
+    </section>
+  </div>
+
+</body>
+</html>
