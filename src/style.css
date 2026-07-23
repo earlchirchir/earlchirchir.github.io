@@ -211,6 +211,18 @@ body {
   box-shadow: 0 6px 20px rgba(56, 189, 248, 0.45);
 }
 
+.btn-linkedin {
+  background: linear-gradient(135deg, #0a66c2 0%, #004182 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(10, 102, 194, 0.35);
+}
+
+.btn-linkedin:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(10, 102, 194, 0.5);
+  color: #ffffff;
+}
+
 .btn-secondary {
   background: rgba(255, 255, 255, 0.06);
   color: var(--text-main);
