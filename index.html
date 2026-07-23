@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Earl Chirchir | Robotics & Embedded Systems Engineer</title>
+  <meta name="description" content="Portfolio of Earl Chirchir - Robotics, Kinematics, ESP32 Embedded Systems, and IoT Engineer. Browse projects, repositories, and technical work." />
+  <meta name="theme-color" content="#0d1117" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="./src/style.css" />
+</head>
+<body>
+  <div class="background-glow"></div>
+  
+  <header class="header">
+    <div class="container header-content">
+      <div class="profile-main">
+        <div class="avatar-container">
+          <img id="user-avatar" src="https://avatars.githubusercontent.com/u/106341525?v=4" alt="Earl Chirchir" class="avatar-img" />
+          <span class="status-indicator" title="Active on GitHub"></span>
+        </div>
+        <div class="profile-info">
+          <div class="name-badge-row">
+            <h1 id="user-name">Earl Chirchir</h1>
+            <span id="user-login" class="handle">@earlchirchir</span>
+          </div>
+          <p id="user-bio" class="bio">Robotics & Kinematics Engineer | ESP32 & Embedded Systems Developer | IoT Solutions</p>
+          <div class="tag-list">
+            <span class="tag"><i class="fa-solid fa-microchip"></i> ESP32 Firmware</span>
+            <span class="tag"><i class="fa-solid fa-robot"></i> Robot Kinematics</span>
+            <span class="tag"><i class="fa-solid fa-wifi"></i> IoT Systems</span>
+            <span class="tag"><i class="fa-solid fa-code"></i> C++ & MATLAB</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="profile-actions">
+        <a id="github-link" href="https://github.com/earlchirchir" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <i class="fa-brands fa-github"></i> View GitHub Profile
+        </a>
+        <button id="refresh-btn" class="btn btn-secondary" title="Sync live GitHub data">
+          <i class="fa-solid fa-arrows-rotate"></i> Sync Data
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <!-- Stats Overview Grid -->
+    <section class="stats-grid" id="stats-section">
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fa-solid fa-folder-closed"></i></div>
+        <div class="stat-info">
+          <span class="stat-value" id="stat-repos">--</span>
+          <span class="stat-label">Public Repositories</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fa-solid fa-code-branch"></i></div>
+        <div class="stat-info">
+          <span class="stat-value" id="stat-languages">--</span>
+          <span class="stat-label">Primary Tech Stack</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fa-solid fa-star"></i></div>
+        <div class="stat-info">
+          <span class="stat-value" id="stat-stars">--</span>
+          <span class="stat-label">Starred Repos</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fa-solid fa-bolt"></i></div>
+        <div class="stat-info">
+          <span class="stat-value" id="stat-status">Live</span>
+          <span class="stat-label">API Status</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Controls Bar -->
+    <section class="controls-section">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="search-input" placeholder="Search repositories by name, topic, or language..." aria-label="Search repositories" />
+        <button id="clear-search" class="clear-btn" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-label"><i class="fa-solid fa-filter"></i> Filter:</span>
+        <div class="filter-chips" id="filter-chips">
+          <button class="chip active" data-filter="all">All</button>
+          <button class="chip" data-filter="C++">C++</button>
+          <button class="chip" data-filter="MATLAB">MATLAB</button>
+          <button class="chip" data-filter="JavaScript">JavaScript</button>
+          <button class="chip" data-filter="Jupyter Notebook">Data Analysis</button>
+        </div>
+      </div>
+
+      <div class="sort-dropdown">
+        <label for="sort-select"><i class="fa-solid fa-sort"></i> Sort:</label>
+        <select id="sort-select" aria-label="Sort repositories">
+          <option value="updated">Recently Updated</option>
+          <option value="name">Alphabetical (A-Z)</option>
+          <option value="stars">Most Stars</option>
+          <option value="size">Repository Size</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Repositories Grid -->
+    <section class="repos-section">
+      <div class="section-header">
+        <h2 class="section-title">Featured Repositories & Engineering Projects</h2>
+        <span id="repo-count-badge" class="count-badge">0 Repositories</span>
+      </div>
+
+      <div id="repos-container" class="repos-grid">
+        <!-- Rendered dynamically -->
+        <div class="loading-state">
+          <div class="spinner"></div>
+          <p>Loading GitHub repositories...</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Repo Detail Modal -->
+  <div id="repo-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-card">
+      <button id="modal-close" class="modal-close-btn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-header">
+        <span id="modal-language-badge" class="lang-badge">Language</span>
+        <h3 id="modal-title">Repository Title</h3>
+      </div>
+      <p id="modal-description" class="modal-description">Repository description will appear here...</p>
+
+      <div class="modal-meta">
+        <div class="meta-item"><i class="fa-solid fa-star"></i> <span id="modal-stars">0</span> stars</div>
+        <div class="meta-item"><i class="fa-solid fa-code-fork"></i> <span id="modal-forks">0</span> forks</div>
+        <div class="meta-item"><i class="fa-solid fa-database"></i> <span id="modal-size">0 KB</span></div>
+        <div class="meta-item"><i class="fa-solid fa-clock"></i> Updated <span id="modal-updated">--</span></div>
+      </div>
+
+      <div class="clone-box">
+        <label for="clone-url-input">Git Clone URL:</label>
+        <div class="clone-input-group">
+          <input type="text" id="clone-url-input" readonly />
+          <button id="copy-clone-btn" class="btn btn-secondary btn-sm">
+            <i class="fa-regular fa-copy"></i> Copy
+          </button>
+        </div>
+        <span id="copy-toast" class="toast-msg" style="display: none;">Copied to clipboard!</span>
+      </div>
+
+      <div class="modal-actions">
+        <a id="modal-github-link" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <i class="fa-brands fa-github"></i> Open on GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>© <span id="year">2026</span> Earl Chirchir. Built with Vite, Vanilla CSS & GitHub REST API.</p>
+      <div class="footer-links">
+        <a href="https://github.com/earlchirchir" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>
