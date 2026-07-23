@@ -327,8 +327,10 @@ function renderRepos() {
   // Attach event listeners to Details buttons
   document.querySelectorAll('.details-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
-      const repoId = parseInt(e.currentTarget.getAttribute('data-id'));
-      const repo = repositories.find(r => r.id === repoId);
+      e.preventDefault();
+      e.stopPropagation();
+      const repoId = e.currentTarget.getAttribute('data-id');
+      const repo = repositories.find(r => String(r.id) === String(repoId));
       if (repo) openModal(repo);
     });
   });
