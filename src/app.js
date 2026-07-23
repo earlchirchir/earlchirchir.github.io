@@ -120,6 +120,45 @@ const FALLBACK_REPOS = [
     updated_at: '2026-07-09T18:23:56Z',
     clone_url: 'https://github.com/earlchirchir/Load-Sensor-Modules-PCB.git',
     topics: ['pcb-design', 'hardware', 'electronics', 'load-cell', 'sensors']
+  },
+  {
+    id: 990000001,
+    name: 'Automated-Shopping-Cart',
+    html_url: 'https://sites.google.com/view/earl-chirchir/automatedshoppingcart',
+    description: 'Autonomous smart shopping cart system featuring RFID item scanning, load-cell weight verification, and telemetry billing integration.',
+    language: 'C++',
+    stargazers_count: 0,
+    forks_count: 0,
+    size: 850,
+    updated_at: '2024-05-15T12:00:00Z',
+    clone_url: 'https://github.com/earlchirchir/Automated-Shopping-Cart.git',
+    topics: ['rfid', 'load-cell', 'embedded-systems', 'cplusplus', 'automation']
+  },
+  {
+    id: 990000002,
+    name: 'Odi2-Deafblind-Assistive-Device',
+    html_url: 'https://sites.google.com/view/earl-chirchir/odi2-for-deablind-project-page',
+    description: 'Tactile-to-audio & haptic assistive communication hardware interface designed to enable seamless interaction for deafblind individuals.',
+    language: 'C++',
+    stargazers_count: 0,
+    forks_count: 0,
+    size: 620,
+    updated_at: '2024-03-20T12:00:00Z',
+    clone_url: 'https://github.com/earlchirchir/Odi2-Deafblind-Assistive-Device.git',
+    topics: ['assistive-tech', 'haptics', 'embedded', 'accessibility', 'sensors']
+  },
+  {
+    id: 990000003,
+    name: 'Eggcellent-Automated-Chicken-Coop',
+    html_url: 'https://sites.google.com/view/earl-chirchir/eggcellent',
+    description: 'Smart agricultural IoT coop environment controller with climate regulation, scheduled door actuators, and feeder monitoring.',
+    language: 'C++',
+    stargazers_count: 0,
+    forks_count: 0,
+    size: 490,
+    updated_at: '2023-11-10T12:00:00Z',
+    clone_url: 'https://github.com/earlchirchir/Eggcellent-Automated-Chicken-Coop.git',
+    topics: ['smart-agriculture', 'iot', 'sensors', 'actuators', 'cplusplus']
   }
 ];
 
