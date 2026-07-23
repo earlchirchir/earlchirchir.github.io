@@ -413,6 +413,28 @@ function setupEventListeners() {
     fetchUserRepos();
   });
 
+  // Contact Modal Events
+  const contactBtn = document.getElementById('contact-btn');
+  const contactModal = document.getElementById('contact-modal');
+  const contactModalClose = document.getElementById('contact-modal-close');
+
+  if (contactBtn && contactModal) {
+    contactBtn.addEventListener('click', () => {
+      contactModal.style.display = 'flex';
+      setTimeout(() => contactModal.classList.add('active'), 10);
+    });
+
+    const closeContactModal = () => {
+      contactModal.classList.remove('active');
+      setTimeout(() => contactModal.style.display = 'none', 300);
+    };
+
+    if (contactModalClose) contactModalClose.addEventListener('click', closeContactModal);
+    contactModal.addEventListener('click', (e) => {
+      if (e.target === contactModal) closeContactModal();
+    });
+  }
+
   // Modal events
   modalClose.addEventListener('click', closeModal);
   repoModal.addEventListener('click', (e) => {
@@ -420,8 +442,12 @@ function setupEventListeners() {
   });
   
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && repoModal.classList.contains('active')) {
-      closeModal();
+    if (e.key === 'Escape') {
+      if (repoModal.classList.contains('active')) closeModal();
+      if (contactModal && contactModal.classList.contains('active')) {
+        contactModal.classList.remove('active');
+        setTimeout(() => contactModal.style.display = 'none', 300);
+      }
     }
   });
 
