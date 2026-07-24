@@ -320,8 +320,11 @@ function renderRepos() {
     return;
   }
 
-  reposContainer.innerHTML = filtered.map(repo => `
-    <article class="repo-card" data-id="${repo.id}">
+  reposContainer.innerHTML = filtered.map(repo => {
+    const isDissertation = repo.name.toLowerCase().includes('abb-crb-15000');
+    
+    return `
+    <article class="repo-card ${isDissertation ? 'dissertation-card' : ''}" data-id="${repo.id}">
       <div class="repo-card-header">
         <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="repo-title-link">
           ${repo.name}
@@ -329,7 +332,34 @@ function renderRepos() {
         <span class="lang-pill ${getLanguageClass(repo.language)}">${repo.language || 'Code'}</span>
       </div>
 
+      ${isDissertation ? `
+        <div class="dissertation-tags-row" style="margin: 8px 0; display: flex; flex-wrap: wrap; gap: 6px;">
+          <span class="tag-badge badge-dissertation" style="background: rgba(147, 51, 234, 0.15); color: #c084fc; border: 1px solid rgba(147, 51, 234, 0.3); padding: 3px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;"><i class="fa-solid fa-graduation-cap"></i> MSc Dissertation</span>
+          <span class="tag-badge badge-grade" style="background: rgba(52, 211, 153, 0.15); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.3); padding: 3px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;"><i class="fa-solid fa-trophy"></i> Grade A (81%)</span>
+          <span class="tag-badge badge-school" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); padding: 3px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;"><i class="fa-solid fa-building-columns"></i> Kingston University London</span>
+        </div>
+      ` : ''}
+
       <p class="repo-desc">${repo.description || 'No description provided.'}</p>
+
+      ${isDissertation ? `
+        <details class="dissertation-expandable-details" style="margin-top: 10px; padding: 10px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px;">
+          <summary style="cursor: pointer; font-weight: 600; color: #c084fc; font-size: 0.85rem;">
+            <i class="fa-solid fa-circle-info"></i> View Dissertation Details & Tech Stack
+          </summary>
+          <div style="margin-top: 8px; font-size: 0.82rem; color: var(--text-dim); line-height: 1.5;">
+            <p style="margin-bottom: 4px;"><strong>Grade:</strong> <span style="color: #34d399; font-weight: 600;">81% (Grade A / Passed with Distinction)</span></p>
+            <p style="margin-bottom: 4px;"><strong>Institution:</strong> Kingston University London (2024 – 2025)</p>
+            <p style="margin-bottom: 4px;"><strong>Tech Stack & Theory:</strong> MATLAB, RoboDK 3D, Bang-Coast-Bang Time Law, Cubic Splines, Inverse Kinematics</p>
+            <p style="margin-bottom: 6px;"><strong>Performance Gains:</strong> ~25% Cycle Time Reduction & Joint Jerk Minimization on ABB GoFa cobot</p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px;">
+              <a href="Kingston_University_MSc_HEAR_Transcript.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.75rem; padding: 4px 8px;">
+                <i class="fa-solid fa-file-pdf"></i> View Official HEAR Transcript (PDF)
+              </a>
+            </div>
+          </div>
+        </details>
+      ` : ''}
 
       <div class="repo-footer">
         <div class="repo-stats">
@@ -341,13 +371,14 @@ function renderRepos() {
         </button>
       </div>
     </article>
-  `).join('');
+    `;
+  }).join('');
 
   // Attach event listeners to entire repo card tabs
   document.querySelectorAll('.repo-card').forEach(card => {
     card.addEventListener('click', (e) => {
-      // If clicking directly on external title link, allow default link navigation
-      if (e.target.closest('.repo-title-link')) {
+      // If clicking directly on external title link, expandable details summary, or PDF link, allow default behavior
+      if (e.target.closest('.repo-title-link') || e.target.closest('.dissertation-expandable-details') || e.target.closest('a')) {
         return;
       }
       const repoId = card.getAttribute('data-id');
@@ -373,7 +404,30 @@ window.resetFilters = function() {
 // Open Modal Dialog
 function openModal(repo) {
   modalTitle.textContent = repo.name;
-  modalDescription.textContent = repo.description || 'No detailed description available.';
+  
+  const isDissertation = repo.name.toLowerCase().includes('abb-crb-15000');
+  if (isDissertation) {
+    modalDescription.innerHTML = `
+      <p style="margin-bottom: 12px;">Formulated mathematical kinematic solvers, inverse dynamics, and time-optimal velocity profiles for the ABB GoFa collaborative arm. Reduced robot joint jerk and cycle execution time through MATLAB cubic spline interpolation and RoboDK 3D simulation validation.</p>
+      
+      <div style="background: rgba(147, 51, 234, 0.1); border: 1px solid rgba(147, 51, 234, 0.3); border-radius: 8px; padding: 12px; margin-bottom: 16px;">
+        <h4 style="color: #c084fc; margin-bottom: 8px; font-size: 0.95rem;"><i class="fa-solid fa-graduation-cap"></i> MSc Dissertation Overview</h4>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-dim);">
+          <li><strong>Score / Grade:</strong> <span style="color: #34d399; font-weight: 600;">81% (Grade A / Passed with Distinction)</span></li>
+          <li><strong>Institution:</strong> Kingston University London (2024 – 2025)</li>
+          <li><strong>Tech Stack & Theory:</strong> MATLAB, RoboDK 3D, Bang-Coast-Bang Time Law, Cubic Splines, Inverse Kinematics</li>
+          <li><strong>Key Performance Metrics:</strong> ~25% Cycle Time Reduction & Joint Jerk Minimization on ABB GoFa cobot</li>
+        </ul>
+        <div style="margin-top: 10px;">
+          <a href="Kingston_University_MSc_HEAR_Transcript.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.8rem;">
+            <i class="fa-solid fa-file-pdf"></i> View Official Kingston HEAR Transcript (PDF)
+          </a>
+        </div>
+      </div>
+    `;
+  } else {
+    modalDescription.textContent = repo.description || 'No detailed description available.';
+  }
   modalLanguageBadge.textContent = repo.language || 'Code';
   modalLanguageBadge.className = `lang-pill ${getLanguageClass(repo.language)}`;
   
