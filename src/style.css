@@ -614,6 +614,7 @@ body {
   transition: var(--transition-smooth);
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .repo-card::before {

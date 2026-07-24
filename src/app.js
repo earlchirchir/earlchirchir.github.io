@@ -318,7 +318,7 @@ function renderRepos() {
   }
 
   reposContainer.innerHTML = filtered.map(repo => `
-    <article class="repo-card">
+    <article class="repo-card" data-id="${repo.id}">
       <div class="repo-card-header">
         <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="repo-title-link">
           ${repo.name}
@@ -340,12 +340,14 @@ function renderRepos() {
     </article>
   `).join('');
 
-  // Attach event listeners to Details buttons
-  document.querySelectorAll('.details-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      const repoId = e.currentTarget.getAttribute('data-id');
+  // Attach event listeners to entire repo card tabs
+  document.querySelectorAll('.repo-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      // If clicking directly on external title link, allow default link navigation
+      if (e.target.closest('.repo-title-link')) {
+        return;
+      }
+      const repoId = card.getAttribute('data-id');
       const repo = repositories.find(r => String(r.id) === String(repoId));
       if (repo) openModal(repo);
     });
