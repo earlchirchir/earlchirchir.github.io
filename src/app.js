@@ -162,11 +162,33 @@ const FALLBACK_REPOS = [
   }
 ];
 
+// Project Significance Ranking Order (Most Significant to Least)
+const PROJECT_SIGNIFICANCE_ORDER = [
+  'esp32-spectrum-radar',
+  'abb-crb-15000-kinematics',
+  'automated-shopping-cart',
+  'odi2-deafblind-assistive-device',
+  'eggcellent-automated-chicken-coop',
+  'onboard-monitoring-system',
+  'spatial-rpr-robot',
+  'abb-crb-15000-kinematics-trajectory-planning',
+  'iot-weighing-solution-for-bulk-bins',
+  'load-sensor-modules-pcb',
+  'home-renovation-impact-analysis',
+  'esp32-2432s022c-capabilities-showcase-firmware'
+];
+
+function getSignificanceRank(name) {
+  const lower = (name || '').toLowerCase();
+  const index = PROJECT_SIGNIFICANCE_ORDER.findIndex(p => lower.includes(p));
+  return index !== -1 ? index : 99;
+}
+
 // App State
 let repositories = [...FALLBACK_REPOS];
 let currentFilter = 'all';
 let currentSearch = '';
-let currentSort = 'updated';
+let currentSort = 'featured';
 
 // DOM Elements
 const reposContainer = document.getElementById('repos-container');
@@ -282,7 +304,9 @@ function renderRepos() {
     if (isPortfolioA && !isPortfolioB) return 1;
     if (!isPortfolioA && isPortfolioB) return -1;
 
-    if (currentSort === 'updated') {
+    if (currentSort === 'featured') {
+      return getSignificanceRank(a.name) - getSignificanceRank(b.name);
+    } else if (currentSort === 'updated') {
       return new Date(b.updated_at) - new Date(a.updated_at);
     } else if (currentSort === 'stars') {
       return (b.stargazers_count || 0) - (a.stargazers_count || 0);
