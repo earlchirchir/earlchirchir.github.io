@@ -19,15 +19,15 @@ const FALLBACK_REPOS = [
   },
   {
     id: 1309916364,
-    name: 'ABB-CRB-15000-Kinematics',
-    html_url: 'https://github.com/earlchirchir/ABB-CRB-15000-Kinematics',
+    name: 'ABB-CRB-15000-Robotic-Arm-Kinematics-Trajectory-Planning',
+    html_url: 'https://github.com/earlchirchir/ABB-CRB-15000-Robotic-Arm-Kinematics-Trajectory-Planning',
     description: 'Forward & Inverse Kinematics solver and 3D trajectory simulation for the ABB GoFa CRB 15000 collaborative robot.',
     language: 'MATLAB',
     stargazers_count: 0,
     forks_count: 0,
     size: 26027,
     updated_at: '2026-07-23T13:22:55Z',
-    clone_url: 'https://github.com/earlchirchir/ABB-CRB-15000-Kinematics.git',
+    clone_url: 'https://github.com/earlchirchir/ABB-CRB-15000-Robotic-Arm-Kinematics-Trajectory-Planning.git',
     topics: ['robotics', 'kinematics', 'matlab', 'cobot', 'trajectory-planning']
   },
   {
