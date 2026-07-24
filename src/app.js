@@ -5,21 +5,6 @@ const GITHUB_USERNAME = 'earlchirchir';
 // Hydrated Fallback Repositories Data (Updated with Title-Case Names)
 const FALLBACK_REPOS = [
   {
-    id: 999000001,
-    name: 'Curriculum-Vitae-Resume',
-    html_url: 'https://flowcv.com/resume/s7t5fakcqscs',
-    description: 'Interactive mechatronics & robotics engineer CV detailing 5+ years of embedded firmware, robotics kinematics, and industrial automation experience.',
-    language: 'FlowCV Live Resume',
-    stargazers_count: 1,
-    forks_count: 0,
-    size: 146,
-    updated_at: '2026-07-24T12:00:00Z',
-    clone_url: 'https://flowcv.com/resume/s7t5fakcqscs',
-    topics: ['cv', 'resume', 'flowcv', 'mechatronics', 'robotics'],
-    is_pinned: true,
-    is_cv: true
-  },
-  {
     id: 1310065999,
     name: 'ESP32-Spectrum-Radar',
     html_url: 'https://github.com/earlchirchir/ESP32-Spectrum-Radar',
@@ -168,7 +153,6 @@ const FALLBACK_REPOS = [
 
 // Project Significance Ranking Order (Most Significant to Least)
 const PROJECT_SIGNIFICANCE_ORDER = [
-  'curriculum-vitae-resume',
   'esp32-spectrum-radar',
   'abb-crb-15000',
   'automated-shopping-cart',
@@ -434,21 +418,19 @@ function renderRepos() {
 
   reposContainer.innerHTML = filtered.map(repo => {
     const isDissertation = repo.name.toLowerCase().includes('abb-crb-15000');
-    const isCvCard = repo.is_cv || repo.name.toLowerCase().includes('curriculum-vitae');
-    const isPinned = repo.is_pinned || ['curriculum-vitae-resume', 'esp32-spectrum-radar', 'abb-crb-15000'].some(p => repo.name.toLowerCase().includes(p));
+    const isPinned = repo.is_pinned || ['esp32-spectrum-radar', 'abb-crb-15000'].some(p => repo.name.toLowerCase().includes(p));
 
     return `
-    <article class="repo-card ${isDissertation ? 'dissertation-card' : ''} ${isCvCard ? 'cv-card' : ''}" data-id="${repo.id}">
+    <article class="repo-card ${isDissertation ? 'dissertation-card' : ''}" data-id="${repo.id}">
       <div class="repo-card-header">
         <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="repo-title-link">
-          ${isCvCard ? '📄 Curriculum Vitae & Resume' : repo.name}
+          ${repo.name}
         </a>
         <span class="lang-pill ${getLanguageClass(repo.language)}">${repo.language || 'Code'}</span>
       </div>
 
       <div class="card-tags-row" style="margin: 8px 0; display: flex; flex-wrap: wrap; gap: 6px;">
         ${isPinned ? `<span class="tag-badge badge-pinned" style="background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.3); padding: 3px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;"><i class="fa-solid fa-thumbtack"></i> Pinned</span>` : ''}
-        ${isCvCard ? `<span class="tag-badge" style="background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); padding: 3px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;"><i class="fa-solid fa-file-pdf"></i> FlowCV Dynamic Link</span>` : ''}
         ${isDissertation ? `
           <span class="tag-badge badge-dissertation" style="background: rgba(147, 51, 234, 0.15); color: #c084fc; border: 1px solid rgba(147, 51, 234, 0.3); padding: 3px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;"><i class="fa-solid fa-graduation-cap"></i> MSc Dissertation</span>
           <span class="tag-badge badge-grade" style="background: rgba(52, 211, 153, 0.15); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.3); padding: 3px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;"><i class="fa-solid fa-trophy"></i> Grade A (81%)</span>
@@ -483,7 +465,7 @@ function renderRepos() {
           <span class="repo-stat-item" title="Forks"><i class="fa-solid fa-code-fork"></i> ${repo.forks_count || 0}</span>
         </div>
         <button class="details-btn" data-id="${repo.id}">
-          ${isCvCard ? 'Open FlowCV Resume <i class="fa-solid fa-arrow-up-right-from-square"></i>' : 'Details <i class="fa-solid fa-arrow-right"></i>'}
+          Details <i class="fa-solid fa-arrow-right"></i>
         </button>
       </div>
     </article>
@@ -500,15 +482,10 @@ function renderRepos() {
       if (e.target.closest('.repo-title-link') || e.target.closest('.dissertation-expandable-details') || e.target.closest('a')) {
         return;
       }
-      
-      // If CV card, open FlowCV URL in new tab
-      if (repo && (repo.is_cv || repo.name.toLowerCase().includes('curriculum-vitae'))) {
-        window.open('https://flowcv.com/resume/s7t5fakcqscs', '_blank', 'noopener,noreferrer');
-        return;
-      }
 
       if (repo) openModal(repo);
     });
+  });
   });
 }
 
