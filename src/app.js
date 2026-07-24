@@ -152,7 +152,7 @@ const FALLBACK_REPOS = [
 // Project Significance Ranking Order (Most Significant to Least)
 const PROJECT_SIGNIFICANCE_ORDER = [
   'esp32-spectrum-radar',
-  'abb-crb-15000-kinematics',
+  'abb-crb-15000',
   'automated-shopping-cart',
   'odi2-deafblind-assistive-device',
   'eggcellent-automated-chicken-coop',
