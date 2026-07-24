@@ -596,14 +596,14 @@ function openModal(repo) {
   const isDissertation = repo.name.toLowerCase().includes('abb-crb-15000');
   if (isDissertation) {
     modalDescription.innerHTML = `
-      <p style="margin-bottom: 12px;">Formulated mathematical kinematic solvers, inverse dynamics, and time-optimal velocity profiles for the ABB GoFa collaborative arm. Reduced robot joint jerk and cycle execution time through MATLAB cubic spline interpolation and RoboDK 3D simulation validation.</p>
+      <p style="margin-bottom: 12px;">Formulated mathematical kinematic solvers, inverse dynamics, and time-optimal velocity profiles for the ABB GoFa collaborative arm. Reduced robot joint jerk and cycle execution time through MATLAB trajectory formulation and RoboDK 3D simulation validation.</p>
       
       <div style="background: rgba(147, 51, 234, 0.1); border: 1px solid rgba(147, 51, 234, 0.3); border-radius: 8px; padding: 12px; margin-bottom: 16px;">
         <h4 style="color: #c084fc; margin-bottom: 8px; font-size: 0.95rem;"><i class="fa-solid fa-graduation-cap"></i> MSc Dissertation Overview</h4>
         <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-dim);">
           <li><strong>Score / Grade:</strong> <span style="color: #34d399; font-weight: 600;">81% (Grade A / Passed with Distinction)</span></li>
           <li><strong>Institution:</strong> Kingston University London (2024 – 2025)</li>
-          <li><strong>Tech Stack & Theory:</strong> MATLAB, RoboDK 3D, Bang-Coast-Bang Time Law, Cubic Splines, Inverse Kinematics</li>
+          <li><strong>Tech Stack & Theory:</strong> MATLAB, RoboDK 3D, Bang-Coast-Bang Time Law, Inverse Kinematics</li>
           <li><strong>Key Performance Metrics:</strong> ~25% Cycle Time Reduction & Joint Jerk Minimization on ABB GoFa cobot</li>
         </ul>
         <div style="margin-top: 10px;">
