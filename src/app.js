@@ -153,8 +153,8 @@ const FALLBACK_REPOS = [
 
 // Project Significance Ranking Order (Most Significant to Least)
 const PROJECT_SIGNIFICANCE_ORDER = [
-  'esp32-spectrum-radar',
   'abb-crb-15000',
+  'esp32-spectrum-radar',
   'automated-shopping-cart',
   'odi2-deafblind-assistive-device',
   'eggcellent-automated-chicken-coop',
@@ -246,15 +246,6 @@ If using the **ESP32-2432S022C (CYD)**, all connections between the ILI9341 disp
 GitHub Repository: [https://github.com/earlchirchir/ESP32-Spectrum-Radar](https://github.com/earlchirchir/ESP32-Spectrum-Radar)
 `
   }
-];
-
-const PROJECT_SIGNIFICANCE_ORDER = [
-  'abb-crb-15000',
-  'esp32-spectrum-radar',
-  'object-detection-for-deafblind',
-  'onboard-monitoring-system',
-  'pneumatic-can-crusher',
-  'automatic-solar-tracking'
 ];
 
 function getSignificanceRank(name) {
