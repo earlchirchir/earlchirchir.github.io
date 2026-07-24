@@ -448,25 +448,6 @@ function renderRepos() {
 
       <p class="repo-desc">${repo.description || 'No description provided.'}</p>
 
-      ${isDissertation ? `
-        <details class="dissertation-expandable-details" style="margin-top: 10px; padding: 10px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px;">
-          <summary style="cursor: pointer; font-weight: 600; color: #c084fc; font-size: 0.85rem;">
-            <i class="fa-solid fa-circle-info"></i> View Dissertation Details & Tech Stack
-          </summary>
-          <div style="margin-top: 8px; font-size: 0.82rem; color: var(--text-dim); line-height: 1.5;">
-            <p style="margin-bottom: 4px;"><strong>Grade:</strong> <span style="color: #34d399; font-weight: 600;">81% (Grade A / Passed with Distinction)</span></p>
-            <p style="margin-bottom: 4px;"><strong>Institution:</strong> Kingston University London (2024 – 2025)</p>
-            <p style="margin-bottom: 4px;"><strong>Tech Stack & Theory:</strong> MATLAB, RoboDK 3D, Bang-Coast-Bang Time Law, Cubic Splines, Inverse Kinematics</p>
-            <p style="margin-bottom: 6px;"><strong>Performance Gains:</strong> ~25% Cycle Time Reduction & Joint Jerk Minimization on ABB GoFa cobot</p>
-            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px;">
-              <a href="Kingston_University_MSc_HEAR_Transcript.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.75rem; padding: 4px 8px;">
-                <i class="fa-solid fa-file-pdf"></i> View Official HEAR Transcript (PDF)
-              </a>
-            </div>
-          </div>
-        </details>
-      ` : ''}
-
       <div class="repo-footer">
         <div class="repo-stats">
           <span class="repo-stat-item" title="Stars"><i class="fa-solid fa-star"></i> ${repo.stargazers_count || 0}</span>
