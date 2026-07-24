@@ -486,7 +486,6 @@ function renderRepos() {
       if (repo) openModal(repo);
     });
   });
-  });
 }
 
 // Render Hackster Blog Section
