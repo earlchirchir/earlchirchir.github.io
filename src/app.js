@@ -261,6 +261,9 @@ async function fetchUserRepos() {
 // Render Repositories Grid
 function renderRepos() {
   let filtered = repositories.filter(repo => {
+    // Hide website portfolio repo card from the project grid
+    if (repo.name.toLowerCase().includes('earlchirchir.github.io')) return false;
+
     // Filter by language chip
     if (currentFilter !== 'all') {
       if (currentFilter === 'C++' && repo.language !== 'C++') return false;
