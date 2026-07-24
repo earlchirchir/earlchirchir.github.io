@@ -8,7 +8,7 @@ const FALLBACK_REPOS = [
     id: 1310065999,
     name: 'ESP32-Spectrum-Radar',
     html_url: 'https://github.com/earlchirchir/ESP32-Spectrum-Radar',
-    description: 'High-speed audio spectrum & radar visualizer firmware built for ESP32 microcontrollers.',
+    description: 'High-speed 2.4GHz Wi-Fi RF spectrum analyzer & network visualizer firmware built for ESP32 Cheap Yellow Display (CYD), LVGL v9, and FreeRTOS.',
     language: 'C++',
     stargazers_count: 0,
     forks_count: 0,
