@@ -5,20 +5,6 @@ const GITHUB_USERNAME = 'earlchirchir';
 // Hydrated Fallback Repositories Data (Updated with Title-Case Names)
 const FALLBACK_REPOS = [
   {
-    id: 1310065999,
-    name: 'ESP32-Spectrum-Radar',
-    html_url: 'https://github.com/earlchirchir/ESP32-Spectrum-Radar',
-    description: 'High-speed 2.4GHz Wi-Fi RF spectrum analyzer & network visualizer firmware built for ESP32 Cheap Yellow Display (CYD), LVGL v9, and FreeRTOS.',
-    language: 'C++',
-    stargazers_count: 0,
-    forks_count: 0,
-    size: 420,
-    updated_at: '2026-07-23T15:08:59Z',
-    clone_url: 'https://github.com/earlchirchir/ESP32-Spectrum-Radar.git',
-    topics: ['esp32', 'firmware', 'radar', 'cplusplus', 'embedded'],
-    is_pinned: true
-  },
-  {
     id: 1309916364,
     name: 'ABB-CRB-15000-Robotic-Arm-Kinematics-Trajectory-Planning',
     html_url: 'https://github.com/earlchirchir/ABB-CRB-15000-Robotic-Arm-Kinematics-Trajectory-Planning',
@@ -30,6 +16,20 @@ const FALLBACK_REPOS = [
     updated_at: '2026-07-23T13:22:55Z',
     clone_url: 'https://github.com/earlchirchir/ABB-CRB-15000-Robotic-Arm-Kinematics-Trajectory-Planning.git',
     topics: ['robotics', 'kinematics', 'matlab', 'cobot', 'trajectory-planning'],
+    is_pinned: true
+  },
+  {
+    id: 1310065999,
+    name: 'ESP32-Spectrum-Radar',
+    html_url: 'https://github.com/earlchirchir/ESP32-Spectrum-Radar',
+    description: 'High-speed 2.4GHz Wi-Fi RF spectrum analyzer & network visualizer firmware built for ESP32 Cheap Yellow Display (CYD), LVGL v9, and FreeRTOS.',
+    language: 'C++',
+    stargazers_count: 0,
+    forks_count: 0,
+    size: 420,
+    updated_at: '2026-07-23T15:08:59Z',
+    clone_url: 'https://github.com/earlchirchir/ESP32-Spectrum-Radar.git',
+    topics: ['esp32', 'firmware', 'radar', 'cplusplus', 'embedded'],
     is_pinned: true
   },
   {
@@ -246,6 +246,15 @@ If using the **ESP32-2432S022C (CYD)**, all connections between the ILI9341 disp
 GitHub Repository: [https://github.com/earlchirchir/ESP32-Spectrum-Radar](https://github.com/earlchirchir/ESP32-Spectrum-Radar)
 `
   }
+];
+
+const PROJECT_SIGNIFICANCE_ORDER = [
+  'abb-crb-15000',
+  'esp32-spectrum-radar',
+  'object-detection-for-deafblind',
+  'onboard-monitoring-system',
+  'pneumatic-can-crusher',
+  'automatic-solar-tracking'
 ];
 
 function getSignificanceRank(name) {
