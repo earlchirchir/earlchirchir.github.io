@@ -316,9 +316,6 @@ const articleModalDate = document.getElementById('article-modal-date');
 const articleModalReadtime = document.getElementById('article-modal-readtime');
 const articleModalContent = document.getElementById('article-modal-content');
 const articleHacksterLink = document.getElementById('article-hackster-link');
-const copyCloneBtn = document.getElementById('copy-clone-btn');
-const copyToast = document.getElementById('copy-toast');
-const modalGithubLink = document.getElementById('modal-github-link');
 
 // Helper: Format Date
 function formatDate(isoString) {
