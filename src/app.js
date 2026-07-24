@@ -5,6 +5,21 @@ const GITHUB_USERNAME = 'earlchirchir';
 // Hydrated Fallback Repositories Data (Updated with Title-Case Names)
 const FALLBACK_REPOS = [
   {
+    id: 999000001,
+    name: 'Curriculum-Vitae-Resume',
+    html_url: 'https://flowcv.com/resume/s7t5fakcqscs',
+    description: 'Interactive mechatronics & robotics engineer CV detailing 5+ years of embedded firmware, robotics kinematics, and industrial automation experience.',
+    language: 'FlowCV Live Resume',
+    stargazers_count: 1,
+    forks_count: 0,
+    size: 146,
+    updated_at: '2026-07-24T12:00:00Z',
+    clone_url: 'https://flowcv.com/resume/s7t5fakcqscs',
+    topics: ['cv', 'resume', 'flowcv', 'mechatronics', 'robotics'],
+    is_pinned: true,
+    is_cv: true
+  },
+  {
     id: 1310065999,
     name: 'ESP32-Spectrum-Radar',
     html_url: 'https://github.com/earlchirchir/ESP32-Spectrum-Radar',
@@ -15,7 +30,8 @@ const FALLBACK_REPOS = [
     size: 420,
     updated_at: '2026-07-23T15:08:59Z',
     clone_url: 'https://github.com/earlchirchir/ESP32-Spectrum-Radar.git',
-    topics: ['esp32', 'firmware', 'radar', 'cplusplus', 'embedded']
+    topics: ['esp32', 'firmware', 'radar', 'cplusplus', 'embedded'],
+    is_pinned: true
   },
   {
     id: 1309916364,
@@ -28,7 +44,8 @@ const FALLBACK_REPOS = [
     size: 26027,
     updated_at: '2026-07-23T13:22:55Z',
     clone_url: 'https://github.com/earlchirchir/ABB-CRB-15000-Robotic-Arm-Kinematics-Trajectory-Planning.git',
-    topics: ['robotics', 'kinematics', 'matlab', 'cobot', 'trajectory-planning']
+    topics: ['robotics', 'kinematics', 'matlab', 'cobot', 'trajectory-planning'],
+    is_pinned: true
   },
   {
     id: 577751420,
@@ -151,6 +168,7 @@ const FALLBACK_REPOS = [
 
 // Project Significance Ranking Order (Most Significant to Least)
 const PROJECT_SIGNIFICANCE_ORDER = [
+  'curriculum-vitae-resume',
   'esp32-spectrum-radar',
   'abb-crb-15000',
   'automated-shopping-cart',
@@ -162,6 +180,88 @@ const PROJECT_SIGNIFICANCE_ORDER = [
   'load-sensor-modules-pcb',
   'home-renovation-impact-analysis',
   'esp32-2432s022c-capabilities-showcase-firmware'
+];
+
+// Hackster.io Blog Articles Data
+const HACKSTER_ARTICLES = [
+  {
+    id: 'esp32-spectrum-radar-article',
+    title: '📶 ESP32 2.4GHz Wi-Fi Spectrum Analyzer & Network Inspector',
+    elevatorPitch: 'Build a high-performance, real-time 2.4GHz Wi-Fi RF congestion visualizer and touch network inspector using the ESP32 Cheap Yellow Display (CYD), LVGL v9, and FreeRTOS.',
+    publishedDate: 'July 2026',
+    readTime: '4 min read',
+    hacksterUrl: 'https://www.hackster.io/earl-chirchir',
+    tags: ['ESP32', 'Wi-Fi', 'Spectrum Analyzer', 'LVGL v9', 'FreeRTOS'],
+    markdownContent: `
+# 📶 ESP32 2.4GHz Wi-Fi Spectrum Analyzer & Network Inspector
+
+**Elevator Pitch:** Build a high-performance, real-time 2.4GHz Wi-Fi RF congestion visualizer and touch network inspector using the ESP32 Cheap Yellow Display (CYD), LVGL v9, and FreeRTOS.
+
+---
+
+## 🛠️ Things Used in This Project
+
+### Hardware Components
+1. **ESP32 Cheap Yellow Display (ESP32-2432S022C / CYD)** (2.8" 240x320 TFT Touchscreen)
+2. **USB-C / Micro-USB Cable** for power & flashing
+
+### Software & Apps
+1. **PlatformIO / Arduino IDE**
+2. **LVGL v9** (Light and Versatile Graphics Library)
+3. **FreeRTOS** (Dual-core task management)
+4. **ESP32 Wi-Fi SDK**
+
+---
+
+## 📖 Project Story
+
+Finding an uncongested Wi-Fi channel in crowded environments (offices, apartments, workshops) can significantly improve wireless performance. Commercial RF spectrum analyzers can be expensive, but using an ESP32 microcontroller and a touchscreen display, you can build a portable handheld Wi-Fi spectrum analyzer for under $15.
+
+### Key Features
+- 📊 **Real-Time 13-Channel Spectrum Density Graph:** Scans and displays Access Point saturation across 2.4GHz channels 1–13.
+- 🟡 **Primary Channel Highlights:** Automatic gold indicators for non-overlapping channels (**1**, **6**, and **11**).
+- 🚦 **Congestion Color Code:**
+  - 🟢 **Clean (1–2 APs):** Recommended channel for router configuration.
+  - 🟡 **Moderate (3–5 APs)**
+  - 🔴 **Congested (6+ APs)**
+- 📶 **Touch-Activated Network Inspector Modal:** Tapping any detected Wi-Fi network pops up a glassmorphic inspector card displaying:
+  - **BSSID (MAC Address)**
+  - **Center Frequency & Channel** (e.g. \`Ch 6 - 2.437 GHz\`)
+  - **Security Encryption** (\`WPA2-PSK\`, \`WPA3-PSK\`, \`Open\`, \`Enterprise\`)
+  - **Signal Strength Bar Meter** (\`-30 dBm\` to \`-100 dBm\`)
+- ⚡ **Dual-Core Architecture:** FreeRTOS handles Wi-Fi scanning on Core 0 while LVGL v9 renders 60FPS graphics on Core 1.
+
+---
+
+## 🔌 Hardware Setup & Wiring
+
+If using the **ESP32-2432S022C (CYD)**, all connections between the ILI9341 display, XPT2046 touch controller, and ESP32 are already routed on-board!
+
+| Peripheral | ESP32 Pin |
+| :--- | :--- |
+| **Display SPI SCK** | GPIO 14 |
+| **Display SPI MOSI** | GPIO 13 |
+| **Display SPI MISO** | GPIO 12 |
+| **Display CS** | GPIO 15 |
+| **Display DC / RS** | GPIO 2 |
+| **Display Backlight** | GPIO 21 |
+| **Touch CS** | GPIO 33 |
+
+---
+
+## 🚀 Code & Installation
+
+1. Clone the repository:
+   \`\`\`bash
+   git clone https://github.com/earlchirchir/ESP32-Spectrum-Radar.git
+   \`\`\`
+2. Open the project in **PlatformIO**.
+3. Select board \`esp32-2432S022C\` in \`platformio.ini\`.
+4. Build and flash the firmware to your board.
+
+GitHub Repository: [https://github.com/earlchirchir/ESP32-Spectrum-Radar](https://github.com/earlchirchir/ESP32-Spectrum-Radar)
+`
+  }
 ];
 
 function getSignificanceRank(name) {
@@ -190,7 +290,7 @@ const statLanguages = document.getElementById('stat-languages');
 const statStars = document.getElementById('stat-stars');
 const statStatus = document.getElementById('stat-status');
 
-// Modal Elements
+// Repo Modal Elements
 const repoModal = document.getElementById('repo-modal');
 const modalClose = document.getElementById('modal-close');
 const modalTitle = document.getElementById('modal-title');
@@ -201,6 +301,21 @@ const modalForks = document.getElementById('modal-forks');
 const modalSize = document.getElementById('modal-size');
 const modalUpdated = document.getElementById('modal-updated');
 const cloneUrlInput = document.getElementById('clone-url-input');
+const copyCloneBtn = document.getElementById('copy-clone-btn');
+const copyToast = document.getElementById('copy-toast');
+const modalGithubLink = document.getElementById('modal-github-link');
+
+// Blog Modal Elements
+const blogContainer = document.getElementById('blog-container');
+const articleModal = document.getElementById('article-modal');
+const articleModalClose = document.getElementById('article-modal-close');
+const articleCloseBtnBottom = document.getElementById('article-close-btn-bottom');
+const articleModalTitle = document.getElementById('article-modal-title');
+const articleModalPitch = document.getElementById('article-modal-pitch');
+const articleModalDate = document.getElementById('article-modal-date');
+const articleModalReadtime = document.getElementById('article-modal-readtime');
+const articleModalContent = document.getElementById('article-modal-content');
+const articleHacksterLink = document.getElementById('article-hackster-link');
 const copyCloneBtn = document.getElementById('copy-clone-btn');
 const copyToast = document.getElementById('copy-toast');
 const modalGithubLink = document.getElementById('modal-github-link');
@@ -322,23 +437,27 @@ function renderRepos() {
 
   reposContainer.innerHTML = filtered.map(repo => {
     const isDissertation = repo.name.toLowerCase().includes('abb-crb-15000');
-    
+    const isCvCard = repo.is_cv || repo.name.toLowerCase().includes('curriculum-vitae');
+    const isPinned = repo.is_pinned || ['curriculum-vitae-resume', 'esp32-spectrum-radar', 'abb-crb-15000'].some(p => repo.name.toLowerCase().includes(p));
+
     return `
-    <article class="repo-card ${isDissertation ? 'dissertation-card' : ''}" data-id="${repo.id}">
+    <article class="repo-card ${isDissertation ? 'dissertation-card' : ''} ${isCvCard ? 'cv-card' : ''}" data-id="${repo.id}">
       <div class="repo-card-header">
         <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="repo-title-link">
-          ${repo.name}
+          ${isCvCard ? '📄 Curriculum Vitae & Resume' : repo.name}
         </a>
         <span class="lang-pill ${getLanguageClass(repo.language)}">${repo.language || 'Code'}</span>
       </div>
 
-      ${isDissertation ? `
-        <div class="dissertation-tags-row" style="margin: 8px 0; display: flex; flex-wrap: wrap; gap: 6px;">
+      <div class="card-tags-row" style="margin: 8px 0; display: flex; flex-wrap: wrap; gap: 6px;">
+        ${isPinned ? `<span class="tag-badge badge-pinned" style="background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.3); padding: 3px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;"><i class="fa-solid fa-thumbtack"></i> Pinned</span>` : ''}
+        ${isCvCard ? `<span class="tag-badge" style="background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); padding: 3px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;"><i class="fa-solid fa-file-pdf"></i> FlowCV Dynamic Link</span>` : ''}
+        ${isDissertation ? `
           <span class="tag-badge badge-dissertation" style="background: rgba(147, 51, 234, 0.15); color: #c084fc; border: 1px solid rgba(147, 51, 234, 0.3); padding: 3px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;"><i class="fa-solid fa-graduation-cap"></i> MSc Dissertation</span>
           <span class="tag-badge badge-grade" style="background: rgba(52, 211, 153, 0.15); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.3); padding: 3px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;"><i class="fa-solid fa-trophy"></i> Grade A (81%)</span>
-          <span class="tag-badge badge-school" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); padding: 3px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;"><i class="fa-solid fa-building-columns"></i> Kingston University London</span>
-        </div>
-      ` : ''}
+          <span class="tag-badge badge-school" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); padding: 3px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;"><i class="fa-solid fa-building-columns"></i> Kingston Univ London</span>
+        ` : ''}
+      </div>
 
       <p class="repo-desc">${repo.description || 'No description provided.'}</p>
 
@@ -367,7 +486,7 @@ function renderRepos() {
           <span class="repo-stat-item" title="Forks"><i class="fa-solid fa-code-fork"></i> ${repo.forks_count || 0}</span>
         </div>
         <button class="details-btn" data-id="${repo.id}">
-          Details <i class="fa-solid fa-arrow-right"></i>
+          ${isCvCard ? 'Open FlowCV Resume <i class="fa-solid fa-arrow-up-right-from-square"></i>' : 'Details <i class="fa-solid fa-arrow-right"></i>'}
         </button>
       </div>
     </article>
@@ -377,15 +496,122 @@ function renderRepos() {
   // Attach event listeners to entire repo card tabs
   document.querySelectorAll('.repo-card').forEach(card => {
     card.addEventListener('click', (e) => {
-      // If clicking directly on external title link, expandable details summary, or PDF link, allow default behavior
+      const repoId = card.getAttribute('data-id');
+      const repo = repositories.find(r => String(r.id) === String(repoId));
+      
+      // If clicking directly on external title link, expandable details summary, or PDF link
       if (e.target.closest('.repo-title-link') || e.target.closest('.dissertation-expandable-details') || e.target.closest('a')) {
         return;
       }
-      const repoId = card.getAttribute('data-id');
-      const repo = repositories.find(r => String(r.id) === String(repoId));
+      
+      // If CV card, open FlowCV URL in new tab
+      if (repo && (repo.is_cv || repo.name.toLowerCase().includes('curriculum-vitae'))) {
+        window.open('https://flowcv.com/resume/s7t5fakcqscs', '_blank', 'noopener,noreferrer');
+        return;
+      }
+
       if (repo) openModal(repo);
     });
   });
+}
+
+// Render Hackster Blog Section
+function renderBlogArticles() {
+  if (!blogContainer) return;
+
+  blogContainer.innerHTML = HACKSTER_ARTICLES.map(article => `
+    <article class="repo-card blog-card" data-article-id="${article.id}" style="cursor: pointer; display: flex; flex-direction: column; justify-content: space-between;">
+      <div>
+        <div class="repo-card-header" style="margin-bottom: 8px;">
+          <span class="lang-pill lang-cpp" style="font-size: 0.78rem;"><i class="fa-solid fa-microchip"></i> Hackster.io</span>
+          <span style="font-size: 0.78rem; color: var(--text-dim);">${article.publishedDate}</span>
+        </div>
+
+        <h3 style="font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 8px; line-height: 1.3;">
+          ${article.title}
+        </h3>
+
+        <p class="repo-desc" style="font-size: 0.88rem; color: var(--text-dim); margin-bottom: 12px; line-height: 1.5;">
+          ${article.elevatorPitch}
+        </p>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px;">
+          ${article.tags.map(t => `<span style="background: rgba(255,255,255,0.05); color: #94a3b8; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem;">#${t}</span>`).join('')}
+        </div>
+      </div>
+
+      <div class="repo-footer" style="padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.06); margin-top: auto;">
+        <span style="font-size: 0.8rem; color: var(--text-dim);"><i class="fa-solid fa-clock"></i> ${article.readTime}</span>
+        <button class="details-btn" style="color: #00a8e8;">
+          Read Article Overlay <i class="fa-solid fa-book-open"></i>
+        </button>
+      </div>
+    </article>
+  `).join('');
+
+  document.querySelectorAll('.blog-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const artId = card.getAttribute('data-article-id');
+      const article = HACKSTER_ARTICLES.find(a => a.id === artId);
+      if (article) openArticleModal(article);
+    });
+  });
+}
+
+// Markdown Parser Helper
+function parseMarkdown(mdText) {
+  if (!mdText) return '';
+
+  let html = mdText
+    .replace(/^# (.*$)/gim, '<h1 style="color: #fff; font-size: 1.4rem; font-weight: 700; margin: 20px 0 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px;">$1</h1>')
+    .replace(/^## (.*$)/gim, '<h2 style="color: #c084fc; font-size: 1.2rem; font-weight: 600; margin: 18px 0 8px 0;">$1</h2>')
+    .replace(/^### (.*$)/gim, '<h3 style="color: #38bdf8; font-size: 1.05rem; font-weight: 600; margin: 14px 0 6px 0;">$1</h3>')
+    .replace(/---/g, '<hr style="border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0;" />')
+    .replace(/\*\*(.*?)\*\*/g, '<strong style="color: #fff; font-weight: 600;">$1</strong>')
+    .replace(/`([^`]+)`/g, '<code style="background: rgba(255,255,255,0.1); color: #38bdf8; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 0.88em;">$1</code>')
+    .replace(/```(.*?)\n([\s\S]*?)```/g, '<pre style="background: #0f172a; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 12px; overflow-x: auto; font-family: monospace; color: #34d399; font-size: 0.85rem; margin: 12px 0;"><code>$2</code></pre>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: underline;">$1</a>')
+    .replace(/^\- (.*$)/gim, '<li style="margin-bottom: 4px; list-style-type: disc; margin-left: 20px;">$1</li>')
+    .replace(/^\d+\. (.*$)/gim, '<li style="margin-bottom: 4px; list-style-type: decimal; margin-left: 20px;">$1</li>');
+
+  // Convert markdown tables
+  html = html.replace(/\|(.+)\|/g, (match) => {
+    const cells = match.split('|').filter(c => c.trim() !== '');
+    if (cells.some(c => c.includes('---'))) return '';
+    const isHeader = match.includes('Peripheral');
+    const cellTag = isHeader ? 'th' : 'td';
+    const rowContent = cells.map(c => `<${cellTag} style="padding: 8px 12px; border: 1px solid rgba(255,255,255,0.1); text-align: left;">${c.trim()}</${cellTag}>`).join('');
+    return `<tr style="${isHeader ? 'background: rgba(255,255,255,0.05); font-weight: 600; color: #fff;' : ''}">${rowContent}</tr>`;
+  });
+
+  html = html.replace(/(<tr.*?>.*?<\/tr>)+/gs, '<table style="width: 100%; border-collapse: collapse; margin: 16px 0; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; overflow: hidden;">$&</table>');
+
+  return html;
+}
+
+// Open Article Modal
+function openArticleModal(article) {
+  if (!articleModal) return;
+
+  articleModalTitle.textContent = article.title;
+  articleModalPitch.textContent = article.elevatorPitch;
+  articleModalDate.innerHTML = `<i class="fa-solid fa-calendar-days"></i> ${article.publishedDate}`;
+  articleModalReadtime.innerHTML = `<i class="fa-solid fa-clock"></i> ${article.readTime}`;
+  articleHacksterLink.href = article.hacksterUrl;
+
+  articleModalContent.innerHTML = parseMarkdown(article.markdownContent);
+
+  articleModal.style.display = 'flex';
+  setTimeout(() => articleModal.classList.add('active'), 10);
+}
+
+// Close Article Modal
+function closeArticleModal() {
+  if (!articleModal) return;
+  articleModal.classList.remove('active');
+  setTimeout(() => {
+    articleModal.style.display = 'none';
+  }, 250);
 }
 
 // Global Reset Filters helper
@@ -514,6 +740,15 @@ function setupEventListeners() {
     });
   }
 
+  // Article Modal events
+  if (articleModalClose) articleModalClose.addEventListener('click', closeArticleModal);
+  if (articleCloseBtnBottom) articleCloseBtnBottom.addEventListener('click', closeArticleModal);
+  if (articleModal) {
+    articleModal.addEventListener('click', (e) => {
+      if (e.target === articleModal) closeArticleModal();
+    });
+  }
+
   // Modal events
   modalClose.addEventListener('click', closeModal);
   repoModal.addEventListener('click', (e) => {
@@ -523,6 +758,7 @@ function setupEventListeners() {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       if (repoModal.classList.contains('active')) closeModal();
+      if (articleModal && articleModal.classList.contains('active')) closeArticleModal();
       if (contactModal && contactModal.classList.contains('active')) {
         contactModal.classList.remove('active');
         setTimeout(() => contactModal.style.display = 'none', 300);
@@ -555,4 +791,5 @@ document.addEventListener('DOMContentLoaded', () => {
   setupEventListeners();
   updateStats();
   fetchUserRepos();
+  renderBlogArticles();
 });
