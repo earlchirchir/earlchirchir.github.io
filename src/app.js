@@ -276,6 +276,12 @@ function renderRepos() {
 
   // Sort
   filtered.sort((a, b) => {
+    // Always place earlchirchir.github.io at the very bottom
+    const isPortfolioA = a.name.toLowerCase().includes('earlchirchir.github.io');
+    const isPortfolioB = b.name.toLowerCase().includes('earlchirchir.github.io');
+    if (isPortfolioA && !isPortfolioB) return 1;
+    if (!isPortfolioA && isPortfolioB) return -1;
+
     if (currentSort === 'updated') {
       return new Date(b.updated_at) - new Date(a.updated_at);
     } else if (currentSort === 'stars') {
