@@ -237,7 +237,7 @@ function updateStats() {
 // Fetch GitHub Repositories Live
 async function fetchUserRepos() {
   try {
-    statStatus.textContent = 'Syncing...';
+    if (statStatus) statStatus.textContent = 'Syncing...';
     const res = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`);
     if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
     
@@ -247,11 +247,11 @@ async function fetchUserRepos() {
       const liveNames = new Set(liveData.map(r => r.name.toLowerCase()));
       const customShowcases = FALLBACK_REPOS.filter(r => !liveNames.has(r.name.toLowerCase()));
       repositories = [...liveData, ...customShowcases];
-      statStatus.textContent = 'Live (Sync)';
+      if (statStatus) statStatus.textContent = 'Live (Sync)';
     }
   } catch (err) {
     console.warn('GitHub API fetch failed or rate-limited. Using hydrated fallback data.', err);
-    statStatus.textContent = 'Hydrated Cache';
+    if (statStatus) statStatus.textContent = 'Hydrated Cache';
   } finally {
     updateStats();
     renderRepos();
@@ -432,9 +432,11 @@ function setupEventListeners() {
   });
 
   // Refresh sync button
-  refreshBtn.addEventListener('click', () => {
-    fetchUserRepos();
-  });
+  if (refreshBtn) {
+    refreshBtn.addEventListener('click', () => {
+      fetchUserRepos();
+    });
+  }
 
   // Contact Modal Events
   const contactBtn = document.getElementById('contact-btn');
