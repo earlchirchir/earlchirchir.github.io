@@ -343,6 +343,14 @@ async function fetchUserRepos() {
       const liveNames = new Set(liveData.map(r => r.name.toLowerCase()));
       const customShowcases = FALLBACK_REPOS.filter(r => !liveNames.has(r.name.toLowerCase()));
       repositories = [...liveData, ...customShowcases];
+
+      // Explicitly clean description for ESP32-Spectrum-Radar
+      repositories.forEach(r => {
+        if (r.name.toLowerCase().includes('esp32-spectrum-radar')) {
+          r.description = 'High-speed 2.4GHz Wi-Fi RF spectrum analyzer & network visualizer firmware built for ESP32 Cheap Yellow Display (CYD), LVGL v9, and FreeRTOS.';
+        }
+      });
+
       if (statStatus) statStatus.textContent = 'Live (Sync)';
     }
   } catch (err) {
