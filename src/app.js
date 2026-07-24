@@ -57,19 +57,6 @@ const FALLBACK_REPOS = [
     topics: ['matlab', 'robotics', 'manipulator', 'spatial-kinematics']
   },
   {
-    id: 1300568574,
-    name: 'ABB-CRB-15000-Kinematics-Trajectory-Planning',
-    html_url: 'https://github.com/earlchirchir/ABB-CRB-15000-Kinematics-Trajectory-Planning',
-    description: 'Comprehensive MATLAB toolbox for ABB CRB 15000 robotic arm inverse dynamics and cubic spline path planning.',
-    language: 'MATLAB',
-    stargazers_count: 0,
-    forks_count: 0,
-    size: 52,
-    updated_at: '2026-07-14T14:56:22Z',
-    clone_url: 'https://github.com/earlchirchir/ABB-CRB-15000-Kinematics-Trajectory-Planning.git',
-    topics: ['robot-arm', 'matlab', 'trajectory-planning', 'kinematics']
-  },
-  {
     id: 738944382,
     name: 'Home-Renovation-Impact-Analysis',
     html_url: 'https://github.com/earlchirchir/Home-Renovation-Impact-Analysis',
@@ -171,7 +158,6 @@ const PROJECT_SIGNIFICANCE_ORDER = [
   'eggcellent-automated-chicken-coop',
   'onboard-monitoring-system',
   'spatial-rpr-robot',
-  'abb-crb-15000-kinematics-trajectory-planning',
   'iot-weighing-solution-for-bulk-bins',
   'load-sensor-modules-pcb',
   'home-renovation-impact-analysis',
