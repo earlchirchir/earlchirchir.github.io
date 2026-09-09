@@ -344,10 +344,16 @@ async function fetchUserRepos() {
       const customShowcases = FALLBACK_REPOS.filter(r => !liveNames.has(r.name.toLowerCase()));
       repositories = [...liveData, ...customShowcases];
 
-      // Explicitly clean description for ESP32-Spectrum-Radar
+      // Explicitly clean descriptions for key projects
       repositories.forEach(r => {
         if (r.name.toLowerCase().includes('esp32-spectrum-radar')) {
           r.description = 'High-speed 2.4GHz Wi-Fi RF spectrum analyzer & network visualizer firmware built for ESP32 Cheap Yellow Display (CYD), LVGL v9, and FreeRTOS.';
+        }
+        if (r.name.toLowerCase().includes('iot-weighing-solution-for-bulk-bins')) {
+          r.description = 'Industrial IoT load cell weighing telemetry system with JSON data pipeline to remote SQL databases and Power BI.';
+        }
+        if (r.name.toLowerCase().includes('load-sensor-modules-pcb')) {
+          r.description = 'Custom-designed 6-channel load sensor instrumentation PCB created in KiCAD/AutoDesk Eagle for strain-gauge weight measurement.';
         }
       });
 
@@ -365,8 +371,9 @@ async function fetchUserRepos() {
 // Render Repositories Grid
 function renderRepos() {
   let filtered = repositories.filter(repo => {
-    // Hide website portfolio repo card from the project grid
+    // Hide website portfolio and unfinished repos from the project grid
     if (repo.name.toLowerCase().includes('earlchirchir.github.io')) return false;
+    if (repo.name.toLowerCase().includes('nexora_care_flow_forecast')) return false;
 
     // Filter by language chip
     if (currentFilter !== 'all') {
@@ -602,7 +609,7 @@ function openModal(repo) {
         <h4 style="color: #c084fc; margin-bottom: 8px; font-size: 0.95rem;"><i class="fa-solid fa-graduation-cap"></i> MSc Dissertation Overview</h4>
         <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-dim);">
           <li><strong>Score / Grade:</strong> <span style="color: #34d399; font-weight: 600;">81% (Grade A / Passed with Distinction)</span></li>
-          <li><strong>Institution:</strong> Kingston University London (2024 – 2025)</li>
+          <li><strong>Institution:</strong> Kingston University London (2024 &ndash; 2025)</li>
           <li><strong>Tech Stack & Theory:</strong> MATLAB, RoboDK 3D, Bang-Coast-Bang Time Law, Inverse Kinematics</li>
           <li><strong>Key Performance Metrics:</strong> ~25% Cycle Time Reduction & Joint Jerk Minimization on ABB GoFa cobot</li>
         </ul>
@@ -611,6 +618,43 @@ function openModal(repo) {
             <i class="fa-solid fa-file-pdf"></i> View Official Kingston HEAR Transcript (PDF)
           </a>
         </div>
+      </div>
+    `;
+  } else if (repo.name.toLowerCase().includes('iot-weighing-solution-for-bulk-bins')) {
+    modalDescription.innerHTML = `
+      <p style="margin-bottom: 12px;">Industrial IoT data logging and telemetry platform for industrial machinery and bulk weighing bins, improving remote data accuracy by ~40% and feeding real-time production metrics to SQL databases and Power BI dashboards.</p>
+      <div style="background: rgba(14, 165, 233, 0.1); border: 1px solid rgba(14, 165, 233, 0.3); border-radius: 8px; padding: 12px; margin-bottom: 16px;">
+        <h4 style="color: #38bdf8; margin-bottom: 8px; font-size: 0.95rem;"><i class="fa-solid fa-industry"></i> Industrial Deployment Highlights</h4>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-dim);">
+          <li><strong>Hardware Stack:</strong> ESP32 / Arduino Nano, HX711 24-bit ADC amplifier, Strain Gauge Load Cells</li>
+          <li><strong>Telemetry Protocols:</strong> JSON-based data payload over Wi-Fi / MQTT / HTTP to remote web servers</li>
+          <li><strong>HMI Integration:</strong> Nextion touchscreen HMI for real-time operator machine communication</li>
+          <li><strong>Industrial Impact:</strong> Increased machine uptime, eliminated manual weighing errors, and automated batch logging</li>
+        </ul>
+      </div>
+    `;
+  } else if (repo.name.toLowerCase().includes('load-sensor-modules-pcb')) {
+    modalDescription.innerHTML = `
+      <p style="margin-bottom: 12px;">Custom-designed printed circuit board accommodating modular multi-channel load sensor interfaces for industrial weighing and telemetry platforms.</p>
+      <div style="background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 8px; padding: 12px; margin-bottom: 16px;">
+        <h4 style="color: #4ade80; margin-bottom: 8px; font-size: 0.95rem;"><i class="fa-solid fa-microchip"></i> Hardware Design Specifications</h4>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-dim);">
+          <li><strong>CAD / EDA Tools:</strong> KiCAD & Autodesk Eagle for schematic capture and multi-layer PCB layout</li>
+          <li><strong>Sensor Interface:</strong> 6 modular load-cell terminal headers with onboard analog filtering and conditioning</li>
+          <li><strong>Manufacturing & Assembly:</strong> 2-layer FR-4 fabrication, surface-mount and through-hole precision soldering</li>
+        </ul>
+      </div>
+    `;
+  } else if (repo.name.toLowerCase().includes('eggcellent-automated-chicken-coop')) {
+    modalDescription.innerHTML = `
+      <p style="margin-bottom: 12px;">1st Place Award-Winning smart agricultural IoT coop environment controller with automated climate regulation, motorized door actuators, and feed level telemetry.</p>
+      <div style="background: rgba(234, 179, 8, 0.1); border: 1px solid rgba(234, 179, 8, 0.3); border-radius: 8px; padding: 12px; margin-bottom: 16px;">
+        <h4 style="color: #facc15; margin-bottom: 8px; font-size: 0.95rem;"><i class="fa-solid fa-trophy"></i> 1st Place Intervarsity Award Winner</h4>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-dim);">
+          <li><strong>Recognition:</strong> 1st Place Engineering Innovator — Riara University Intervarsity Competition</li>
+          <li><strong>Hardware:</strong> ESP32 / Arduino Nano, L298N motor driver, DS3231 RTC, DHT22 sensors, ultrasonic level sensing</li>
+          <li><strong>Firmware:</strong> C++ finite state machine controlling automated scheduled & light-dependent actuation</li>
+        </ul>
       </div>
     `;
   } else {
