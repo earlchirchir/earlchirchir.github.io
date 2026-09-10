@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
+  <!-- Subtle minor grid (20px) -->
+  <path d="M 20 0 L 20 80 M 40 0 L 40 80 M 60 0 L 60 80 M 0 20 L 80 20 M 0 40 L 80 40 M 0 60 L 80 60" stroke="#38bdf8" stroke-width="0.5" stroke-opacity="0.025" />
+  
+  <!-- Major grid border (80px) -->
+  <path d="M 0 0 L 80 0 M 0 0 L 0 80" stroke="#94a3b8" stroke-width="0.75" stroke-opacity="0.045" />
+  
+  <!-- Subtle intersection crosshairs at major points -->
+  <path d="M -3 0 L 3 0 M 0 -3 L 0 3" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.09" stroke-linecap="round" />
+  <path d="M 37 40 L 43 40 M 40 37 L 40 43" stroke="#38bdf8" stroke-width="0.75" stroke-opacity="0.05" stroke-linecap="round" />
+  
+  <!-- Subtle dot at (80, 80) -->
+  <circle cx="80" cy="80" r="1" fill="#38bdf8" fill-opacity="0.1" />
+</svg>

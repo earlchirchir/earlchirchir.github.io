@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400" fill="none">
+  <!-- Minimalist Embedded PCB Traces & Bus Architecture Pattern -->
+  <g opacity="0.065" stroke="#38bdf8" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Main bus routes -->
+    <path d="M 0 60 L 140 60 L 180 100 L 320 100 L 360 60 L 600 60" stroke-width="1.2" />
+    <path d="M 0 80 L 132 80 L 172 120 L 312 120 L 352 80 L 600 80" stroke-width="1.2" />
+    <path d="M 0 100 L 124 100 L 164 140 L 304 140 L 344 100 L 600 100" stroke-width="1.2" />
+    
+    <!-- Micro-vias & pads -->
+    <circle cx="180" cy="100" r="2.5" fill="#38bdf8" />
+    <circle cx="172" cy="120" r="2.5" fill="#38bdf8" />
+    <circle cx="164" cy="140" r="2.5" fill="#38bdf8" />
+    
+    <circle cx="320" cy="100" r="2.5" fill="#34d399" />
+    <circle cx="312" cy="120" r="2.5" fill="#34d399" />
+    <circle cx="304" cy="140" r="2.5" fill="#34d399" />
+
+    <!-- Branching lines (45 degree angles) -->
+    <path d="M 180 100 L 220 140 L 220 280 L 260 320 L 400 320" stroke-width="1" stroke-dasharray="6 3" />
+    <path d="M 320 100 L 280 140 L 280 260 L 300 280 L 450 280" stroke-width="1" />
+    
+    <!-- Chip Pad Footprint (ESP32-S3 QFN outline) -->
+    <rect x="440" y="160" width="80" height="80" rx="3" stroke-width="1.5" stroke="#94a3b8" />
+    <circle cx="452" cy="172" r="3" fill="#38bdf8" />
+    <!-- Pin pads -->
+    <line x1="430" y1="180" x2="440" y2="180" stroke-width="2" />
+    <line x1="430" y1="195" x2="440" y2="195" stroke-width="2" />
+    <line x1="430" y1="210" x2="440" y2="210" stroke-width="2" />
+    <line x1="430" y1="225" x2="440" y2="225" stroke-width="2" />
+    
+    <line x1="520" y1="180" x2="530" y2="180" stroke-width="2" />
+    <line x1="520" y1="195" x2="530" y2="195" stroke-width="2" />
+    <line x1="520" y1="210" x2="530" y2="210" stroke-width="2" />
+    <line x1="520" y1="225" x2="530" y2="225" stroke-width="2" />
+
+    <!-- Clock Oscillator Crystal Motif -->
+    <rect x="360" y="210" width="24" height="40" rx="2" stroke-width="1" stroke="#64748b" />
+    <line x1="372" y1="210" x2="372" y2="190" stroke-width="1" />
+    <line x1="372" y1="250" x2="372" y2="270" stroke-width="1" />
+    
+    <!-- Bottom bus -->
+    <path d="M 0 350 L 180 350 L 210 320 L 380 320 L 410 350 L 600 350" stroke-width="1.2" />
+  </g>
+</svg>
