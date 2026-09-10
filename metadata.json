@@ -1,0 +1,6 @@
+{
+  "name": "Earl Chirchir Portfolio",
+  "description": "Portfolio of Earl Chirchir - Graduate Mechatronic Engineer specializing in Robot Kinematics and Embedded Systems",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
