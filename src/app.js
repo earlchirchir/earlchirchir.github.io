@@ -8,7 +8,7 @@ const FALLBACK_REPOS = [
     id: 1309916364,
     name: 'ABB-CRB-15000-Robotic-Arm-Kinematics-Trajectory-Planning',
     html_url: 'https://github.com/earlchirchir/ABB-CRB-15000-Robotic-Arm-Kinematics-Trajectory-Planning',
-    description: 'Forward & Inverse Kinematics solver and 3D trajectory simulation for the ABB GoFa CRB 15000 collaborative robot.',
+    description: 'Optimized cycle execution time by ~25% for the ABB GoFa collaborative arm. Formulated mathematical kinematic solvers, inverse dynamics, and bang-coast-bang time-optimal velocity profiles. Validated trajectory constraints through MATLAB and RoboDK 3D.',
     language: 'MATLAB',
     stargazers_count: 0,
     forks_count: 0,
@@ -22,7 +22,7 @@ const FALLBACK_REPOS = [
     id: 1310065999,
     name: 'ESP32-Spectrum-Radar',
     html_url: 'https://github.com/earlchirchir/ESP32-Spectrum-Radar',
-    description: 'High-speed 2.4GHz Wi-Fi RF spectrum analyzer & network visualizer firmware built for ESP32 Cheap Yellow Display (CYD), LVGL v9, and FreeRTOS.',
+    description: 'Managed FreeRTOS task scheduling and LVGL v9 rendering constraints on the ESP32 Cheap Yellow Display (CYD) for high-speed RF visualization.',
     language: 'C++',
     stargazers_count: 0,
     forks_count: 0,
@@ -88,7 +88,7 @@ const FALLBACK_REPOS = [
     id: 716050464,
     name: 'IoT-Weighing-Solution-for-Bulk-Bins',
     html_url: 'https://github.com/earlchirchir/IoT-Weighing-Solution-for-Bulk-Bins',
-    description: 'IoT weight sensing telemetry platform using load cells, HX711 amplifier, and cloud MQTT integration.',
+    description: 'Industrial IoT weight sensing telemetry platform using load cells, HX711 amplifier, and cloud MQTT integration.',
     language: 'C++',
     stargazers_count: 0,
     forks_count: 0,
@@ -114,7 +114,7 @@ const FALLBACK_REPOS = [
     id: 990000001,
     name: 'Automated-Shopping-Cart',
     html_url: 'https://github.com/earlchirchir/Automated-Shopping-Cart',
-    description: 'Autonomous smart shopping cart system featuring RFID item scanning, load-cell weight verification, and telemetry billing integration.',
+    description: 'Autonomous retail automation system using ESP32, RFID item scanning, HX711 24-bit load-cell tare verification, and MQTT telemetry protocol for synchronized automated billing.',
     language: 'C++',
     stargazers_count: 0,
     forks_count: 0,
@@ -127,7 +127,7 @@ const FALLBACK_REPOS = [
     id: 990000002,
     name: 'Odi2-Deafblind-Assistive-Device',
     html_url: 'https://github.com/earlchirchir/Odi2-Deafblind-Assistive-Device',
-    description: 'Tactile-to-audio & haptic assistive communication hardware interface designed to enable seamless interaction for deafblind individuals.',
+    description: 'Tactile assistive hardware interface featuring ERM/LRA haptic feedback drivers via I2C, capacitive sensor matrix, and low-latency audio synthesis protocols for deafblind communication.',
     language: 'C++',
     stargazers_count: 0,
     forks_count: 0,
@@ -151,75 +151,75 @@ const FALLBACK_REPOS = [
   }
 ];
 
-// Project Significance Ranking Order (Most Significant to Least)
+// Project Significance & Codebase Complexity Ranking Order
 const PROJECT_SIGNIFICANCE_ORDER = [
   'abb-crb-15000',
   'esp32-spectrum-radar',
   'automated-shopping-cart',
   'odi2-deafblind-assistive-device',
-  'eggcellent-automated-chicken-coop',
-  'onboard-monitoring-system',
-  'spatial-rpr-robot',
   'iot-weighing-solution-for-bulk-bins',
+  'spatial-rpr-robot',
+  'eggcellent-automated-chicken-coop',
   'load-sensor-modules-pcb',
-  'home-renovation-impact-analysis',
-  'esp32-2432s022c-capabilities-showcase-firmware'
+  'onboard-monitoring-system',
+  'esp32-2432s022c-capabilities-showcase-firmware',
+  'home-renovation-impact-analysis'
 ];
 
 // Hackster.io Blog Articles Data
 const HACKSTER_ARTICLES = [
   {
     id: 'esp32-spectrum-radar-article',
-    title: '📶 ESP32 2.4GHz Wi-Fi Spectrum Analyzer & Network Inspector',
-    elevatorPitch: 'Build a high-performance, real-time 2.4GHz Wi-Fi RF congestion visualizer and touch network inspector using the ESP32 Cheap Yellow Display (CYD), LVGL v9, and FreeRTOS.',
+    title: 'ESP32 2.4GHz Wi-Fi Spectrum Analyzer & Network Inspector',
+    elevatorPitch: 'Formulated real-time 2.4GHz Wi-Fi RF congestion visualizer and touch network inspector using the ESP32 Cheap Yellow Display (CYD), LVGL v9, and FreeRTOS dual-core task scheduling.',
     publishedDate: 'July 2026',
     readTime: '4 min read',
     hacksterUrl: 'https://www.hackster.io/earl-chirchir',
     tags: ['ESP32', 'Wi-Fi', 'Spectrum Analyzer', 'LVGL v9', 'FreeRTOS'],
     markdownContent: `
-# 📶 ESP32 2.4GHz Wi-Fi Spectrum Analyzer & Network Inspector
+# ESP32 2.4GHz Wi-Fi Spectrum Analyzer & Network Inspector
 
-**Elevator Pitch:** Build a high-performance, real-time 2.4GHz Wi-Fi RF congestion visualizer and touch network inspector using the ESP32 Cheap Yellow Display (CYD), LVGL v9, and FreeRTOS.
+**Technical Summary:** Formulated real-time 2.4GHz Wi-Fi RF congestion visualizer and touch network inspector using the ESP32 Cheap Yellow Display (CYD), LVGL v9, and FreeRTOS dual-core scheduling.
 
 ---
 
-## 🛠️ Things Used in This Project
+## Hardware & Architecture
 
-### Hardware Components
+### Components
 1. **ESP32 Cheap Yellow Display (ESP32-2432S022C / CYD)** (2.8" 240x320 TFT Touchscreen)
-2. **USB-C / Micro-USB Cable** for power & flashing
+2. **USB-C / Micro-USB Interface** for power & flashing
 
-### Software & Apps
-1. **PlatformIO / Arduino IDE**
+### Firmware & Libraries
+1. **PlatformIO / Arduino C++ Toolchain**
 2. **LVGL v9** (Light and Versatile Graphics Library)
 3. **FreeRTOS** (Dual-core task management)
-4. **ESP32 Wi-Fi SDK**
+4. **ESP32 Wi-Fi SDK (Promiscuous Mode / RSSI scanning)**
 
 ---
 
-## 📖 Project Story
+## Engineering Overview
 
-Finding an uncongested Wi-Fi channel in crowded environments (offices, apartments, workshops) can significantly improve wireless performance. Commercial RF spectrum analyzers can be expensive, but using an ESP32 microcontroller and a touchscreen display, you can build a portable handheld Wi-Fi spectrum analyzer for under $15.
+Finding an uncongested Wi-Fi channel in crowded environments (offices, industrial plants, workshops) can significantly improve wireless telemetry reliability. Commercial RF spectrum analyzers can be prohibitive in cost, but using an ESP32 microcontroller with a touch panel, a portable handheld spectrum analyzer can be implemented for under £15.
 
-### Key Features
-- 📊 **Real-Time 13-Channel Spectrum Density Graph:** Scans and displays Access Point saturation across 2.4GHz channels 1–13.
-- 🟡 **Primary Channel Highlights:** Automatic gold indicators for non-overlapping channels (**1**, **6**, and **11**).
-- 🚦 **Congestion Color Code:**
-  - 🟢 **Clean (1–2 APs):** Recommended channel for router configuration.
-  - 🟡 **Moderate (3–5 APs)**
-  - 🔴 **Congested (6+ APs)**
-- 📶 **Touch-Activated Network Inspector Modal:** Tapping any detected Wi-Fi network pops up a glassmorphic inspector card displaying:
+### Key Capabilities
+- **Real-Time 13-Channel Spectrum Density Graph:** Scans and displays Access Point saturation across 2.4GHz channels 1–13.
+- **Non-Overlapping Channel Telemetry:** Highlights standard primary channels (1, 6, and 11).
+- **Congestion Classification:**
+  - **Optimal (1–2 APs):** Recommended channel for lowest co-channel interference.
+  - **Moderate (3–5 APs)**
+  - **Congested (6+ APs)**
+- **Touch Network Inspector:** Tapping any detected Wi-Fi network inspects:
   - **BSSID (MAC Address)**
   - **Center Frequency & Channel** (e.g. \`Ch 6 - 2.437 GHz\`)
   - **Security Encryption** (\`WPA2-PSK\`, \`WPA3-PSK\`, \`Open\`, \`Enterprise\`)
   - **Signal Strength Bar Meter** (\`-30 dBm\` to \`-100 dBm\`)
-- ⚡ **Dual-Core Architecture:** FreeRTOS handles Wi-Fi scanning on Core 0 while LVGL v9 renders 60FPS graphics on Core 1.
+- **Dual-Core FreeRTOS Architecture:** Core 0 runs continuous Wi-Fi scanning routines while Core 1 executes LVGL v9 rendering at a stable 60 FPS without buffer starvation.
 
 ---
 
-## 🔌 Hardware Setup & Wiring
+## Hardware Setup & Pin Mapping
 
-If using the **ESP32-2432S022C (CYD)**, all connections between the ILI9341 display, XPT2046 touch controller, and ESP32 are already routed on-board!
+The **ESP32-2432S022C (CYD)** integrates display, touch controller, and microcontroller on a single PCB:
 
 | Peripheral | ESP32 Pin |
 | :--- | :--- |
@@ -233,7 +233,7 @@ If using the **ESP32-2432S022C (CYD)**, all connections between the ILI9341 disp
 
 ---
 
-## 🚀 Code & Installation
+## Firmware Deployment
 
 1. Clone the repository:
    \`\`\`bash
@@ -241,7 +241,7 @@ If using the **ESP32-2432S022C (CYD)**, all connections between the ILI9341 disp
    \`\`\`
 2. Open the project in **PlatformIO**.
 3. Select board \`esp32-2432S022C\` in \`platformio.ini\`.
-4. Build and flash the firmware to your board.
+4. Compile and upload firmware via USB.
 
 GitHub Repository: [https://github.com/earlchirchir/ESP32-Spectrum-Radar](https://github.com/earlchirchir/ESP32-Spectrum-Radar)
 `
@@ -346,14 +346,23 @@ async function fetchUserRepos() {
 
       // Explicitly clean descriptions for key projects
       repositories.forEach(r => {
+        if (r.name.toLowerCase().includes('abb-crb-15000')) {
+          r.description = 'Optimized cycle execution time by ~25% for the ABB GoFa collaborative arm. Formulated mathematical kinematic solvers, inverse dynamics, and bang-coast-bang time-optimal velocity profiles. Validated trajectory constraints through MATLAB and RoboDK 3D.';
+        }
         if (r.name.toLowerCase().includes('esp32-spectrum-radar')) {
-          r.description = 'High-speed 2.4GHz Wi-Fi RF spectrum analyzer & network visualizer firmware built for ESP32 Cheap Yellow Display (CYD), LVGL v9, and FreeRTOS.';
+          r.description = 'Managed FreeRTOS task scheduling and LVGL v9 rendering constraints on the ESP32 Cheap Yellow Display (CYD) for high-speed RF visualization.';
+        }
+        if (r.name.toLowerCase().includes('automated-shopping-cart')) {
+          r.description = 'Autonomous retail automation system using ESP32, RFID item scanning, HX711 24-bit load-cell tare verification, and MQTT telemetry protocol for synchronized automated billing.';
+        }
+        if (r.name.toLowerCase().includes('odi2-deafblind-assistive-device')) {
+          r.description = 'Tactile assistive hardware interface featuring ERM/LRA haptic feedback drivers via I2C, capacitive sensor matrix, and low-latency audio synthesis protocols for deafblind communication.';
         }
         if (r.name.toLowerCase().includes('iot-weighing-solution-for-bulk-bins')) {
-          r.description = 'Industrial IoT load cell weighing telemetry system with JSON data pipeline to remote SQL databases and Power BI.';
+          r.description = 'Industrial IoT weight sensing telemetry platform using load cells, HX711 amplifier, and cloud MQTT integration.';
         }
         if (r.name.toLowerCase().includes('load-sensor-modules-pcb')) {
-          r.description = 'Custom-designed 6-channel load sensor instrumentation PCB created in KiCAD/AutoDesk Eagle for strain-gauge weight measurement.';
+          r.description = 'Custom PCB layout accommodating 6 load sensor modules for modular plug-and-play hardware sensing.';
         }
       });
 
@@ -444,12 +453,11 @@ function renderRepos() {
         <span class="lang-pill ${getLanguageClass(repo.language)}">${repo.language || 'Code'}</span>
       </div>
 
-      <div class="card-tags-row" style="margin: 8px 0; display: flex; flex-wrap: wrap; gap: 6px;">
-        ${isPinned ? `<span class="tag-badge badge-pinned" style="background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.3); padding: 3px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;"><i class="fa-solid fa-thumbtack"></i> Pinned</span>` : ''}
+      <div class="card-tags-row">
+        ${isPinned ? `<span class="tag-badge badge-pinned"><i class="fa-solid fa-thumbtack"></i> Pinned</span>` : ''}
         ${isDissertation ? `
-          <span class="tag-badge badge-dissertation" style="background: rgba(147, 51, 234, 0.15); color: #c084fc; border: 1px solid rgba(147, 51, 234, 0.3); padding: 3px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;"><i class="fa-solid fa-graduation-cap"></i> MSc Dissertation</span>
-          <span class="tag-badge badge-grade" style="background: rgba(52, 211, 153, 0.15); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.3); padding: 3px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;"><i class="fa-solid fa-trophy"></i> Grade A (81%)</span>
-          <span class="tag-badge badge-school" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); padding: 3px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;"><i class="fa-solid fa-building-columns"></i> Kingston Univ London</span>
+          <span class="tag-badge badge-dissertation"><i class="fa-solid fa-robot"></i> Kinematics & Dynamics</span>
+          <span class="tag-badge badge-grade"><i class="fa-solid fa-gauge-high"></i> ~25% Cycle Gain</span>
         ` : ''}
       </div>
 
@@ -744,7 +752,21 @@ function setupEventListeners() {
     contactModal.addEventListener('click', (e) => {
       if (e.target === contactModal) closeContactModal();
     });
+
+    const stickyNavContactBtn = document.getElementById('sticky-nav-contact-btn');
+    if (stickyNavContactBtn) {
+      stickyNavContactBtn.addEventListener('click', () => {
+        contactModal.style.display = 'flex';
+        setTimeout(() => contactModal.classList.add('active'), 10);
+      });
+    }
   }
+
+  // Sticky Navigation Smooth Scrolling & Scrollspy
+  setupStickyNav();
+
+  // Interactive Bang-Coast-Bang Trajectory Simulator Engine
+  initTrajectorySimulator();
 
   // Article Modal events
   if (articleModalClose) articleModalClose.addEventListener('click', closeArticleModal);
@@ -790,6 +812,561 @@ function setupEventListeners() {
       }, 2500);
     }
   });
+}
+
+// ==========================================================================
+// Feature 1: Sticky Navigation Bar & Scrollspy
+// ==========================================================================
+function setupStickyNav() {
+  const navLinks = document.querySelectorAll('#nav-links a[href^="#"]');
+  const sections = [
+    document.getElementById('overview-highlights'),
+    document.getElementById('credentials-ribbon'),
+    document.getElementById('trajectory-simulator'),
+    document.getElementById('skills-matrix'),
+    document.getElementById('repos-section'),
+    document.getElementById('blog-section')
+  ].filter(Boolean);
+
+  // Smooth scroll with offset for sticky nav (60px)
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').substring(1);
+      const targetElem = document.getElementById(targetId);
+      if (targetElem) {
+        const navOffset = 64;
+        const targetTop = targetElem.getBoundingClientRect().top + window.pageYOffset - navOffset;
+        window.scrollTo({
+          top: targetTop,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // Active link scrollspy
+  const onScroll = () => {
+    const scrollPos = window.pageYOffset + 110;
+    let currentId = '';
+
+    for (const section of sections) {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      if (scrollPos >= top && scrollPos < top + height) {
+        currentId = section.id;
+        break;
+      }
+    }
+
+    if (!currentId && sections.length > 0 && scrollPos < sections[0].offsetTop) {
+      currentId = sections[0].id;
+    }
+
+    if (currentId) {
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === `#${currentId}`) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+}
+
+// ==========================================================================
+// Feature 2: Interactive Bang-Coast-Bang Trajectory Engine for ABB GoFa
+// ==========================================================================
+function initTrajectorySimulator() {
+  const container = document.getElementById('trajectory-simulator');
+  if (!container) return;
+
+  const displacementSlider = document.getElementById('traj-displacement');
+  const velocitySlider = document.getElementById('traj-velocity');
+  const accelSlider = document.getElementById('traj-accel');
+
+  const valDisplacement = document.getElementById('val-displacement');
+  const valVelocity = document.getElementById('val-velocity');
+  const valAccel = document.getElementById('val-accel');
+
+  const btnProfileOptimal = document.getElementById('btn-profile-optimal');
+  const btnProfileUnopt = document.getElementById('btn-profile-unopt');
+  const presetBtns = container.querySelectorAll('.preset-btn');
+
+  const btnPlaySim = document.getElementById('btn-play-sim');
+  const btnResetSim = document.getElementById('btn-reset-sim');
+
+  const teleTotalTime = document.getElementById('tele-total-time');
+  const teleAccelTime = document.getElementById('tele-accel-time');
+  const teleCoastTime = document.getElementById('tele-coast-time');
+  const teleEfficiency = document.getElementById('tele-efficiency');
+
+  const canvas = document.getElementById('trajectory-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const scrubberLine = document.getElementById('sim-scrubber-line');
+  const liveTimeIndicator = document.getElementById('live-time-indicator');
+
+  const readoutPos = document.getElementById('readout-pos');
+  const readoutVel = document.getElementById('readout-vel');
+  const readoutStatus = document.getElementById('readout-status');
+
+  // Robotic Arm SVG elements
+  const link1 = document.getElementById('arm-link-1');
+  const joint2 = document.getElementById('arm-joint-2');
+  const link2 = document.getElementById('arm-link-2');
+  const joint3 = document.getElementById('arm-joint-3');
+  const endEffector = document.getElementById('arm-end-effector');
+  const toolTip = document.getElementById('arm-tool-tip');
+
+  // State
+  let targetDeg = parseFloat(displacementSlider.value);
+  let vMax = parseFloat(velocitySlider.value);
+  let aMax = parseFloat(accelSlider.value);
+  let mode = 'optimal'; // 'optimal' or 'unoptimized'
+  let animId = null;
+  let isPlaying = false;
+  let simTime = 0;
+
+  // Preset Configurations
+  const presets = {
+    'fast-transfer': { deg: 90, vel: 2.2, acc: 5.5, mode: 'optimal' },
+    'precision': { deg: 45, vel: 0.9, acc: 2.0, mode: 'optimal' },
+    'heavy-payload': { deg: 180, vel: 2.6, acc: 6.0, mode: 'optimal' }
+  };
+
+  function computeKinematics() {
+    const D_rad = (targetDeg * Math.PI) / 180;
+    let t_a = vMax / aMax;
+    const d_acc = aMax * Math.pow(t_a, 2); // = vMax^2 / aMax
+
+    let v_peak = vMax;
+    let t_c = 0;
+    let T = 0;
+
+    if (D_rad < d_acc) {
+      // Triangular profile (trajectory doesn't reach vMax)
+      v_peak = Math.sqrt(D_rad * aMax);
+      t_a = v_peak / aMax;
+      t_c = 0;
+      T = 2 * t_a;
+    } else {
+      // Full trapezoidal profile (Bang-Coast-Bang)
+      v_peak = vMax;
+      const d_coast = D_rad - d_acc;
+      t_c = d_coast / vMax;
+      T = 2 * t_a + t_c;
+    }
+
+    // High-jerk / unoptimized profile benchmark (for comparison)
+    const T_unopt = T * 1.28;
+    const efficiencyGain = ((T_unopt - T) / T_unopt) * 100;
+
+    return {
+      D_rad,
+      t_a,
+      t_c,
+      T: mode === 'optimal' ? T : T_unopt,
+      T_optimal: T,
+      T_unopt,
+      v_peak,
+      efficiencyGain
+    };
+  }
+
+  // Calculate kinematics at instant time t
+  function evaluateAtTime(t, k) {
+    const { D_rad, t_a, t_c, T, v_peak } = k;
+    let s = 0;
+    let v = 0;
+    let a = 0;
+    let statusText = 'Ready (Standby)';
+
+    if (mode === 'optimal') {
+      if (t <= 0) {
+        s = 0; v = 0; a = 0;
+        statusText = 'Ready (Standby)';
+      } else if (t <= t_a) {
+        a = aMax;
+        v = aMax * t;
+        s = 0.5 * aMax * t * t;
+        statusText = 'Accelerating (+A)';
+      } else if (t <= t_a + t_c) {
+        a = 0;
+        v = v_peak;
+        s = 0.5 * aMax * t_a * t_a + v_peak * (t - t_a);
+        statusText = 'Coasting (Coast Phase)';
+      } else if (t < T) {
+        const tau = t - (t_a + t_c);
+        a = -aMax;
+        v = v_peak - aMax * tau;
+        s = 0.5 * aMax * t_a * t_a + v_peak * t_c + v_peak * tau - 0.5 * aMax * tau * tau;
+        statusText = 'Decelerating (-A)';
+      } else {
+        s = D_rad;
+        v = 0;
+        a = 0;
+        statusText = 'Target Waypoint Reached';
+      }
+    } else {
+      // Unoptimized constant speed with jerk impulse
+      if (t <= 0) {
+        s = 0; v = 0; a = 0;
+      } else if (t >= T) {
+        s = D_rad; v = 0; a = 0;
+        statusText = 'Cycle Completed (High Jerk Spikes)';
+      } else {
+        // Linear velocity with abrupt acceleration pulses
+        v = (D_rad / T);
+        s = v * t;
+        a = (t < 0.1 || t > T - 0.1) ? aMax * 1.5 : 0;
+        statusText = 'Constant Speed Movement';
+      }
+    }
+
+    return { s, v, a, statusText };
+  }
+
+  function updateTelemetry(k) {
+    teleTotalTime.textContent = k.T.toFixed(2) + ' s';
+    teleAccelTime.textContent = k.t_a.toFixed(2) + ' s';
+    teleCoastTime.textContent = k.t_c.toFixed(2) + ' s';
+    teleEfficiency.textContent = '+' + k.efficiencyGain.toFixed(1) + '%';
+  }
+
+  function resizeCanvas() {
+    const rect = canvas.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+    ctx.setTransform(1, 0, 0, 1, 0, 0); // reset scale
+    ctx.scale(dpr, dpr);
+  }
+
+  function drawCurves(k, currentT = 0) {
+    const rect = canvas.getBoundingClientRect();
+    const w = rect.width;
+    const h = rect.height;
+
+    ctx.clearRect(0, 0, w, h);
+
+    const padLeft = 45;
+    const padRight = 20;
+    const padTop = 28;
+    const padBottom = 25;
+    const plotW = w - padLeft - padRight;
+    const plotH = h - padTop - padBottom;
+
+    if (plotW <= 0 || plotH <= 0) return;
+
+    // Background phase regions
+    const xAccel = padLeft + (k.t_a / k.T) * plotW;
+    const xCoast = padLeft + ((k.t_a + k.t_c) / k.T) * plotW;
+
+    // Accel background tint
+    ctx.fillStyle = 'rgba(52, 211, 153, 0.04)';
+    ctx.fillRect(padLeft, padTop, (k.t_a / k.T) * plotW, plotH);
+
+    // Coast background tint
+    ctx.fillStyle = 'rgba(56, 189, 248, 0.03)';
+    ctx.fillRect(xAccel, padTop, (k.t_c / k.T) * plotW, plotH);
+
+    // Decel background tint
+    ctx.fillStyle = 'rgba(251, 191, 36, 0.04)';
+    ctx.fillRect(xCoast, padTop, plotW - (xCoast - padLeft), plotH);
+
+    // Grid lines
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
+    ctx.lineWidth = 1;
+    for (let i = 0; i <= 4; i++) {
+      const y = padTop + (plotH / 4) * i;
+      ctx.beginPath();
+      ctx.moveTo(padLeft, y);
+      ctx.lineTo(padLeft + plotW, y);
+      ctx.stroke();
+    }
+
+    // Phase partition lines
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+    ctx.setLineDash([4, 4]);
+    ctx.beginPath();
+    ctx.moveTo(xAccel, padTop);
+    ctx.lineTo(xAccel, padTop + plotH);
+    ctx.moveTo(xCoast, padTop);
+    ctx.lineTo(xCoast, padTop + plotH);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Phase text labels
+    ctx.font = '10px Inter, sans-serif';
+    ctx.fillStyle = '#64748b';
+    ctx.textAlign = 'center';
+    if (k.t_a > 0.05) ctx.fillText('Accel (ta)', (padLeft + xAccel) / 2, padTop - 10);
+    if (k.t_c > 0.1) ctx.fillText('Coast (tc)', (xAccel + xCoast) / 2, padTop - 10);
+    ctx.fillText('Decel (td)', (xCoast + padLeft + plotW) / 2, padTop - 10);
+
+    // Time Axis Marks
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#94a3b8';
+    ctx.fillText('0s', padLeft, padTop + plotH + 16);
+    ctx.fillText((k.T / 2).toFixed(1) + 's', padLeft + plotW / 2, padTop + plotH + 16);
+    ctx.fillText(k.T.toFixed(1) + 's', padLeft + plotW, padTop + plotH + 16);
+
+    const steps = 120;
+    const dt = k.T / steps;
+
+    // 1. Draw Displacement Curve s(t) [Cyan]
+    ctx.strokeStyle = '#38bdf8';
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    for (let i = 0; i <= steps; i++) {
+      const t = i * dt;
+      const { s } = evaluateAtTime(t, k);
+      const x = padLeft + (t / k.T) * plotW;
+      const y = padTop + plotH - (s / k.D_rad) * plotH * 0.9;
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+
+    // 2. Draw Velocity Profile v(t) [Emerald]
+    ctx.strokeStyle = '#34d399';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    for (let i = 0; i <= steps; i++) {
+      const t = i * dt;
+      const { v } = evaluateAtTime(t, k);
+      const x = padLeft + (t / k.T) * plotW;
+      const y = padTop + plotH - (v / (k.v_peak * 1.35)) * plotH;
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+
+    // 3. Draw Acceleration Profile a(t) [Amber]
+    ctx.strokeStyle = '#fbbf24';
+    ctx.lineWidth = 1.75;
+    ctx.beginPath();
+    const zeroAccY = padTop + plotH * 0.55;
+    for (let i = 0; i <= steps; i++) {
+      const t = i * dt;
+      const { a } = evaluateAtTime(t, k);
+      const x = padLeft + (t / k.T) * plotW;
+      const y = zeroAccY - (a / (aMax * 1.25)) * (plotH * 0.35);
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+
+    // Scrubber line positioning
+    if (scrubberLine) {
+      const curX = padLeft + Math.min(1, Math.max(0, currentT / k.T)) * plotW;
+      scrubberLine.style.left = `${curX}px`;
+    }
+  }
+
+  function updateRobotArm(radFraction) {
+    if (!link1 || !joint2 || !link2 || !joint3 || !endEffector || !toolTip) return;
+
+    // Forward Kinematics 2D visualization of ABB GoFa 2-link representation
+    const baseOriginX = 41;
+    const baseOriginY = 95;
+    const len1 = 52;
+    const len2 = 56;
+    const lenTool = 24;
+
+    // Angle of shoulder joint rotates with trajectory displacement
+    const baseAngle = -Math.PI / 3; // resting shoulder angle ~ -60 deg
+    const maxDelta = (targetDeg * Math.PI) / 180;
+    const curTheta1 = baseAngle + radFraction * maxDelta * 0.75;
+    const curTheta2 = curTheta1 + 0.5 + radFraction * 0.3;
+
+    // Elbow position
+    const elbowX = baseOriginX + len1 * Math.cos(curTheta1);
+    const elbowY = baseOriginY + len1 * Math.sin(curTheta1);
+
+    // Wrist position
+    const wristX = elbowX + len2 * Math.cos(curTheta2);
+    const wristY = elbowY + len2 * Math.sin(curTheta2);
+
+    // Tool tip position
+    const tipX = wristX + lenTool * Math.cos(curTheta2 + 0.15);
+    const tipY = wristY + lenTool * Math.sin(curTheta2 + 0.15);
+
+    link1.setAttribute('x2', elbowX.toFixed(1));
+    link1.setAttribute('y2', elbowY.toFixed(1));
+
+    joint2.setAttribute('cx', elbowX.toFixed(1));
+    joint2.setAttribute('cy', elbowY.toFixed(1));
+
+    link2.setAttribute('x1', elbowX.toFixed(1));
+    link2.setAttribute('y1', elbowY.toFixed(1));
+    link2.setAttribute('x2', wristX.toFixed(1));
+    link2.setAttribute('y2', wristY.toFixed(1));
+
+    joint3.setAttribute('cx', wristX.toFixed(1));
+    joint3.setAttribute('cy', wristY.toFixed(1));
+
+    endEffector.setAttribute('x1', wristX.toFixed(1));
+    endEffector.setAttribute('y1', wristY.toFixed(1));
+    endEffector.setAttribute('x2', tipX.toFixed(1));
+    endEffector.setAttribute('y2', tipY.toFixed(1));
+
+    toolTip.setAttribute('cx', tipX.toFixed(1));
+    toolTip.setAttribute('cy', tipY.toFixed(1));
+  }
+
+  function renderState(t = 0) {
+    const k = computeKinematics();
+    updateTelemetry(k);
+    drawCurves(k, t);
+
+    const { s, v, statusText } = evaluateAtTime(t, k);
+    const posDeg = (s * 180) / Math.PI;
+
+    if (readoutPos) readoutPos.textContent = `${posDeg.toFixed(1)}° / ${targetDeg.toFixed(1)}°`;
+    if (readoutVel) readoutVel.textContent = `${v.toFixed(2)} rad/s`;
+    if (readoutStatus) {
+      readoutStatus.textContent = statusText;
+      readoutStatus.style.color = t >= k.T ? '#34d399' : '#38bdf8';
+    }
+    if (liveTimeIndicator) {
+      liveTimeIndicator.textContent = `t = ${t.toFixed(2)}s / ${k.T.toFixed(2)}s`;
+    }
+
+    updateRobotArm(k.D_rad > 0 ? s / k.D_rad : 0);
+  }
+
+  function startSimulation() {
+    if (isPlaying) {
+      cancelAnimationFrame(animId);
+      isPlaying = false;
+      btnPlaySim.innerHTML = '<i class="fa-solid fa-play"></i> Resume Simulation';
+      return;
+    }
+
+    const k = computeKinematics();
+    if (simTime >= k.T) simTime = 0;
+
+    isPlaying = true;
+    if (scrubberLine) scrubberLine.classList.add('active');
+    btnPlaySim.innerHTML = '<i class="fa-solid fa-pause"></i> Pause Simulation';
+
+    let lastTs = performance.now();
+
+    function step(ts) {
+      const dt = (ts - lastTs) / 1000;
+      lastTs = ts;
+      simTime += dt;
+
+      if (simTime >= k.T) {
+        simTime = k.T;
+        renderState(simTime);
+        isPlaying = false;
+        btnPlaySim.innerHTML = '<i class="fa-solid fa-rotate-left"></i> Replay Simulation';
+        return;
+      }
+
+      renderState(simTime);
+      animId = requestAnimationFrame(step);
+    }
+
+    animId = requestAnimationFrame(step);
+  }
+
+  function resetSimulation() {
+    if (isPlaying) {
+      cancelAnimationFrame(animId);
+      isPlaying = false;
+    }
+    simTime = 0;
+    btnPlaySim.innerHTML = '<i class="fa-solid fa-play"></i> Run Trajectory Simulation';
+    renderState(0);
+  }
+
+  // Slider change listeners
+  displacementSlider.addEventListener('input', (e) => {
+    targetDeg = parseFloat(e.target.value);
+    valDisplacement.textContent = `${targetDeg}°`;
+    presetBtns.forEach(b => b.classList.remove('active'));
+    resetSimulation();
+  });
+
+  velocitySlider.addEventListener('input', (e) => {
+    vMax = parseFloat(e.target.value);
+    valVelocity.textContent = `${vMax.toFixed(1)} rad/s`;
+    presetBtns.forEach(b => b.classList.remove('active'));
+    resetSimulation();
+  });
+
+  accelSlider.addEventListener('input', (e) => {
+    aMax = parseFloat(e.target.value);
+    valAccel.textContent = `${aMax.toFixed(1)} rad/s²`;
+    presetBtns.forEach(b => b.classList.remove('active'));
+    resetSimulation();
+  });
+
+  // Profile comparison toggle
+  btnProfileOptimal.addEventListener('click', () => {
+    mode = 'optimal';
+    btnProfileOptimal.classList.add('active');
+    btnProfileUnopt.classList.remove('active');
+    resetSimulation();
+  });
+
+  btnProfileUnopt.addEventListener('click', () => {
+    mode = 'unoptimized';
+    btnProfileUnopt.classList.add('active');
+    btnProfileOptimal.classList.remove('active');
+    resetSimulation();
+  });
+
+  // Presets
+  presetBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const presetKey = btn.dataset.preset;
+      const p = presets[presetKey];
+      if (!p) return;
+
+      presetBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      targetDeg = p.deg;
+      vMax = p.vel;
+      aMax = p.acc;
+      mode = p.mode;
+
+      displacementSlider.value = targetDeg;
+      velocitySlider.value = vMax;
+      accelSlider.value = aMax;
+
+      valDisplacement.textContent = `${targetDeg}°`;
+      valVelocity.textContent = `${vMax.toFixed(1)} rad/s`;
+      valAccel.textContent = `${aMax.toFixed(1)} rad/s²`;
+
+      btnProfileOptimal.classList.toggle('active', mode === 'optimal');
+      btnProfileUnopt.classList.toggle('active', mode === 'unoptimized');
+
+      resetSimulation();
+    });
+  });
+
+  btnPlaySim.addEventListener('click', startSimulation);
+  btnResetSim.addEventListener('click', resetSimulation);
+
+  window.addEventListener('resize', () => {
+    resizeCanvas();
+    renderState(simTime);
+  });
+
+  // Initial render
+  setTimeout(() => {
+    resizeCanvas();
+    renderState(0);
+  }, 50);
 }
 
 // Initialize Application
