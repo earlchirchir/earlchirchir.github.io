@@ -922,15 +922,6 @@ function initTrajectorySimulator() {
   const endEffector = document.getElementById('arm-end-effector');
   const toolTip = document.getElementById('arm-tool-tip');
 
-  // State
-  let targetDeg = parseFloat(displacementSlider.value);
-  let vMax = parseFloat(velocitySlider.value);
-  let aMax = parseFloat(accelSlider.value);
-  let mode = 'optimal'; // 'optimal' or 'unoptimized'
-  let animId = null;
-  let isPlaying = false;
-  let simTime = 0;
-
   // Preset Configurations
   const presets = {
     'fast-transfer': { deg: 90, vel: 2.2, acc: 5.5, mode: 'optimal' },
@@ -938,93 +929,133 @@ function initTrajectorySimulator() {
     'heavy-payload': { deg: 180, vel: 2.6, acc: 6.0, mode: 'optimal' }
   };
 
-  function computeKinematics() {
-    const D_rad = (targetDeg * Math.PI) / 180;
-    let t_a = vMax / aMax;
-    const d_acc = aMax * Math.pow(t_a, 2); // = vMax^2 / aMax
+  // Target Parameters (driven by user inputs / presets)
+  let targetDeg = parseFloat(displacementSlider.value) || 90;
+  let targetVMax = parseFloat(velocitySlider.value) || 2.2;
+  let targetAMax = parseFloat(accelSlider.value) || 5.5;
+  let targetModeWeight = 1.0; // 1.0 = optimal bang-coast-bang, 0.0 = unoptimized
+  let mode = 'optimal';
 
-    let v_peak = vMax;
+  // Current Rendered / Interpolated Parameters (for buttery-smooth morphing)
+  let currDeg = targetDeg;
+  let currVMax = targetVMax;
+  let currAMax = targetAMax;
+  let currModeWeight = targetModeWeight;
+
+  // Simulation Timeline State
+  let simTime = 0;
+  let currSimTime = 0;
+  let isPlaying = false;
+  let isAnimating = false;
+  let lastFrameTs = performance.now();
+  let animId = null;
+
+  // Compute kinematic parameters given angular displacement, max velocity, and max acceleration
+  function computeKinematics(deg = currDeg, vel = currVMax, acc = currAMax, modeW = currModeWeight) {
+    const D_rad = (deg * Math.PI) / 180;
+    const safeAcc = Math.max(0.05, acc);
+    const safeVel = Math.max(0.05, vel);
+    let t_a = safeVel / safeAcc;
+    const d_acc = safeAcc * Math.pow(t_a, 2); // = v^2 / a
+
+    let v_peak = safeVel;
     let t_c = 0;
     let T = 0;
 
     if (D_rad < d_acc) {
-      // Triangular profile (trajectory doesn't reach vMax)
-      v_peak = Math.sqrt(D_rad * aMax);
-      t_a = v_peak / aMax;
+      // Triangular profile (trajectory doesn't reach target max velocity)
+      v_peak = Math.sqrt(Math.max(0.0001, D_rad * safeAcc));
+      t_a = v_peak / safeAcc;
       t_c = 0;
       T = 2 * t_a;
     } else {
       // Full trapezoidal profile (Bang-Coast-Bang)
-      v_peak = vMax;
+      v_peak = safeVel;
       const d_coast = D_rad - d_acc;
-      t_c = d_coast / vMax;
+      t_c = d_coast / safeVel;
       T = 2 * t_a + t_c;
     }
 
-    // High-jerk / unoptimized profile benchmark (for comparison)
+    const T_optimal = T;
     const T_unopt = T * 1.28;
-    const efficiencyGain = ((T_unopt - T) / T_unopt) * 100;
+    const effT = T_unopt * (1 - modeW) + T_optimal * modeW;
+    const efficiencyGain = ((T_unopt - T_optimal) / Math.max(0.001, T_unopt)) * 100 * modeW;
 
     return {
+      deg,
+      vMax: safeVel,
+      aMax: safeAcc,
       D_rad,
       t_a,
       t_c,
-      T: mode === 'optimal' ? T : T_unopt,
-      T_optimal: T,
+      T: effT,
+      T_optimal,
       T_unopt,
       v_peak,
-      efficiencyGain
+      efficiencyGain,
+      modeW
     };
   }
 
   // Calculate kinematics at instant time t
   function evaluateAtTime(t, k) {
-    const { D_rad, t_a, t_c, T, v_peak } = k;
-    let s = 0;
-    let v = 0;
-    let a = 0;
-    let statusText = 'Ready (Standby)';
+    const { D_rad, t_a, t_c, T, v_peak, aMax, modeW = 1 } = k;
+    let s_opt = 0;
+    let v_opt = 0;
+    let a_opt = 0;
 
-    if (mode === 'optimal') {
-      if (t <= 0) {
-        s = 0; v = 0; a = 0;
-        statusText = 'Ready (Standby)';
-      } else if (t <= t_a) {
-        a = aMax;
-        v = aMax * t;
-        s = 0.5 * aMax * t * t;
-        statusText = 'Accelerating (+A)';
-      } else if (t <= t_a + t_c) {
-        a = 0;
-        v = v_peak;
-        s = 0.5 * aMax * t_a * t_a + v_peak * (t - t_a);
-        statusText = 'Coasting (Coast Phase)';
-      } else if (t < T) {
-        const tau = t - (t_a + t_c);
-        a = -aMax;
-        v = v_peak - aMax * tau;
-        s = 0.5 * aMax * t_a * t_a + v_peak * t_c + v_peak * tau - 0.5 * aMax * tau * tau;
-        statusText = 'Decelerating (-A)';
-      } else {
-        s = D_rad;
-        v = 0;
-        a = 0;
-        statusText = 'Target Waypoint Reached';
-      }
+    // Optimal Bang-Coast-Bang
+    if (t <= 0) {
+      s_opt = 0; v_opt = 0; a_opt = 0;
+    } else if (t <= t_a) {
+      a_opt = aMax;
+      v_opt = aMax * t;
+      s_opt = 0.5 * aMax * t * t;
+    } else if (t <= t_a + t_c) {
+      a_opt = 0;
+      v_opt = v_peak;
+      s_opt = 0.5 * aMax * t_a * t_a + v_peak * (t - t_a);
+    } else if (t < T) {
+      const tau = t - (t_a + t_c);
+      a_opt = -aMax;
+      v_opt = Math.max(0, v_peak - aMax * tau);
+      s_opt = 0.5 * aMax * t_a * t_a + v_peak * t_c + v_peak * tau - 0.5 * aMax * tau * tau;
     } else {
-      // Unoptimized constant speed with jerk impulse
-      if (t <= 0) {
-        s = 0; v = 0; a = 0;
-      } else if (t >= T) {
-        s = D_rad; v = 0; a = 0;
-        statusText = 'Cycle Completed (High Jerk Spikes)';
-      } else {
-        // Linear velocity with abrupt acceleration pulses
-        v = (D_rad / T);
-        s = v * t;
-        a = (t < 0.1 || t > T - 0.1) ? aMax * 1.5 : 0;
-        statusText = 'Constant Speed Movement';
-      }
+      s_opt = D_rad;
+      v_opt = 0;
+      a_opt = 0;
+    }
+
+    // Unoptimized constant speed with abrupt jerk pulses
+    let s_unopt = 0;
+    let v_unopt = 0;
+    let a_unopt = 0;
+    if (t <= 0) {
+      s_unopt = 0; v_unopt = 0; a_unopt = 0;
+    } else if (t >= T) {
+      s_unopt = D_rad; v_unopt = 0; a_unopt = 0;
+    } else {
+      v_unopt = D_rad / Math.max(0.001, T);
+      s_unopt = v_unopt * t;
+      a_unopt = (t < 0.12 || t > T - 0.12) ? aMax * 1.5 : 0;
+    }
+
+    // Smooth profile blending based on mode weight
+    const s = s_unopt * (1 - modeW) + s_opt * modeW;
+    const v = v_unopt * (1 - modeW) + v_opt * modeW;
+    const a = a_unopt * (1 - modeW) + a_opt * modeW;
+
+    let statusText = 'Ready (Standby)';
+    if (t <= 0) {
+      statusText = 'Ready (Standby)';
+    } else if (t >= T - 0.001) {
+      statusText = modeW > 0.5 ? 'Target Waypoint Reached' : 'Cycle Completed (High Jerk Spikes)';
+    } else if (modeW > 0.5) {
+      if (t <= t_a) statusText = 'Accelerating (+A)';
+      else if (t <= t_a + t_c) statusText = 'Coasting (Coast Phase)';
+      else statusText = 'Decelerating (-A)';
+    } else {
+      statusText = 'Constant Speed Movement';
     }
 
     return { s, v, a, statusText };
@@ -1062,23 +1093,24 @@ function initTrajectorySimulator() {
 
     if (plotW <= 0 || plotH <= 0) return;
 
-    // Background phase regions
-    const xAccel = padLeft + (k.t_a / k.T) * plotW;
-    const xCoast = padLeft + ((k.t_a + k.t_c) / k.T) * plotW;
+    // Background phase regions smoothly tracking t_a and t_c
+    const safeT = Math.max(0.001, k.T);
+    const xAccel = padLeft + Math.min(1, Math.max(0, k.t_a / safeT)) * plotW;
+    const xCoast = padLeft + Math.min(1, Math.max(0, (k.t_a + k.t_c) / safeT)) * plotW;
 
     // Accel background tint
     ctx.fillStyle = 'rgba(52, 211, 153, 0.04)';
-    ctx.fillRect(padLeft, padTop, (k.t_a / k.T) * plotW, plotH);
+    ctx.fillRect(padLeft, padTop, Math.max(0, xAccel - padLeft), plotH);
 
     // Coast background tint
     ctx.fillStyle = 'rgba(56, 189, 248, 0.03)';
-    ctx.fillRect(xAccel, padTop, (k.t_c / k.T) * plotW, plotH);
+    ctx.fillRect(xAccel, padTop, Math.max(0, xCoast - xAccel), plotH);
 
     // Decel background tint
     ctx.fillStyle = 'rgba(251, 191, 36, 0.04)';
-    ctx.fillRect(xCoast, padTop, plotW - (xCoast - padLeft), plotH);
+    ctx.fillRect(xCoast, padTop, Math.max(0, padLeft + plotW - xCoast), plotH);
 
-    // Grid lines
+    // Horizontal Grid lines
     ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
     ctx.lineWidth = 1;
     for (let i = 0; i <= 4; i++) {
@@ -1116,7 +1148,7 @@ function initTrajectorySimulator() {
     ctx.fillText(k.T.toFixed(1) + 's', padLeft + plotW, padTop + plotH + 16);
 
     const steps = 120;
-    const dt = k.T / steps;
+    const dt = safeT / steps;
 
     // 1. Draw Displacement Curve s(t) [Cyan]
     ctx.strokeStyle = '#38bdf8';
@@ -1125,8 +1157,8 @@ function initTrajectorySimulator() {
     for (let i = 0; i <= steps; i++) {
       const t = i * dt;
       const { s } = evaluateAtTime(t, k);
-      const x = padLeft + (t / k.T) * plotW;
-      const y = padTop + plotH - (s / k.D_rad) * plotH * 0.9;
+      const x = padLeft + (t / safeT) * plotW;
+      const y = padTop + plotH - (s / Math.max(0.001, k.D_rad)) * plotH * 0.9;
       if (i === 0) ctx.moveTo(x, y);
       else ctx.lineTo(x, y);
     }
@@ -1139,8 +1171,8 @@ function initTrajectorySimulator() {
     for (let i = 0; i <= steps; i++) {
       const t = i * dt;
       const { v } = evaluateAtTime(t, k);
-      const x = padLeft + (t / k.T) * plotW;
-      const y = padTop + plotH - (v / (k.v_peak * 1.35)) * plotH;
+      const x = padLeft + (t / safeT) * plotW;
+      const y = padTop + plotH - (v / Math.max(0.001, k.v_peak * 1.35)) * plotH;
       if (i === 0) ctx.moveTo(x, y);
       else ctx.lineTo(x, y);
     }
@@ -1154,21 +1186,55 @@ function initTrajectorySimulator() {
     for (let i = 0; i <= steps; i++) {
       const t = i * dt;
       const { a } = evaluateAtTime(t, k);
-      const x = padLeft + (t / k.T) * plotW;
-      const y = zeroAccY - (a / (aMax * 1.25)) * (plotH * 0.35);
+      const x = padLeft + (t / safeT) * plotW;
+      const y = zeroAccY - (a / Math.max(0.001, k.aMax * 1.25)) * (plotH * 0.35);
       if (i === 0) ctx.moveTo(x, y);
       else ctx.lineTo(x, y);
     }
     ctx.stroke();
 
-    // Scrubber line positioning
+    // Current State Sample Points at Scrubber Position
+    const curNorm = Math.min(1, Math.max(0, currentT / safeT));
+    const curX = padLeft + curNorm * plotW;
+    const { s: curS, v: curV, a: curA } = evaluateAtTime(currentT, k);
+
+    // Glowing Point on Displacement Curve
+    const curY_s = padTop + plotH - (curS / Math.max(0.001, k.D_rad)) * plotH * 0.9;
+    ctx.beginPath();
+    ctx.arc(curX, curY_s, 4, 0, Math.PI * 2);
+    ctx.fillStyle = '#38bdf8';
+    ctx.fill();
+    ctx.lineWidth = 1.5;
+    ctx.strokeStyle = '#ffffff';
+    ctx.stroke();
+
+    // Glowing Point on Velocity Curve
+    const curY_v = padTop + plotH - (curV / Math.max(0.001, k.v_peak * 1.35)) * plotH;
+    ctx.beginPath();
+    ctx.arc(curX, curY_v, 4, 0, Math.PI * 2);
+    ctx.fillStyle = '#34d399';
+    ctx.fill();
+    ctx.lineWidth = 1.5;
+    ctx.strokeStyle = '#ffffff';
+    ctx.stroke();
+
+    // Glowing Point on Acceleration Curve
+    const curY_a = zeroAccY - (curA / Math.max(0.001, k.aMax * 1.25)) * (plotH * 0.35);
+    ctx.beginPath();
+    ctx.arc(curX, curY_a, 4, 0, Math.PI * 2);
+    ctx.fillStyle = '#fbbf24';
+    ctx.fill();
+    ctx.lineWidth = 1.5;
+    ctx.strokeStyle = '#ffffff';
+    ctx.stroke();
+
+    // Update Scrubber line DOM element smoothly
     if (scrubberLine) {
-      const curX = padLeft + Math.min(1, Math.max(0, currentT / k.T)) * plotW;
       scrubberLine.style.left = `${curX}px`;
     }
   }
 
-  function updateRobotArm(radFraction) {
+  function updateRobotArm(radFraction, currentDeg) {
     if (!link1 || !joint2 || !link2 || !joint3 || !endEffector || !toolTip) return;
 
     // Forward Kinematics 2D visualization of ABB GoFa 2-link representation
@@ -1180,7 +1246,7 @@ function initTrajectorySimulator() {
 
     // Angle of shoulder joint rotates with trajectory displacement
     const baseAngle = -Math.PI / 3; // resting shoulder angle ~ -60 deg
-    const maxDelta = (targetDeg * Math.PI) / 180;
+    const maxDelta = (currentDeg * Math.PI) / 180;
     const curTheta1 = baseAngle + radFraction * maxDelta * 0.75;
     const curTheta2 = curTheta1 + 0.5 + radFraction * 0.3;
 
@@ -1219,112 +1285,223 @@ function initTrajectorySimulator() {
     toolTip.setAttribute('cy', tipY.toFixed(1));
   }
 
-  function renderState(t = 0) {
-    const k = computeKinematics();
+  function renderState(k, t = 0) {
     updateTelemetry(k);
     drawCurves(k, t);
 
     const { s, v, statusText } = evaluateAtTime(t, k);
     const posDeg = (s * 180) / Math.PI;
 
-    if (readoutPos) readoutPos.textContent = `${posDeg.toFixed(1)}° / ${targetDeg.toFixed(1)}°`;
+    if (readoutPos) readoutPos.textContent = `${posDeg.toFixed(1)}° / ${k.deg.toFixed(1)}°`;
     if (readoutVel) readoutVel.textContent = `${v.toFixed(2)} rad/s`;
     if (readoutStatus) {
       readoutStatus.textContent = statusText;
-      readoutStatus.style.color = t >= k.T ? '#34d399' : '#38bdf8';
+      readoutStatus.style.color = t >= k.T - 0.001 ? '#34d399' : '#38bdf8';
     }
     if (liveTimeIndicator) {
       liveTimeIndicator.textContent = `t = ${t.toFixed(2)}s / ${k.T.toFixed(2)}s`;
     }
 
-    updateRobotArm(k.D_rad > 0 ? s / k.D_rad : 0);
+    updateRobotArm(k.D_rad > 0 ? s / k.D_rad : 0, k.deg);
+  }
+
+  // Smooth Animation and Parameter Interpolation Loop
+  function stepLoop(ts) {
+    const dt = Math.min((ts - lastFrameTs) / 1000, 0.05);
+    lastFrameTs = ts;
+
+    // Exponential smoothing rate (~220ms settling time, frame-rate independent)
+    const smoothFactor = 1 - Math.exp(-15 * dt);
+
+    currDeg += (targetDeg - currDeg) * smoothFactor;
+    currVMax += (targetVMax - currVMax) * smoothFactor;
+    currAMax += (targetAMax - currAMax) * smoothFactor;
+    currModeWeight += (targetModeWeight - currModeWeight) * smoothFactor;
+
+    // Step active simulation playback
+    if (isPlaying) {
+      simTime += dt;
+      const activeK = computeKinematics(currDeg, currVMax, currAMax, currModeWeight);
+      if (simTime >= activeK.T) {
+        simTime = activeK.T;
+        isPlaying = false;
+        btnPlaySim.innerHTML = '<i class="fa-solid fa-rotate-left"></i> Replay Simulation';
+      }
+      currSimTime = simTime;
+    } else {
+      // Smoothly ease scrubbing position if target time changed
+      currSimTime += (simTime - currSimTime) * Math.min(1, smoothFactor * 1.6);
+    }
+
+    const currentK = computeKinematics(currDeg, currVMax, currAMax, currModeWeight);
+    renderState(currentK, currSimTime);
+
+    // Convergence check to sleep animation loop when idle
+    const isSettled =
+      !isPlaying &&
+      Math.abs(targetDeg - currDeg) < 0.04 &&
+      Math.abs(targetVMax - currVMax) < 0.004 &&
+      Math.abs(targetAMax - currAMax) < 0.004 &&
+      Math.abs(targetModeWeight - currModeWeight) < 0.004 &&
+      Math.abs(simTime - currSimTime) < 0.004;
+
+    if (isSettled) {
+      currDeg = targetDeg;
+      currVMax = targetVMax;
+      currAMax = targetAMax;
+      currModeWeight = targetModeWeight;
+      currSimTime = simTime;
+      const finalK = computeKinematics(currDeg, currVMax, currAMax, currModeWeight);
+      renderState(finalK, currSimTime);
+      isAnimating = false;
+    } else {
+      animId = requestAnimationFrame(stepLoop);
+    }
+  }
+
+  function wakeAnimation() {
+    if (!isAnimating) {
+      isAnimating = true;
+      lastFrameTs = performance.now();
+      animId = requestAnimationFrame(stepLoop);
+    }
+  }
+
+  // Adjust simTime smoothly preserving relative cycle progress when duration changes
+  function adaptSimTimeForParamChange(newTargetDeg, newTargetVMax, newTargetAMax, newTargetModeWeight) {
+    const oldK = computeKinematics(currDeg, currVMax, currAMax, currModeWeight);
+    const newK = computeKinematics(newTargetDeg, newTargetVMax, newTargetAMax, newTargetModeWeight);
+    const progress = oldK.T > 0 ? (simTime / oldK.T) : 0;
+    simTime = Math.min(newK.T, Math.max(0, progress * newK.T));
   }
 
   function startSimulation() {
+    const k = computeKinematics(currDeg, currVMax, currAMax, currModeWeight);
     if (isPlaying) {
-      cancelAnimationFrame(animId);
       isPlaying = false;
       btnPlaySim.innerHTML = '<i class="fa-solid fa-play"></i> Resume Simulation';
       return;
     }
 
-    const k = computeKinematics();
-    if (simTime >= k.T) simTime = 0;
-
-    isPlaying = true;
-    if (scrubberLine) scrubberLine.classList.add('active');
-    btnPlaySim.innerHTML = '<i class="fa-solid fa-pause"></i> Pause Simulation';
-
-    let lastTs = performance.now();
-
-    function step(ts) {
-      const dt = (ts - lastTs) / 1000;
-      lastTs = ts;
-      simTime += dt;
-
-      if (simTime >= k.T) {
-        simTime = k.T;
-        renderState(simTime);
-        isPlaying = false;
-        btnPlaySim.innerHTML = '<i class="fa-solid fa-rotate-left"></i> Replay Simulation';
-        return;
-      }
-
-      renderState(simTime);
-      animId = requestAnimationFrame(step);
+    if (simTime >= k.T - 0.01) {
+      simTime = 0;
+      currSimTime = 0;
     }
 
-    animId = requestAnimationFrame(step);
+    isPlaying = true;
+    btnPlaySim.innerHTML = '<i class="fa-solid fa-pause"></i> Pause Simulation';
+    wakeAnimation();
   }
 
   function resetSimulation() {
     if (isPlaying) {
-      cancelAnimationFrame(animId);
       isPlaying = false;
     }
     simTime = 0;
     btnPlaySim.innerHTML = '<i class="fa-solid fa-play"></i> Run Trajectory Simulation';
-    renderState(0);
+    wakeAnimation();
   }
 
-  // Slider change listeners
+  // Interactive timeline scrubbing directly on canvas wrapper
+  let isDraggingScrubber = false;
+
+  function scrubFromEvent(e) {
+    const rect = canvas.getBoundingClientRect();
+    const clientX = e.clientX !== undefined ? e.clientX : (e.touches && e.touches[0] ? e.touches[0].clientX : null);
+    if (clientX === null) return;
+
+    const padLeft = 45;
+    const padRight = 20;
+    const plotW = rect.width - padLeft - padRight;
+    if (plotW <= 0) return;
+
+    const x = clientX - rect.left;
+    const norm = Math.max(0, Math.min(1, (x - padLeft) / plotW));
+
+    if (isPlaying) {
+      isPlaying = false;
+      btnPlaySim.innerHTML = '<i class="fa-solid fa-play"></i> Resume Simulation';
+    }
+
+    const currentK = computeKinematics(currDeg, currVMax, currAMax, currModeWeight);
+    simTime = norm * currentK.T;
+    wakeAnimation();
+  }
+
+  const canvasWrapper = canvas.parentElement;
+  if (canvasWrapper) {
+    canvasWrapper.addEventListener('mousedown', (e) => {
+      isDraggingScrubber = true;
+      scrubFromEvent(e);
+    });
+    window.addEventListener('mousemove', (e) => {
+      if (isDraggingScrubber) scrubFromEvent(e);
+    });
+    window.addEventListener('mouseup', () => {
+      isDraggingScrubber = false;
+    });
+
+    // Mobile touch scrubbing
+    canvasWrapper.addEventListener('touchstart', (e) => {
+      isDraggingScrubber = true;
+      scrubFromEvent(e);
+    }, { passive: true });
+    window.addEventListener('touchmove', (e) => {
+      if (isDraggingScrubber) scrubFromEvent(e);
+    }, { passive: true });
+    window.addEventListener('touchend', () => {
+      isDraggingScrubber = false;
+    });
+  }
+
+  // Slider change listeners with smooth parameter transitions
   displacementSlider.addEventListener('input', (e) => {
-    targetDeg = parseFloat(e.target.value);
+    const val = parseFloat(e.target.value);
+    targetDeg = val;
     valDisplacement.textContent = `${targetDeg}°`;
     presetBtns.forEach(b => b.classList.remove('active'));
-    resetSimulation();
+    adaptSimTimeForParamChange(targetDeg, targetVMax, targetAMax, targetModeWeight);
+    wakeAnimation();
   });
 
   velocitySlider.addEventListener('input', (e) => {
-    vMax = parseFloat(e.target.value);
-    valVelocity.textContent = `${vMax.toFixed(1)} rad/s`;
+    const val = parseFloat(e.target.value);
+    targetVMax = val;
+    valVelocity.textContent = `${targetVMax.toFixed(1)} rad/s`;
     presetBtns.forEach(b => b.classList.remove('active'));
-    resetSimulation();
+    adaptSimTimeForParamChange(targetDeg, targetVMax, targetAMax, targetModeWeight);
+    wakeAnimation();
   });
 
   accelSlider.addEventListener('input', (e) => {
-    aMax = parseFloat(e.target.value);
-    valAccel.textContent = `${aMax.toFixed(1)} rad/s²`;
+    const val = parseFloat(e.target.value);
+    targetAMax = val;
+    valAccel.textContent = `${targetAMax.toFixed(1)} rad/s²`;
     presetBtns.forEach(b => b.classList.remove('active'));
-    resetSimulation();
+    adaptSimTimeForParamChange(targetDeg, targetVMax, targetAMax, targetModeWeight);
+    wakeAnimation();
   });
 
-  // Profile comparison toggle
+  // Profile comparison toggle with smooth blend
   btnProfileOptimal.addEventListener('click', () => {
     mode = 'optimal';
+    targetModeWeight = 1.0;
     btnProfileOptimal.classList.add('active');
     btnProfileUnopt.classList.remove('active');
-    resetSimulation();
+    adaptSimTimeForParamChange(targetDeg, targetVMax, targetAMax, targetModeWeight);
+    wakeAnimation();
   });
 
   btnProfileUnopt.addEventListener('click', () => {
     mode = 'unoptimized';
+    targetModeWeight = 0.0;
     btnProfileUnopt.classList.add('active');
     btnProfileOptimal.classList.remove('active');
-    resetSimulation();
+    adaptSimTimeForParamChange(targetDeg, targetVMax, targetAMax, targetModeWeight);
+    wakeAnimation();
   });
 
-  // Presets
+  // Presets with smooth multi-parameter morphing
   presetBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const presetKey = btn.dataset.preset;
@@ -1335,22 +1512,24 @@ function initTrajectorySimulator() {
       btn.classList.add('active');
 
       targetDeg = p.deg;
-      vMax = p.vel;
-      aMax = p.acc;
+      targetVMax = p.vel;
+      targetAMax = p.acc;
+      targetModeWeight = (p.mode === 'optimal' ? 1.0 : 0.0);
       mode = p.mode;
 
       displacementSlider.value = targetDeg;
-      velocitySlider.value = vMax;
-      accelSlider.value = aMax;
+      velocitySlider.value = targetVMax;
+      accelSlider.value = targetAMax;
 
       valDisplacement.textContent = `${targetDeg}°`;
-      valVelocity.textContent = `${vMax.toFixed(1)} rad/s`;
-      valAccel.textContent = `${aMax.toFixed(1)} rad/s²`;
+      valVelocity.textContent = `${targetVMax.toFixed(1)} rad/s`;
+      valAccel.textContent = `${targetAMax.toFixed(1)} rad/s²`;
 
       btnProfileOptimal.classList.toggle('active', mode === 'optimal');
       btnProfileUnopt.classList.toggle('active', mode === 'unoptimized');
 
-      resetSimulation();
+      adaptSimTimeForParamChange(targetDeg, targetVMax, targetAMax, targetModeWeight);
+      wakeAnimation();
     });
   });
 
@@ -1359,13 +1538,15 @@ function initTrajectorySimulator() {
 
   window.addEventListener('resize', () => {
     resizeCanvas();
-    renderState(simTime);
+    const k = computeKinematics(currDeg, currVMax, currAMax, currModeWeight);
+    renderState(k, currSimTime);
   });
 
   // Initial render
   setTimeout(() => {
     resizeCanvas();
-    renderState(0);
+    const k = computeKinematics(currDeg, currVMax, currAMax, currModeWeight);
+    renderState(k, 0);
   }, 50);
 }
 
