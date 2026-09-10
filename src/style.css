@@ -52,6 +52,11 @@
 body {
   font-family: var(--font-body);
   background-color: var(--bg-dark);
+  background-image: url('/images/bg-tech-grid.svg');
+  background-repeat: repeat;
+  background-position: top center;
+  background-size: 80px 80px;
+  background-attachment: fixed;
   color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;
@@ -133,9 +138,17 @@ body {
    Header & Profile Section
    ========================================================================== */
 .header {
+  position: relative;
   padding: 44px 0 28px;
   border-bottom: 1px solid var(--border-card);
-  background: #0d1320;
+  background-color: #0c121f;
+  background-image: 
+    linear-gradient(to right, #0c121f 40%, rgba(12, 18, 31, 0.78) 75%, rgba(12, 18, 31, 0.94) 100%),
+    url('/images/bg-robotics-blueprint.svg');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: auto 92%;
+  overflow: hidden;
 }
 
 .header-content {
@@ -970,7 +983,14 @@ body {
 }
 
 .spotlight-card {
-  background: #0f1624;
+  background-color: #0f1624;
+  background-image: 
+    radial-gradient(ellipse at 92% 15%, rgba(56, 189, 248, 0.05) 0%, transparent 65%),
+    linear-gradient(to right, rgba(15, 22, 36, 0.97) 45%, rgba(15, 22, 36, 0.82) 75%, rgba(15, 22, 36, 0.94) 100%),
+    url('/images/bg-robotics-blueprint.svg');
+  background-repeat: no-repeat;
+  background-position: right -50px top -30px;
+  background-size: auto 135%;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-lg);
   padding: 28px;
@@ -1196,6 +1216,14 @@ body {
 
 /* Responsive Breakpoints */
 @media (max-width: 768px) {
+  .header {
+    background-position: right -100px bottom;
+    background-size: auto 60%;
+  }
+  .spotlight-card {
+    background-position: right -120px top -10px;
+    background-size: auto 90%;
+  }
   .header-content {
     flex-direction: column;
     align-items: flex-start;
@@ -1266,10 +1294,10 @@ body {
 }
 
 .nav-tag {
-  font-size: 0.74rem;
-  color: var(--text-dim);
-  padding-left: 8px;
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.01em;
 }
 
 .nav-links {
@@ -1413,7 +1441,13 @@ body {
 }
 
 .applied-edu-card {
-  background: var(--bg-card);
+  background-color: var(--bg-card);
+  background-image: 
+    linear-gradient(to bottom, rgba(16, 23, 38, 0.94) 0%, rgba(16, 23, 38, 0.98) 100%),
+    url('/images/bg-embedded-mesh.svg');
+  background-repeat: no-repeat;
+  background-position: right -20px bottom -20px;
+  background-size: 320px auto;
   border: 1px solid var(--border-card);
   border-radius: var(--radius-lg);
   padding: 22px 24px;
@@ -1646,7 +1680,12 @@ body {
 }
 
 .compliance-card {
-  background: #0a0e18;
+  background-color: #0a0e18;
+  background-image: 
+    linear-gradient(to right, rgba(10, 14, 24, 0.96) 30%, rgba(10, 14, 24, 0.9) 100%),
+    url('/images/bg-tech-grid.svg');
+  background-repeat: repeat;
+  background-size: 80px 80px;
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--radius-lg);
   padding: 20px 24px;
@@ -2120,7 +2159,10 @@ body {
   position: relative;
   width: 100%;
   height: 240px;
-  background: #060911;
+  background-color: #060911;
+  background-image: url('/images/bg-tech-grid.svg');
+  background-repeat: repeat;
+  background-size: 40px 40px;
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--radius-sm);
   overflow: hidden;
