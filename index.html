@@ -4,161 +4,308 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Earl Chirchir | Robotics & Embedded Systems Engineer</title>
-  <meta name="description" content="Portfolio of Earl Chirchir - Robotics, Trajectory Planning & ESP32 Embedded Systems Engineer. Specializing in Robot Kinematics, ABB GoFa Motion Optimization, and Real-Time Firmware." />
-  <meta name="keywords" content="Earl Chirchir, Robotics Engineer, Embedded Systems, Mechatronics, ABB GoFa, Kinematics, Trajectory Planning, ESP32, FreeRTOS, UK Work Visa, MATLAB, RoboDK, C++" />
+  <meta name="description" content="Portfolio of Earl Chirchir (MSc Distinction) — Robotics, Trajectory Planning & ESP32 Embedded Systems Engineer. Specializing in Robot Kinematics, ABB GoFa Motion Optimization, and Real-Time Firmware." />
+  <meta name="keywords" content="Earl Chirchir, Robotics Engineer, Embedded Systems, Mechatronics, ABB GoFa, Kinematics, Trajectory Planning, ESP32, FreeRTOS, LVGL, UK Graduate Visa, MATLAB, RoboDK, C++" />
   <meta name="author" content="Earl Chirchir" />
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://earlchirchir.github.io/" />
-  <meta name="theme-color" content="#090d16" />
+  <meta name="theme-color" content="#070a12" />
 
   <!-- Open Graph / LinkedIn / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://earlchirchir.github.io/" />
   <meta property="og:title" content="Earl Chirchir | Robotics & Embedded Systems Engineer" />
-  <meta property="og:description" content="Portfolio of Earl Chirchir - Robotics, Trajectory Planning & ESP32 Embedded Systems Engineer. Specializing in Robot Kinematics, ABB GoFa Motion Optimization, and Real-Time Firmware." />
+  <meta property="og:description" content="MSc Mechatronics (Distinction) • Robotics, Trajectory Planning & ESP32 Embedded Systems Engineer. ~25% cycle optimization on ABB GoFa CRB 15000, FreeRTOS & LVGL v9 firmware." />
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/106341525?v=4" />
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:card" content="summary" />
   <meta name="twitter:url" content="https://earlchirchir.github.io/" />
   <meta name="twitter:title" content="Earl Chirchir | Robotics & Embedded Systems Engineer" />
   <meta name="twitter:description" content="Robotics & Embedded Systems Engineer specializing in Robot Kinematics, ABB GoFa Trajectory Planning, and ESP32 Firmware. Full UK Work Rights." />
   <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/106341525?v=4" />
 
-  <!-- Structured Data: Schema.org Person -->
+  <!-- Structured Data: Schema.org Person & Featured Engineering Work -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Earl Chirchir",
-    "jobTitle": "Mechatronics & Robotics Engineer",
-    "url": "https://earlchirchir.github.io/",
-    "image": "https://avatars.githubusercontent.com/u/106341525?v=4",
-    "sameAs": [
-      "https://github.com/earlchirchir",
-      "https://www.linkedin.com/in/earl-chirchir/",
-      "https://www.hackster.io/earl-chirchir"
-    ],
-    "alumniOf": [
+    "@graph": [
       {
-        "@type": "CollegeOrUniversity",
-        "name": "Kingston University London"
+        "@type": "Person",
+        "@id": "https://earlchirchir.github.io/#person",
+        "name": "Earl Chirchir",
+        "jobTitle": "Robotics & Embedded Systems Engineer",
+        "url": "https://earlchirchir.github.io/",
+        "image": "https://avatars.githubusercontent.com/u/106341525?v=4",
+        "email": "mailto:earlchirchir@outlook.com",
+        "telephone": "+447425243365",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Swansea",
+          "addressRegion": "Wales",
+          "postalCode": "SA1 8BB",
+          "addressCountry": "GB"
+        },
+        "sameAs": [
+          "https://github.com/earlchirchir",
+          "https://www.linkedin.com/in/earl-chirchir/",
+          "https://www.hackster.io/earl-chirchir",
+          "https://x.com/earl_cr"
+        ],
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Kingston University London"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Jomo Kenyatta University of Agriculture and Technology"
+          }
+        ],
+        "knowsAbout": [
+          "Robotics",
+          "Robot Kinematics",
+          "Trajectory Planning",
+          "Bang-Coast-Bang Motion Control",
+          "ABB GoFa CRB 15000",
+          "Embedded Systems",
+          "ESP32 Firmware",
+          "FreeRTOS",
+          "LVGL v9",
+          "MATLAB",
+          "RoboDK 3D",
+          "Industrial IoT",
+          "PCB Design"
+        ]
       },
       {
-        "@type": "CollegeOrUniversity",
-        "name": "Jomo Kenyatta University of Agriculture and Technology"
+        "@type": "SoftwareSourceCode",
+        "name": "ABB CRB 15000 Robotic Arm Kinematics & Trajectory Planning",
+        "author": { "@id": "https://earlchirchir.github.io/#person" },
+        "codeRepository": "https://github.com/earlchirchir/ABB-CRB-15000-Robotic-Arm-Kinematics-Trajectory-Planning",
+        "programmingLanguage": "MATLAB",
+        "description": "Time-optimal Bang-Coast-Bang trajectory planner and closed-form 6-DOF inverse kinematics solver for the ABB GoFa CRB 15000 collaborative robot, achieving ~25% cycle time reduction."
       }
-    ],
-    "knowsAbout": [
-      "Robotics",
-      "Kinematics",
-      "Trajectory Planning",
-      "Embedded Systems",
-      "ESP32",
-      "MATLAB",
-      "FreeRTOS",
-      "CAD"
     ]
   }
   </script>
-  
-  <!-- Google Fonts: Plus Jakarta Sans, Inter, JetBrains Mono -->
+
+  <!-- Google Fonts: Outfit, Plus Jakarta Sans, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <link rel="stylesheet" href="./src/style.css" />
 </head>
 <body>
-  
-  <header class="header">
-    <div class="container header-content">
-      <div class="profile-main">
-        <div class="avatar-container">
-          <img id="user-avatar" src="https://avatars.githubusercontent.com/u/106341525?v=4" alt="Earl Chirchir" class="avatar-img" />
-          <span class="status-indicator" title="Active on GitHub"></span>
-        </div>
-        <div class="profile-info">
-          <div class="name-badge-row">
-            <h1 id="user-name">Earl Chirchir</h1>
-            <a id="user-login" href="https://github.com/earlchirchir" target="_blank" rel="noopener noreferrer" class="handle" title="View Earl Chirchir on GitHub">@earlchirchir</a>
-          </div>
-          <p id="user-bio" class="bio">Robotics, Trajectory Planning & ESP32 Embedded Systems Engineer</p>
-          
-          <!-- Contact Info List -->
-          <div class="contact-info-list">
-            <a href="mailto:earlchirchir@outlook.com" class="contact-item" title="Send Email"><i class="fa-solid fa-envelope"></i> earlchirchir@outlook.com</a>
-            <a href="tel:+447425243365" class="contact-item" title="Call Phone Number"><i class="fa-solid fa-phone"></i> +44 7425 243365</a>
-            <span class="contact-item"><i class="fa-solid fa-location-dot"></i> Swansea SA1 8BB, Wales, UK</span>
-          </div>
+  <a href="#main-content" class="skip-link">Skip to main engineering content</a>
 
-
-          <!-- Core Technical Capability Tags -->
-          <div class="tag-list">
-            <span class="tag"><i class="fa-solid fa-microchip"></i> ESP32 & Arduino</span>
-            <span class="tag"><i class="fa-solid fa-robot"></i> Robot Kinematics</span>
-            <span class="tag"><i class="fa-solid fa-wifi"></i> Industrial IoT</span>
-            <span class="tag"><i class="fa-solid fa-code"></i> C++ & MATLAB</span>
-          </div>
-        </div>
-      </div>
-      
-      <div class="profile-actions">
-        <button id="contact-btn" class="btn btn-primary" title="Get in touch via Email, WhatsApp or Phone">
-          <i class="fa-solid fa-paper-plane"></i> Contact Me
-        </button>
-        <a id="cv-pdf-link" href="Earl_Chirchir_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" title="Download ATS Optimized PDF CV">
-          <i class="fa-solid fa-file-arrow-down"></i> Download CV (PDF)
-        </a>
-        <a id="cv-link" href="https://flowcv.com/resume/s7t5fakcqscs" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" title="View Online Dynamic FlowCV Resume">
-          <i class="fa-solid fa-arrow-up-right-from-square"></i> Web CV
-        </a>
-        <a id="github-link" href="https://github.com/earlchirchir" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-          <i class="fa-brands fa-github"></i> GitHub
-        </a>
-        <a id="linkedin-link" href="https://www.linkedin.com/in/earl-chirchir/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-          <i class="fa-brands fa-linkedin"></i> LinkedIn
-        </a>
-        <a id="hackster-link" href="https://www.hackster.io/earl-chirchir" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-          <i class="fa-solid fa-microchip"></i> Hackster.io
-        </a>
-      </div>
-    </div>
-  </header>
+  <!-- Ambient Top Precision Glow -->
+  <div class="ambient-mesh" aria-hidden="true"></div>
 
   <!-- Sticky Quick Navigation Bar -->
   <nav class="sticky-nav" id="sticky-nav" aria-label="Main Navigation">
     <div class="container sticky-nav-container">
-      <div class="nav-brand">
+      <a href="#" class="nav-brand" aria-label="Earl Chirchir Home">
         <span class="nav-avatar-mini">EC</span>
-        <span class="nav-tag">Robotics & Embedded</span>
-      </div>
+        <div class="nav-brand-text">
+          <span class="nav-name">Earl Chirchir</span>
+          <span class="nav-tag">Robotics &amp; Embedded</span>
+        </div>
+      </a>
       <div class="nav-links" id="nav-links">
-        <a href="#spotlight-section" class="nav-item active"><i class="fa-solid fa-robot"></i> <span>Motion Control</span></a>
+        <a href="#spotlight-section" class="nav-item active"><i class="fa-solid fa-robot"></i> <span>Motion Lab</span></a>
         <a href="#skills-matrix" class="nav-item"><i class="fa-solid fa-layer-group"></i> <span>Competencies</span></a>
         <a href="#repos-section" class="nav-item"><i class="fa-solid fa-code-commit"></i> <span>Projects</span></a>
         <a href="#blog-section" class="nav-item"><i class="fa-solid fa-newspaper"></i> <span>Articles</span></a>
-        <a href="#applied-engineering" class="nav-item"><i class="fa-solid fa-microchip"></i> <span>Applied Systems</span></a>
+        <a href="#applied-engineering" class="nav-item"><i class="fa-solid fa-graduation-cap"></i> <span>Education</span></a>
         <a href="#industry-commendations" class="nav-item"><i class="fa-solid fa-award"></i> <span>Commendations</span></a>
-        <a href="#compliance-section" class="nav-item"><i class="fa-solid fa-shield-halved"></i> <span>Compliance</span></a>
-        <button type="button" class="nav-item nav-contact-trigger" id="sticky-nav-contact-btn"><i class="fa-solid fa-paper-plane"></i> <span>Contact</span></button>
+        <a href="#compliance-section" class="nav-item"><i class="fa-solid fa-shield-halved"></i> <span>UK Work Rights</span></a>
+        <button type="button" class="nav-item nav-contact-trigger" id="sticky-nav-contact-btn">
+          <i class="fa-solid fa-paper-plane"></i> <span>Hire / Contact</span>
+        </button>
       </div>
     </div>
   </nav>
 
-  <main class="container main-content">
+  <!-- Asymmetric Precision Engineering Hero -->
+  <header class="header" id="top">
+    <div class="container header-grid">
+      <div class="hero-left">
+        <!-- Live Availability & Work Rights Status Pill -->
+        <div class="hero-status-bar">
+          <a href="#compliance-section" class="availability-pill" title="Verified UK Graduate Visa — No Sponsorship Required">
+            <span class="pulse-dot"></span>
+            <span class="avail-text">Available for UK Engineering Roles</span>
+            <span class="avail-sep">•</span>
+            <span class="avail-code">Full UK Work Rights</span>
+            <i class="fa-solid fa-arrow-down-long avail-icon"></i>
+          </a>
+          <span class="degree-pill"><i class="fa-solid fa-award"></i> MSc Mechatronics (Distinction)</span>
+        </div>
+
+        <div class="profile-identity">
+          <div class="avatar-container">
+            <img id="user-avatar" src="https://avatars.githubusercontent.com/u/106341525?v=4" alt="Earl Chirchir" class="avatar-img" width="96" height="96" />
+            <span class="status-indicator" title="Active on GitHub"></span>
+          </div>
+          <div class="identity-titles">
+            <div class="name-badge-row">
+              <h1 id="user-name">Earl Chirchir</h1>
+              <a id="user-login" href="https://github.com/earlchirchir" target="_blank" rel="noopener noreferrer" class="handle" title="View Earl Chirchir on GitHub">@earlchirchir</a>
+            </div>
+            <p id="user-bio" class="hero-role">Robotics, Trajectory Planning &amp; ESP32 Embedded Systems Engineer</p>
+          </div>
+        </div>
+
+        <p class="hero-summary">
+          Designing time-optimal <strong>6-DOF robotic motion laws</strong>, dual-core <strong>FreeRTOS / LVGL v9 firmware</strong>, and <strong>industrial IoT telemetry systems</strong>—from mathematical formulation in MATLAB &amp; RoboDK 3D to custom multi-layer PCBs.
+        </p>
+
+        <!-- Core Technical Capability Tags -->
+        <div class="tag-list" aria-label="Core Specialties">
+          <span class="tag"><i class="fa-solid fa-robot"></i> ABB GoFa Kinematics</span>
+          <span class="tag"><i class="fa-solid fa-microchip"></i> ESP32 &amp; FreeRTOS</span>
+          <span class="tag"><i class="fa-solid fa-wave-square"></i> LVGL v9 Touch HMIs</span>
+          <span class="tag"><i class="fa-solid fa-Compass-drafting fa-drafting-compass"></i> Siemens NX &amp; KiCAD PCB</span>
+          <span class="tag"><i class="fa-solid fa-code"></i> C++ / MATLAB / Python</span>
+        </div>
+
+        <!-- Streamlined Conversion CTAs & Quick Dock -->
+        <div class="hero-cta-row">
+          <div class="primary-ctas">
+            <button id="contact-btn" type="button" class="btn btn-primary btn-lg" title="Get in touch via Email, WhatsApp or Phone">
+              <i class="fa-solid fa-paper-plane"></i> Contact Me
+            </button>
+            <a id="cv-pdf-link" href="Earl_Chirchir_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-accent-outline btn-lg" title="Download ATS Optimized PDF CV">
+              <i class="fa-solid fa-file-arrow-down"></i> Download CV (PDF)
+            </a>
+            <a id="cv-web-page-link" href="cv.html" class="btn btn-secondary btn-lg" title="Open Interactive Printable Web Resume">
+              <i class="fa-solid fa-id-card-clip"></i> Interactive CV
+            </a>
+          </div>
+
+          <div class="social-dock" aria-label="External Profiles">
+            <a id="github-link" href="https://github.com/earlchirchir" target="_blank" rel="noopener noreferrer" class="dock-btn" title="GitHub (@earlchirchir)" aria-label="GitHub Profile">
+              <i class="fa-brands fa-github"></i>
+              <span>GitHub</span>
+            </a>
+            <a id="linkedin-link" href="https://www.linkedin.com/in/earl-chirchir/" target="_blank" rel="noopener noreferrer" class="dock-btn" title="LinkedIn Profile" aria-label="LinkedIn Profile">
+              <i class="fa-brands fa-linkedin"></i>
+              <span>LinkedIn</span>
+            </a>
+            <a id="hackster-link" href="https://www.hackster.io/earl-chirchir" target="_blank" rel="noopener noreferrer" class="dock-btn" title="Hackster.io Hardware Publications" aria-label="Hackster.io Profile">
+              <i class="fa-solid fa-microchip"></i>
+              <span>Hackster</span>
+            </a>
+            <a id="cv-link" href="https://flowcv.com/resume/s7t5fakcqscs" target="_blank" rel="noopener noreferrer" class="dock-btn" title="FlowCV Dynamic Resume" aria-label="FlowCV Online Resume">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <span>FlowCV</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Direct Contact & Location Strip -->
+        <div class="contact-info-list">
+          <a href="mailto:earlchirchir@outlook.com" class="contact-item" title="Send Email"><i class="fa-solid fa-envelope"></i> earlchirchir@outlook.com</a>
+          <a href="tel:+447425243365" class="contact-item" title="Call Phone Number"><i class="fa-solid fa-phone"></i> +44 7425 243365</a>
+          <span class="contact-item"><i class="fa-solid fa-location-dot"></i> Swansea SA1 8BB, Wales, UK (Open to Relocation)</span>
+        </div>
+      </div>
+
+      <!-- Right Column: Precision Engineering Telemetry & Impact Bento -->
+      <aside class="hero-right" aria-label="Engineering Impact Summary">
+        <div class="telemetry-console spotlight-surface">
+          <div class="console-topbar">
+            <div class="console-dots">
+              <span class="c-dot c-red"></span>
+              <span class="c-dot c-amber"></span>
+              <span class="c-dot c-green"></span>
+            </div>
+            <span class="console-title"><i class="fa-solid fa-terminal"></i> SYS_TELEMETRY // IMPACT_METRICS</span>
+            <span class="console-live" id="stat-status">LIVE</span>
+          </div>
+
+          <div class="console-metrics-grid">
+            <a href="#spotlight-section" class="console-metric-card">
+              <div class="cm-top">
+                <span class="cm-val highlight-green">~25%</span>
+                <span class="cm-tag">ABB GoFa</span>
+              </div>
+              <span class="cm-label">Cycle Time Reduction</span>
+              <span class="cm-sub">Bang-Coast-Bang 6-DOF solver in MATLAB &amp; RoboDK</span>
+            </a>
+
+            <a href="#blog-section" class="console-metric-card">
+              <div class="cm-top">
+                <span class="cm-val highlight-cyan">60 FPS</span>
+                <span class="cm-tag">ESP32 Dual-Core</span>
+              </div>
+              <span class="cm-label">RF Spectrum Radar</span>
+              <span class="cm-sub">FreeRTOS Core 0 scanning + Core 1 LVGL v9 GUI</span>
+            </a>
+
+            <a href="#repos-section" class="console-metric-card">
+              <div class="cm-top">
+                <span class="cm-val highlight-blue">+40%</span>
+                <span class="cm-tag">Industrial IoT</span>
+              </div>
+              <span class="cm-label">Telemetry Accuracy</span>
+              <span class="cm-sub">24-bit HX711 load cells, Nextion HMI &amp; SQL/MQTT</span>
+            </a>
+
+            <a href="#applied-engineering" class="console-metric-card">
+              <div class="cm-top">
+                <span class="cm-val highlight-amber">81% (A)</span>
+                <span class="cm-tag">Kingston UK</span>
+              </div>
+              <span class="cm-label">MSc Dissertation</span>
+              <span class="cm-sub">Mechatronic Systems Distinction + 1st Place Innovator</span>
+            </a>
+          </div>
+
+          <div class="console-footer">
+            <div class="cf-stat">
+              <span class="cf-lbl">Repositories:</span>
+              <span class="cf-val" id="stat-repos">11</span>
+            </div>
+            <div class="cf-divider"></div>
+            <div class="cf-stat">
+              <span class="cf-lbl">Core Domains:</span>
+              <span class="cf-val" id="stat-languages">Robotics • Firmware • PCB</span>
+            </div>
+            <div class="cf-divider"></div>
+            <div class="cf-stat">
+              <span class="cf-lbl">Visa Status:</span>
+              <span class="cf-val highlight-green">UK Right to Work</span>
+            </div>
+            <span id="stat-stars" style="display:none;">0</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main class="container main-content" id="main-content">
     <!-- Production Kinematics & Robotics Motion Control Feature Spotlight -->
     <section class="spotlight-section" id="spotlight-section">
-      <div class="spotlight-card">
+      <div class="spotlight-card spotlight-surface">
         <div class="spotlight-header">
-          <span class="spotlight-badge"><i class="fa-solid fa-robot"></i> Industrial Robotics & Motion Optimization</span>
+          <div class="spotlight-badges-wrap">
+            <span class="spotlight-badge"><i class="fa-solid fa-robot"></i> Flagship Research &amp; Motion Optimization</span>
+            <span class="spotlight-grade-pill"><i class="fa-solid fa-circle-check"></i> MSc Dissertation • 81% Distinction</span>
+          </div>
           <span class="spotlight-date"><i class="fa-solid fa-industry"></i> ABB GoFa CRB 15000 • Collaborative Robotics</span>
         </div>
+
         <h2 class="spotlight-title">Trajectory Planning for an ABB CRB 15000 Robot Using Bang-Coast-Bang Time Law</h2>
-        <p class="spotlight-desc">Optimized cycle execution time by ~25% for the ABB GoFa collaborative arm. Formulated mathematical kinematic solvers, inverse dynamics, and bang-coast-bang time-optimal velocity profiles. Validated trajectory constraints through MATLAB and RoboDK 3D.</p>
-        
+        <p class="spotlight-desc">
+          Optimized cycle execution time by <strong>~25%</strong> for the 6-DOF ABB GoFa collaborative robotic arm. Formulated closed-form analytical forward and inverse kinematic solvers, Jacobian velocity mappings, and time-optimal trapezoidal (Bang-Coast-Bang) velocity profiles. Validated multi-axis joint boundaries and collision-free paths through <strong>MATLAB</strong> and <strong>RoboDK 3D</strong> digital twin simulation.
+        </p>
+
         <div class="spotlight-grid">
           <div class="spotlight-metric spotlight-metric-highlight">
             <div class="metric-metric-header">
@@ -181,7 +328,7 @@
               <span class="metric-val">6-DOF</span>
               <span class="metric-tag">Analytical Solvers</span>
             </div>
-            <span class="metric-lbl">Forward & Inverse Kinematics</span>
+            <span class="metric-lbl">Forward &amp; Inverse Kinematics</span>
             <span class="metric-detail">Closed-form inverse position kinematic formulation for ABB GoFa CRB 15000</span>
           </div>
           <div class="spotlight-metric">
@@ -194,12 +341,15 @@
           </div>
         </div>
 
-        <div class="spotlight-actions" style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 12px;">
+        <div class="spotlight-actions">
           <a href="https://github.com/earlchirchir/ABB-CRB-15000-Robotic-Arm-Kinematics-Trajectory-Planning" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-            <i class="fa-solid fa-code"></i> View Trajectory Solver Repository
+            <i class="fa-brands fa-github"></i> View Trajectory Solver Repository
           </a>
           <a href="https://github.com/earlchirchir/ABB-CRB-15000-Robotic-Arm-Kinematics-Trajectory-Planning#readme" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-            <i class="fa-solid fa-file-lines"></i> View Simulation & Plots
+            <i class="fa-solid fa-chart-area"></i> View MATLAB Simulation &amp; Plots
+          </a>
+          <a href="Kingston_University_MSc_HEAR_Transcript.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <i class="fa-solid fa-file-pdf"></i> Official HEAR Transcript (81%)
           </a>
         </div>
 
@@ -207,13 +357,13 @@
         <div class="trajectory-widget-container" id="trajectory-simulator">
           <div class="trajectory-widget-header">
             <div class="widget-title-area">
-              <div class="widget-badge"><i class="fa-solid fa-chart-line"></i> Interactive Kinematics Laboratory</div>
-              <h3 class="widget-heading">ABB GoFa CRB 15000: Bang-Coast-Bang Trajectory Engine</h3>
-              <p class="widget-sub">Simulate time-optimal trapezoidal velocity blending and joint displacement profiles. Observe how jerk-limiting eliminates acceleration discontinuities and shortens total robot cycle duration.</p>
+              <div class="widget-badge"><i class="fa-solid fa-Sliders fa-sliders"></i> Interactive Kinematics Laboratory</div>
+              <h3 class="widget-heading">ABB GoFa CRB 15000: Real-Time Bang-Coast-Bang Trajectory Engine</h3>
+              <p class="widget-sub">Adjust joint constraints or drag the timeline scrubber on the oscilloscope plot to inspect displacement <span class="math-inline"><i>s</i>(<i>t</i>)</span>, velocity <span class="math-inline"><i>v</i>(<i>t</i>)</span>, and acceleration <span class="math-inline"><i>a</i>(<i>t</i>)</span> blending in real time.</p>
             </div>
-            <div class="widget-presets">
+            <div class="widget-presets" role="group" aria-label="Simulation Presets">
               <span class="preset-label">Presets:</span>
-              <button type="button" class="preset-btn active" data-preset="fast-transfer">Fast Pick & Place</button>
+              <button type="button" class="preset-btn active" data-preset="fast-transfer">Fast Pick &amp; Place</button>
               <button type="button" class="preset-btn" data-preset="precision">Precision Blending</button>
               <button type="button" class="preset-btn" data-preset="heavy-payload">180° Full Sweep</button>
             </div>
@@ -224,7 +374,7 @@
             <div class="trajectory-controls-panel">
               <div class="control-group">
                 <div class="control-label-row">
-                  <label for="traj-displacement"><i class="fa-solid fa-arrows-left-right"></i> Target Joint Displacement ($D$)</label>
+                  <label for="traj-displacement"><i class="fa-solid fa-arrows-left-right"></i> Target Joint Displacement (<span class="math-var">Δθ</span>)</label>
                   <span class="control-value" id="val-displacement">90°</span>
                 </div>
                 <input type="range" id="traj-displacement" min="20" max="180" step="5" value="90" class="traj-slider" />
@@ -233,7 +383,7 @@
 
               <div class="control-group">
                 <div class="control-label-row">
-                  <label for="traj-velocity"><i class="fa-solid fa-gauge-high"></i> Max Joint Velocity ($V_{max}$)</label>
+                  <label for="traj-velocity"><i class="fa-solid fa-gauge-high"></i> Max Joint Velocity (<span class="math-var">V<sub>max</sub></span>)</label>
                   <span class="control-value" id="val-velocity">1.8 rad/s</span>
                 </div>
                 <input type="range" id="traj-velocity" min="0.5" max="3.0" step="0.1" value="1.8" class="traj-slider" />
@@ -242,7 +392,7 @@
 
               <div class="control-group">
                 <div class="control-label-row">
-                  <label for="traj-accel"><i class="fa-solid fa-bolt"></i> Max Acceleration ($A_{max}$)</label>
+                  <label for="traj-accel"><i class="fa-solid fa-bolt"></i> Max Acceleration (<span class="math-var">A<sub>max</sub></span>)</label>
                   <span class="control-value" id="val-accel">4.0 rad/s²</span>
                 </div>
                 <input type="range" id="traj-accel" min="1.0" max="8.0" step="0.5" value="4.0" class="traj-slider" />
@@ -250,13 +400,13 @@
               </div>
 
               <div class="control-group profile-toggle-group">
-                <label class="toggle-label"><i class="fa-solid fa-sliders"></i> Motion Profile Comparison:</label>
+                <span class="toggle-label"><i class="fa-solid fa-sliders"></i> Motion Law Comparison:</span>
                 <div class="profile-toggle-buttons">
                   <button type="button" class="profile-btn active" id="btn-profile-optimal" data-profile="optimal">
-                    <i class="fa-solid fa-check-double"></i> Bang-Coast-Bang (Optimal)
+                    <i class="fa-solid fa-check-double"></i> Bang-Coast-Bang
                   </button>
                   <button type="button" class="profile-btn" id="btn-profile-unopt" data-profile="unoptimized">
-                    <i class="fa-solid fa-wave-square"></i> Constant Speed (High Jerk)
+                    <i class="fa-solid fa-wave-square"></i> Unoptimized (High Jerk)
                   </button>
                 </div>
               </div>
@@ -266,7 +416,7 @@
                 <button type="button" id="btn-play-sim" class="btn btn-primary btn-sim-play">
                   <i class="fa-solid fa-play"></i> Run Trajectory Simulation
                 </button>
-                <button type="button" id="btn-reset-sim" class="btn btn-secondary btn-sim-reset" title="Reset to start">
+                <button type="button" id="btn-reset-sim" class="btn btn-secondary btn-sim-reset" title="Reset to start" aria-label="Reset simulation">
                   <i class="fa-solid fa-rotate-left"></i>
                 </button>
               </div>
@@ -274,20 +424,20 @@
               <!-- Real-time Mathematical Telemetry -->
               <div class="kinematic-telemetry-grid">
                 <div class="telemetry-item">
-                  <span class="telemetry-lbl">Total Cycle Time ($T$)</span>
+                  <span class="telemetry-lbl">Total Cycle Time (<span class="math-var">T</span>)</span>
                   <span class="telemetry-val highlight-green" id="tele-total-time">1.32 s</span>
                 </div>
                 <div class="telemetry-item">
-                  <span class="telemetry-lbl">Acceleration Phase ($t_a$)</span>
+                  <span class="telemetry-lbl">Accel / Decel Phase (<span class="math-var">t<sub>a</sub></span>)</span>
                   <span class="telemetry-val" id="tele-accel-time">0.45 s</span>
                 </div>
                 <div class="telemetry-item">
-                  <span class="telemetry-lbl">Coast Phase ($t_c$)</span>
+                  <span class="telemetry-lbl">Coast Phase (<span class="math-var">t<sub>c</sub></span>)</span>
                   <span class="telemetry-val" id="tele-coast-time">0.42 s</span>
                 </div>
                 <div class="telemetry-item">
                   <span class="telemetry-lbl">Cycle Efficiency Gain</span>
-                  <span class="telemetry-val highlight-cyan" id="tele-efficiency">+27.4%</span>
+                  <span class="telemetry-val highlight-cyan" id="tele-efficiency">+21.9%</span>
                 </div>
               </div>
             </div>
@@ -295,13 +445,13 @@
             <!-- Right: Dynamic Plotting Canvas & Robot Joint Visualizer -->
             <div class="trajectory-visualizer-panel">
               <div class="canvas-header-legend">
-                <div class="legend-item"><span class="legend-dot dot-pos"></span> Displacement $s(t)$</div>
-                <div class="legend-item"><span class="legend-dot dot-vel"></span> Velocity $v(t)$</div>
-                <div class="legend-item"><span class="legend-dot dot-acc"></span> Acceleration $a(t)$</div>
+                <div class="legend-item"><span class="legend-dot dot-pos"></span> Displacement <span class="math-inline"><i>s</i>(<i>t</i>)</span></div>
+                <div class="legend-item"><span class="legend-dot dot-vel"></span> Velocity <span class="math-inline"><i>v</i>(<i>t</i>)</span></div>
+                <div class="legend-item"><span class="legend-dot dot-acc"></span> Acceleration <span class="math-inline"><i>a</i>(<i>t</i>)</span></div>
                 <span class="canvas-time-indicator" id="live-time-indicator">t = 0.00s</span>
               </div>
-              
-              <div class="canvas-wrapper">
+
+              <div class="canvas-wrapper" title="Click or drag horizontally to scrub trajectory timeline">
                 <canvas id="trajectory-canvas" width="600" height="240"></canvas>
                 <div id="sim-scrubber-line" class="sim-scrubber"></div>
               </div>
@@ -309,7 +459,9 @@
               <!-- Interactive Cobot Arm Joint Motion Visualizer -->
               <div class="cobot-motion-preview">
                 <div class="cobot-schematic-wrap">
-                  <svg id="cobot-svg-arm" viewBox="0 0 220 115" class="cobot-svg">
+                  <svg id="cobot-svg-arm" viewBox="0 0 220 115" class="cobot-svg" aria-label="ABB GoFa 2D Kinematic Arm Preview">
+                    <!-- Workspace radial arc guide -->
+                    <path d="M 41 95 A 75 75 0 0 1 168 72" fill="none" stroke="rgba(56, 189, 248, 0.14)" stroke-width="1" stroke-dasharray="2,3" />
                     <!-- Base pedestal -->
                     <rect x="25" y="96" width="32" height="12" rx="3" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5" />
                     <!-- Base Joint J1 -->
@@ -331,11 +483,11 @@
                 </div>
                 <div class="cobot-status-readout">
                   <div class="readout-row">
-                    <span class="r-label">Instant Joint Pos ($\theta$):</span>
+                    <span class="r-label">Instant Joint Pos (<span class="math-var">θ</span>):</span>
                     <span class="r-val" id="readout-pos">0.0° / 90.0°</span>
                   </div>
                   <div class="readout-row">
-                    <span class="r-label">Instant Joint Vel ($\dot{\theta}$):</span>
+                    <span class="r-label">Instant Joint Vel (<span class="math-var">ω</span>):</span>
                     <span class="r-val" id="readout-vel">0.00 rad/s</span>
                   </div>
                   <div class="readout-row">
@@ -350,149 +502,163 @@
       </div>
     </section>
 
-    <!-- Engineering Skills & Competencies Matrix -->
+    <!-- Engineering Skills & Competencies Bento 2.0 Matrix -->
     <section class="skills-matrix-section" id="skills-matrix">
-      <h2 class="section-title"><i class="fa-solid fa-layer-group"></i> Core Engineering Competencies</h2>
-      <div class="skills-grid">
-        <div class="skill-category-card">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow">Multidisciplinary Stack</span>
+          <h2 class="section-title"><i class="fa-solid fa-layer-group"></i> Core Engineering Competencies</h2>
+        </div>
+        <span class="count-badge">Hardware • Firmware • Control</span>
+      </div>
+
+      <div class="skills-bento-grid">
+        <div class="skill-category-card spotlight-surface bento-span-2">
           <div class="skill-cat-header">
-            <i class="fa-solid fa-robot cat-icon"></i>
-            <h3>Robotics & Kinematics</h3>
+            <div class="cat-icon-box icon-cyan"><i class="fa-solid fa-robot"></i></div>
+            <div>
+              <h3>Robotics, Kinematics &amp; Control</h3>
+              <span class="cat-subtitle">Mathematical Modeling &amp; Digital Twin Validation</span>
+            </div>
           </div>
-          <ul class="skill-items">
-            <li><i class="fa-solid fa-check"></i> Trajectory Planning & Optimization</li>
-            <li><i class="fa-solid fa-check"></i> Bang-Coast-Bang Time Law</li>
-            <li><i class="fa-solid fa-check"></i> Forward & Inverse Kinematics</li>
-            <li><i class="fa-solid fa-check"></i> MATLAB & RoboDK 3D Simulation</li>
-            <li><i class="fa-solid fa-check"></i> Collaborative Robotics (ABB GoFa)</li>
+          <ul class="skill-items skill-items-2col">
+            <li><i class="fa-solid fa-check"></i> Trajectory Planning &amp; Time-Optimal Laws</li>
+            <li><i class="fa-solid fa-check"></i> Bang-Coast-Bang Velocity Blending</li>
+            <li><i class="fa-solid fa-check"></i> 6-DOF Forward &amp; Inverse Kinematics</li>
+            <li><i class="fa-solid fa-check"></i> MATLAB &amp; Simulink Control Systems</li>
+            <li><i class="fa-solid fa-check"></i> RoboDK 3D Digital Twin Simulation</li>
+            <li><i class="fa-solid fa-check"></i> ABB GoFa CRB 15000 Collaborative Arms</li>
           </ul>
+          <div class="skill-chip-footer">
+            <span>MATLAB</span><span>RoboDK</span><span>Inverse Dynamics</span><span>Jacobians</span><span>PID / State-Space</span>
+          </div>
         </div>
 
-        <div class="skill-category-card">
+        <div class="skill-category-card spotlight-surface bento-span-2">
           <div class="skill-cat-header">
-            <i class="fa-solid fa-microchip cat-icon"></i>
-            <h3>Embedded Systems & Firmware</h3>
+            <div class="cat-icon-box icon-emerald"><i class="fa-solid fa-microchip"></i></div>
+            <div>
+              <h3>Embedded Systems &amp; Real-Time Firmware</h3>
+              <span class="cat-subtitle">Deterministic RTOS &amp; High-Speed Hardware Interfaces</span>
+            </div>
           </div>
-          <ul class="skill-items">
-            <li><i class="fa-solid fa-check"></i> ESP32 & Arduino C++ Frameworks</li>
-            <li><i class="fa-solid fa-check"></i> FreeRTOS Task Scheduling</li>
-            <li><i class="fa-solid fa-check"></i> LVGL v9 Touch GUI Interfaces</li>
-            <li><i class="fa-solid fa-check"></i> Nextion Industrial HMIs</li>
-            <li><i class="fa-solid fa-check"></i> Sensor Telemetry & Actuator Drivers</li>
+          <ul class="skill-items skill-items-2col">
+            <li><i class="fa-solid fa-check"></i> ESP32 &amp; Arduino C/C++ Frameworks</li>
+            <li><i class="fa-solid fa-check"></i> FreeRTOS Dual-Core Task Scheduling</li>
+            <li><i class="fa-solid fa-check"></i> LVGL v9 60FPS Touch GUI Interfaces</li>
+            <li><i class="fa-solid fa-check"></i> Nextion Industrial Touchscreen HMIs</li>
+            <li><i class="fa-solid fa-check"></i> I2C / SPI / UART / PWM / 24-bit ADC</li>
+            <li><i class="fa-solid fa-check"></i> Haptic (ERM/LRA) &amp; Motor Actuation</li>
           </ul>
+          <div class="skill-chip-footer">
+            <span>C++</span><span>ESP32</span><span>FreeRTOS</span><span>LVGL v9</span><span>PlatformIO</span>
+          </div>
         </div>
 
-        <div class="skill-category-card">
+        <div class="skill-category-card spotlight-surface">
           <div class="skill-cat-header">
-            <i class="fa-solid fa-drafting-compass cat-icon"></i>
-            <h3>CAD & PCB Hardware Design</h3>
+            <div class="cat-icon-box icon-amber"><i class="fa-solid fa-drafting-compass"></i></div>
+            <div>
+              <h3>CAD &amp; PCB Hardware Design</h3>
+              <span class="cat-subtitle">Electro-Mechanical &amp; EDA Layout</span>
+            </div>
           </div>
           <ul class="skill-items">
-            <li><i class="fa-solid fa-check"></i> Siemens NX & SolidWorks 3D CAD</li>
-            <li><i class="fa-solid fa-check"></i> Autodesk Inventor Modeling</li>
-            <li><i class="fa-solid fa-check"></i> KiCAD & AutoDesk Eagle PCBs</li>
-            <li><i class="fa-solid fa-check"></i> Fritzing Circuit Prototyping</li>
-            <li><i class="fa-solid fa-check"></i> Precision Soldering & Assembly</li>
+            <li><i class="fa-solid fa-check"></i> Siemens NX &amp; SolidWorks 3D CAD</li>
+            <li><i class="fa-solid fa-check"></i> Autodesk Inventor Assemblies</li>
+            <li><i class="fa-solid fa-check"></i> KiCAD &amp; Autodesk Eagle Multi-Layer PCBs</li>
+            <li><i class="fa-solid fa-check"></i> Analog Signal Conditioning (HX711)</li>
+            <li><i class="fa-solid fa-check"></i> SMD / Through-Hole Soldering &amp; DFM</li>
           </ul>
+          <div class="skill-chip-footer">
+            <span>Siemens NX</span><span>SolidWorks</span><span>KiCAD</span><span>Eagle</span>
+          </div>
         </div>
 
-        <div class="skill-category-card">
+        <div class="skill-category-card spotlight-surface">
           <div class="skill-cat-header">
-            <i class="fa-solid fa-network-wired cat-icon"></i>
-            <h3>IoT & Data Engineering</h3>
+            <div class="cat-icon-box icon-blue"><i class="fa-solid fa-network-wired"></i></div>
+            <div>
+              <h3>Industrial IoT &amp; Data Telemetry</h3>
+              <span class="cat-subtitle">Edge-to-Cloud &amp; Analytics</span>
+            </div>
           </div>
           <ul class="skill-items">
-            <li><i class="fa-solid fa-check"></i> Wi-Fi / MQTT / HTTP Telemetry</li>
-            <li><i class="fa-solid fa-check"></i> SQL Databases & Web APIs</li>
-            <li><i class="fa-solid fa-check"></i> Power BI Real-Time Dashboards</li>
-            <li><i class="fa-solid fa-check"></i> JSON Data Interchange Protocols</li>
-            <li><i class="fa-solid fa-check"></i> Python & Data Science Pipelines</li>
+            <li><i class="fa-solid fa-check"></i> Wi-Fi / MQTT / HTTP REST Telemetry</li>
+            <li><i class="fa-solid fa-check"></i> SQL Databases &amp; Postman API Testing</li>
+            <li><i class="fa-solid fa-check"></i> Power BI Industrial Dashboards</li>
+            <li><i class="fa-solid fa-check"></i> Python Machine Learning &amp; Analytics</li>
+            <li><i class="fa-solid fa-check"></i> PLC &amp; Electro-Hydraulic Maintenance</li>
           </ul>
+          <div class="skill-chip-footer">
+            <span>MQTT</span><span>SQL</span><span>Power BI</span><span>Python</span>
+          </div>
         </div>
       </div>
     </section>
-    <!-- Stats Overview Grid -->
-    <section class="stats-grid" id="stats-section">
-      <div class="stat-card">
-        <div class="stat-icon"><i class="fa-solid fa-folder-closed"></i></div>
-        <div class="stat-info">
-          <span class="stat-value" id="stat-repos">--</span>
-          <span class="stat-label">Public Repositories</span>
-        </div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon"><i class="fa-solid fa-code-branch"></i></div>
-        <div class="stat-info">
-          <span class="stat-value" id="stat-languages">--</span>
-          <span class="stat-label">Primary Tech Stack</span>
-        </div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon"><i class="fa-solid fa-star"></i></div>
-        <div class="stat-info">
-          <span class="stat-value" id="stat-stars">--</span>
-          <span class="stat-label">Starred Repos</span>
-        </div>
-      </div>
-    </section>
 
-    <!-- Controls Bar -->
-    <section class="controls-section">
-      <div class="search-box">
-        <i class="fa-solid fa-magnifying-glass search-icon"></i>
-        <input type="text" id="search-input" placeholder="Search repositories by name, topic, or language..." aria-label="Search repositories" />
-        <button id="clear-search" class="clear-btn" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-
-      <div class="filter-group">
-        <span class="filter-label"><i class="fa-solid fa-filter"></i> Filter:</span>
-        <div class="filter-chips" id="filter-chips">
-          <button class="chip active" data-filter="all">All</button>
-          <button class="chip" data-filter="C++">C++</button>
-          <button class="chip" data-filter="MATLAB">MATLAB</button>
-          <button class="chip" data-filter="JavaScript">JavaScript</button>
-          <button class="chip" data-filter="Jupyter Notebook">Data Analysis</button>
-        </div>
-      </div>
-
-      <div class="sort-dropdown">
-        <label for="sort-select"><i class="fa-solid fa-arrow-down-short-wide"></i> Sort By:</label>
-        <select id="sort-select" aria-label="Sort repositories">
-          <option value="featured" selected>Featured Projects & Codebase Complexity</option>
-          <option value="updated">Recent Activity</option>
-          <option value="name">Name (A – Z)</option>
-          <option value="size">Codebase Size</option>
-          <option value="stars">GitHub Stars</option>
-        </select>
-      </div>
-    </section>
-
-    <!-- Repositories Grid -->
+    <!-- Repositories Section -->
     <section class="repos-section" id="repos-section">
       <div class="section-header">
-        <h2 class="section-title"><i class="fa-solid fa-code-commit"></i> Featured Repositories & Engineering Projects</h2>
-        <span id="repo-count-badge" class="count-badge">0 Repositories</span>
+        <div>
+          <span class="section-eyebrow">Open-Source Hardware &amp; Code</span>
+          <h2 class="section-title"><i class="fa-solid fa-code-commit"></i> Featured Engineering Projects &amp; Repositories</h2>
+        </div>
+        <span id="repo-count-badge" class="count-badge">11 Projects</span>
+      </div>
+
+      <!-- Controls Bar -->
+      <div class="controls-section">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="search-input" placeholder="Search projects by keyword, microcontroller, or topic (e.g. ESP32, ABB, PCB, MQTT)..." aria-label="Search repositories" />
+          <button id="clear-search" type="button" class="clear-btn" style="display: none;" aria-label="Clear search"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <div class="filter-group">
+          <span class="filter-label"><i class="fa-solid fa-filter"></i> Stack:</span>
+          <div class="filter-chips" id="filter-chips" role="group" aria-label="Filter by technology">
+            <button type="button" class="chip active" data-filter="all">All Projects</button>
+            <button type="button" class="chip" data-filter="C++">C++ / Embedded</button>
+            <button type="button" class="chip" data-filter="MATLAB">MATLAB / Robotics</button>
+            <button type="button" class="chip" data-filter="Hardware">PCB / Hardware</button>
+            <button type="button" class="chip" data-filter="JavaScript">Web Telemetry</button>
+            <button type="button" class="chip" data-filter="Jupyter Notebook">Python / ML</button>
+          </div>
+        </div>
+
+        <div class="sort-dropdown">
+          <label for="sort-select"><i class="fa-solid fa-arrow-down-short-wide"></i> Sort:</label>
+          <select id="sort-select" aria-label="Sort repositories">
+            <option value="featured" selected>Engineering Impact</option>
+            <option value="updated">Recent Activity</option>
+            <option value="size">Codebase Size</option>
+            <option value="name">Name (A – Z)</option>
+          </select>
+        </div>
       </div>
 
       <div id="repos-container" class="repos-grid">
-        <!-- Rendered dynamically -->
         <div class="loading-state">
           <div class="spinner"></div>
-          <p>Loading GitHub repositories...</p>
+          <p>Loading engineering repositories...</p>
         </div>
       </div>
     </section>
 
     <!-- Technical Articles & Hackster.io Blog Section -->
-    <section class="blog-section" id="blog-section" style="margin-top: 48px;">
+    <section class="blog-section" id="blog-section">
       <div class="section-header">
-        <h2 class="section-title"><i class="fa-solid fa-newspaper"></i> Technical Articles & Blog</h2>
-        <a href="https://www.hackster.io/earl-chirchir" target="_blank" rel="noopener noreferrer" class="count-badge" style="text-decoration: none; cursor: pointer;" title="View Earl Chirchir on Hackster.io">
-          <i class="fa-solid fa-microchip"></i> Published on Hackster.io <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.75em; margin-left: 3px;"></i>
+        <div>
+          <span class="section-eyebrow">Technical Publications</span>
+          <h2 class="section-title"><i class="fa-solid fa-newspaper"></i> Hardware Articles &amp; Firmware Deep-Dives</h2>
+        </div>
+        <a href="https://www.hackster.io/earl-chirchir" target="_blank" rel="noopener noreferrer" class="count-badge badge-link" title="View Earl Chirchir on Hackster.io">
+          <i class="fa-solid fa-microchip"></i> Published on Hackster.io <i class="fa-solid fa-arrow-up-right-from-square"></i>
         </a>
       </div>
 
-      <div id="blog-container" class="blog-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; margin-top: 16px;">
+      <div id="blog-container" class="blog-grid">
         <!-- Hackster article cards rendered dynamically by src/app.js -->
       </div>
     </section>
@@ -500,56 +666,59 @@
     <!-- Applied Systems & Engineering Foundation -->
     <section class="applied-engineering-section" id="applied-engineering">
       <div class="section-header">
-        <h2 class="section-title"><i class="fa-solid fa-microchip"></i> Applied Systems & Engineering Foundation</h2>
-        <span class="count-badge"><i class="fa-solid fa-building-columns"></i> Verified Higher Education</span>
+        <div>
+          <span class="section-eyebrow">Academic Credentials</span>
+          <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Applied Systems &amp; Higher Education</h2>
+        </div>
+        <span class="count-badge"><i class="fa-solid fa-building-columns"></i> Verified Certificates &amp; Transcripts</span>
       </div>
 
       <div class="applied-edu-grid">
         <!-- MSc Mechatronic Systems -->
-        <div class="applied-edu-card">
+        <div class="applied-edu-card spotlight-surface">
           <div class="applied-edu-header">
             <span class="applied-edu-badge"><i class="fa-solid fa-building-columns"></i> Kingston University London, UK</span>
-            <span class="applied-honors-pill">MSc Distinction • 2024 – 2025</span>
+            <span class="applied-honors-pill pill-emerald">MSc Distinction • 2024 – 2025</span>
           </div>
           <h3 class="applied-degree-title">MSc Mechatronic Systems</h3>
-          <p class="applied-desc">Advanced Master's engineering curriculum centering on mathematical formulation of robotic dynamics, industrial collaborative manipulation, real-time control implementation, and quality management systems.</p>
-          
+          <p class="applied-desc">Advanced Master's engineering curriculum centering on mathematical formulation of robotic dynamics, industrial collaborative manipulation, real-time embedded control implementation, and quality management systems.</p>
+
           <div class="applied-concepts-block">
-            <span class="concepts-label"><i class="fa-solid fa-gears"></i> Applied Core Concepts</span>
+            <span class="concepts-label"><i class="fa-solid fa-gears"></i> Key Module Distinctions</span>
             <ul class="applied-concepts-list">
-              <li><i class="fa-solid fa-circle-check"></i> Advanced Control Systems</li>
-              <li><i class="fa-solid fa-circle-check"></i> Applied Mechatronic Design</li>
-              <li><i class="fa-solid fa-circle-check"></i> Inverse Kinematics Solvers</li>
-              <li><i class="fa-solid fa-circle-check"></i> Embedded Implementation</li>
+              <li><i class="fa-solid fa-circle-check"></i> Robotics Dissertation (81% • Grade A)</li>
+              <li><i class="fa-solid fa-circle-check"></i> Quality Management (85% • Grade A)</li>
+              <li><i class="fa-solid fa-circle-check"></i> Embedded Control Systems (79% • Grade A)</li>
+              <li><i class="fa-solid fa-circle-check"></i> Inverse Kinematics &amp; Dynamics</li>
             </ul>
           </div>
 
           <div class="applied-doc-links">
             <a href="Kingston_University_MSc_HEAR_Transcript.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
-              <i class="fa-solid fa-file-pdf"></i> View Official HEAR Transcript (PDF)
+              <i class="fa-solid fa-file-pdf"></i> Official HEAR Transcript (PDF)
             </a>
             <a href="Kingston_University_MSc_Award_Certificate.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
-              <i class="fa-solid fa-file-pdf"></i> View MSc Degree Certificate (PDF)
+              <i class="fa-solid fa-file-pdf"></i> MSc Degree Certificate (PDF)
             </a>
           </div>
         </div>
 
         <!-- BSc Mechatronic Engineering -->
-        <div class="applied-edu-card">
+        <div class="applied-edu-card spotlight-surface">
           <div class="applied-edu-header">
             <span class="applied-edu-badge"><i class="fa-solid fa-building-columns"></i> JKUAT, Kenya</span>
             <span class="applied-honors-pill">BSc 2:1 Honours • 5-Year Degree</span>
           </div>
           <h3 class="applied-degree-title">BSc Mechatronic Engineering</h3>
-          <p class="applied-desc">Rigorous engineering foundation in microcontroller architectures, electro-mechanical design, embedded C programming, sensor instrumentation, and industrial automation.</p>
-          
+          <p class="applied-desc">Rigorous 5-year engineering foundation in microcontroller architectures, electro-mechanical systems design, embedded C/C++ programming, sensor instrumentation, and industrial automation.</p>
+
           <div class="applied-concepts-block">
             <span class="concepts-label"><i class="fa-solid fa-gears"></i> Applied Core Concepts</span>
             <ul class="applied-concepts-list">
               <li><i class="fa-solid fa-circle-check"></i> Microcontroller Architecture (C/C++)</li>
               <li><i class="fa-solid fa-circle-check"></i> Sensor Signal Conditioning</li>
-              <li><i class="fa-solid fa-circle-check"></i> Precision CAD Assemblies</li>
-              <li><i class="fa-solid fa-circle-check"></i> Hydraulics & PLC Automation</li>
+              <li><i class="fa-solid fa-circle-check"></i> Precision 3D CAD Assemblies</li>
+              <li><i class="fa-solid fa-circle-check"></i> Hydraulics &amp; PLC Automation</li>
             </ul>
           </div>
 
@@ -565,42 +734,45 @@
     <!-- Industry Commendations & References -->
     <section class="commendations-section" id="industry-commendations">
       <div class="section-header">
-        <h2 class="section-title"><i class="fa-solid fa-award"></i> Industry Commendations & References</h2>
-        <span class="count-badge"><i class="fa-solid fa-stamp"></i> Verified References & Recognition</span>
+        <div>
+          <span class="section-eyebrow">Industrial Track Record</span>
+          <h2 class="section-title"><i class="fa-solid fa-award"></i> Industry Commendations &amp; Awards</h2>
+        </div>
+        <span class="count-badge"><i class="fa-solid fa-stamp"></i> Verified Letters &amp; Recognition</span>
       </div>
 
       <div class="commendations-grid">
         <!-- 1st Place Innovator Award -->
-        <a href="https://github.com/earlchirchir/Eggcellent-Automated-Chicken-Coop" target="_blank" rel="noopener noreferrer" class="commendation-card">
+        <a href="https://github.com/earlchirchir/Eggcellent-Automated-Chicken-Coop" target="_blank" rel="noopener noreferrer" class="commendation-card spotlight-surface">
           <div class="commendation-header">
-            <div class="commendation-icon"><i class="fa-solid fa-trophy" style="color: #fbbf24;"></i></div>
-            <span class="commendation-year">Intervarsity 2023</span>
+            <div class="commendation-icon icon-amber"><i class="fa-solid fa-trophy"></i></div>
+            <span class="commendation-year">1st Place Winner</span>
           </div>
           <h3 class="commendation-title">1st Place Engineering Innovator <i class="fa-solid fa-arrow-up-right-from-square commendation-arrow"></i></h3>
           <span class="commendation-org">Riara University Intervarsity Competition</span>
-          <p class="commendation-desc">Awarded first place among competing engineering institutions for an automated embedded smart coop architecture featuring sensor-driven environmental regulation, load-cell egg logging, and off-grid solar management.</p>
-          <span class="commendation-link-text"><i class="fa-brands fa-github"></i> Inspect Project Architecture & Firmware <i class="fa-solid fa-arrow-right"></i></span>
+          <p class="commendation-desc">Awarded first place among competing engineering institutions for an automated embedded smart coop architecture featuring sensor-driven environmental regulation, load-cell logging, and off-grid solar management.</p>
+          <span class="commendation-link-text"><i class="fa-brands fa-github"></i> Inspect Project Architecture &amp; Firmware <i class="fa-solid fa-arrow-right"></i></span>
         </a>
 
         <!-- EPRA Official Recommendation -->
-        <a href="EPRA_Official_Recommendation_Letter.pdf?v=2026" target="_blank" rel="noopener noreferrer" class="commendation-card">
+        <a href="EPRA_Official_Recommendation_Letter.pdf?v=2026" target="_blank" rel="noopener noreferrer" class="commendation-card spotlight-surface">
           <div class="commendation-header">
-            <div class="commendation-icon"><i class="fa-solid fa-file-signature" style="color: #60a5fa;"></i></div>
+            <div class="commendation-icon icon-cyan"><i class="fa-solid fa-file-signature"></i></div>
             <span class="commendation-year">National Regulator</span>
           </div>
           <h3 class="commendation-title">EPRA Official Recommendation <i class="fa-solid fa-arrow-up-right-from-square commendation-arrow"></i></h3>
-          <span class="commendation-org">Energy & Petroleum Regulatory Authority</span>
-          <p class="commendation-desc">Official recommendation letter issued by the national regulatory authority highlighting technical diligence, regulatory compliance standards, electrical telemetry, and engineering analytical capabilities.</p>
+          <span class="commendation-org">Energy &amp; Petroleum Regulatory Authority</span>
+          <p class="commendation-desc">Official recommendation letter issued by the national regulatory authority highlighting technical diligence, regulatory compliance standards, electrical metering verification, and engineering analytical capabilities.</p>
           <span class="commendation-link-text"><i class="fa-solid fa-file-pdf"></i> Read Official Recommendation Letter (PDF) <i class="fa-solid fa-arrow-right"></i></span>
         </a>
 
         <!-- James Finlay Industrial Verification -->
-        <a href="James_Finlay_Industrial_Equipment_Maintenance_Verification.pdf?v=2026" target="_blank" rel="noopener noreferrer" class="commendation-card">
+        <a href="James_Finlay_Industrial_Equipment_Maintenance_Verification.pdf?v=2026" target="_blank" rel="noopener noreferrer" class="commendation-card spotlight-surface">
           <div class="commendation-header">
-            <div class="commendation-icon"><i class="fa-solid fa-gears" style="color: #34d399;"></i></div>
-            <span class="commendation-year">Industrial Manufacturing</span>
+            <div class="commendation-icon icon-emerald"><i class="fa-solid fa-gears"></i></div>
+            <span class="commendation-year">Industrial Operations</span>
           </div>
-          <h3 class="commendation-title">Industrial Equipment Maintenance <i class="fa-solid fa-arrow-up-right-from-square commendation-arrow"></i></h3>
+          <h3 class="commendation-title">Industrial Equipment &amp; Automation <i class="fa-solid fa-arrow-up-right-from-square commendation-arrow"></i></h3>
           <span class="commendation-org">James Finlay Manufacturing Operations</span>
           <p class="commendation-desc">Formal verification of industrial plant engineering performance across high-throughput processing lines, electro-hydraulic systems, preventive machinery maintenance, and PLC automation.</p>
           <span class="commendation-link-text"><i class="fa-solid fa-file-pdf"></i> View Plant Verification Letter (PDF) <i class="fa-solid fa-arrow-right"></i></span>
@@ -608,30 +780,30 @@
       </div>
     </section>
 
-    <!-- Discrete Subdued Compliance & Work Authorization Section -->
+    <!-- Compliance & Work Authorization Section -->
     <section class="compliance-section" id="compliance-section">
-      <div class="compliance-card">
+      <div class="compliance-card spotlight-surface">
         <div class="compliance-header">
           <div class="compliance-title-group">
-            <span class="compliance-badge"><i class="fa-solid fa-shield-halved"></i> Compliance & UK Work Authorization</span>
-            <span class="compliance-sub">Official documents verifying right to work in the UK, clean background check, and professional registration</span>
+            <span class="compliance-badge"><i class="fa-solid fa-shield-halved"></i> UK Work Authorization &amp; Professional Compliance</span>
+            <span class="compliance-sub">Official verification documents confirming unrestricted UK right to work, clean DBS background check, and engineering registration</span>
           </div>
-          <span class="compliance-status-tag"><i class="fa-solid fa-circle-check"></i> Right to Work Verified</span>
+          <span class="compliance-status-tag"><i class="fa-solid fa-circle-check"></i> Right to Work Verified • No Sponsorship Needed</span>
         </div>
 
         <div class="compliance-grid">
           <a href="GOVUK_Right_to_Work_Share_Code_WJA_R3P_7LZ.pdf?v=2026" target="_blank" rel="noopener noreferrer" class="compliance-item" title="View GOV.UK Right to Work Share Code Document PDF">
             <div class="compliance-item-icon"><i class="fa-solid fa-passport"></i></div>
             <div class="compliance-item-content">
-              <span class="compliance-item-label">UK Work Visa • Share Code: WJA R3P 7LZ</span>
+              <span class="compliance-item-label">UK Graduate Visa • Share Code: WJA R3P 7LZ</span>
               <span class="compliance-item-detail">Full UK Work Rights (No Sponsorship Required) <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </div>
           </a>
 
           <a href="UK_Basic_DBS_Check_Certificate.pdf?v=2026" target="_blank" rel="noopener noreferrer" class="compliance-item" title="View UK Basic DBS Certificate PDF">
-            <div class="compliance-item-icon"><i class="fa-solid fa-shield-check"></i></div>
+            <div class="compliance-item-icon"><i class="fa-solid fa-user-shield"></i></div>
             <div class="compliance-item-content">
-              <span class="compliance-item-label">UK Basic DBS Check</span>
+              <span class="compliance-item-label">UK Basic DBS Check Certificate</span>
               <span class="compliance-item-detail">Clean Police Background Record <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </div>
           </a>
@@ -640,7 +812,7 @@
             <div class="compliance-item-icon"><i class="fa-solid fa-id-card"></i></div>
             <div class="compliance-item-content">
               <span class="compliance-item-label">Engineers Board of Kenya (EBK)</span>
-              <span class="compliance-item-detail">Registered Professional Engineer <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+              <span class="compliance-item-detail">Registered Graduate Engineer <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </div>
           </a>
         </div>
@@ -649,119 +821,126 @@
   </main>
 
   <!-- Article Detail Modal Overlay -->
-  <div id="article-modal" class="modal-overlay" style="display: none;">
-    <div class="modal-card article-modal-card" style="max-width: 820px; max-height: 85vh; overflow-y: auto; text-align: left;">
-      <button id="article-modal-close" class="modal-close-btn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
-      
-      <div class="article-modal-header" style="margin-bottom: 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 16px;">
-        <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 10px; flex-wrap: wrap;">
-          <span class="lang-pill lang-cpp" style="font-size: 0.8rem;"><i class="fa-solid fa-microchip"></i> Hackster.io Article</span>
-          <span id="article-modal-date" style="font-size: 0.8rem; color: var(--text-dim);"><i class="fa-solid fa-calendar-days"></i> July 2026</span>
-          <span id="article-modal-readtime" style="font-size: 0.8rem; color: var(--text-dim);"><i class="fa-solid fa-clock"></i> 4 min read</span>
+  <div id="article-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="article-modal-title" style="display: none;">
+    <div class="modal-card article-modal-card">
+      <button id="article-modal-close" type="button" class="modal-close-btn" aria-label="Close article modal"><i class="fa-solid fa-xmark"></i></button>
+
+      <div class="article-modal-header">
+        <div class="article-modal-meta">
+          <span class="lang-pill lang-cpp"><i class="fa-solid fa-microchip"></i> Hackster.io Publication</span>
+          <span id="article-modal-date" class="article-meta-item"><i class="fa-solid fa-calendar-days"></i> July 2026</span>
+          <span id="article-modal-readtime" class="article-meta-item"><i class="fa-solid fa-clock"></i> 4 min read</span>
         </div>
-        <h2 id="article-modal-title" style="font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 8px; line-height: 1.3;"></h2>
-        <p id="article-modal-pitch" style="font-size: 0.95rem; color: #94a3b8; font-style: italic; margin: 0;"></p>
+        <h2 id="article-modal-title" class="article-modal-heading"></h2>
+        <p id="article-modal-pitch" class="article-modal-subtitle"></p>
       </div>
 
-      <div id="article-modal-content" class="markdown-article-body" style="font-size: 0.93rem; line-height: 1.7; color: #cbd5e1;">
+      <div id="article-modal-content" class="markdown-article-body">
         <!-- Rendered Markdown Content -->
       </div>
 
-      <div class="article-modal-footer" style="margin-top: 28px; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
-        <a id="article-hackster-link" href="https://www.hackster.io/earl-chirchir" target="_blank" rel="noopener noreferrer" class="btn btn-hackster">
-          <i class="fa-solid fa-arrow-up-right-from-square"></i> Read Original Article on Hackster.io
+      <div class="article-modal-footer">
+        <a id="article-hackster-link" href="https://www.hackster.io/earl-chirchir" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Read Original on Hackster.io
         </a>
-        <button id="article-close-btn-bottom" class="btn btn-secondary">Close Article</button>
+        <button id="article-close-btn-bottom" type="button" class="btn btn-secondary">Close Article</button>
       </div>
     </div>
   </div>
 
   <!-- Repo Detail Modal -->
-  <div id="repo-modal" class="modal-overlay" style="display: none;">
+  <div id="repo-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" style="display: none;">
     <div class="modal-card">
-      <button id="modal-close" class="modal-close-btn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+      <button id="modal-close" type="button" class="modal-close-btn" aria-label="Close project modal"><i class="fa-solid fa-xmark"></i></button>
       <div class="modal-header">
-        <span id="modal-language-badge" class="lang-badge">Language</span>
+        <div class="modal-badge-row">
+          <span id="modal-language-badge" class="lang-pill">Language</span>
+        </div>
         <h3 id="modal-title">Repository Title</h3>
       </div>
-      <p id="modal-description" class="modal-description">Repository description will appear here...</p>
+      <div id="modal-description" class="modal-description">Repository description will appear here...</div>
 
       <div class="modal-meta">
-        <div class="meta-item"><i class="fa-solid fa-star"></i> <span id="modal-stars">0</span> stars</div>
-        <div class="meta-item"><i class="fa-solid fa-code-fork"></i> <span id="modal-forks">0</span> forks</div>
-        <div class="meta-item"><i class="fa-solid fa-database"></i> <span id="modal-size">0 KB</span></div>
-        <div class="meta-item"><i class="fa-solid fa-clock"></i> Updated <span id="modal-updated">--</span></div>
+        <div class="meta-item"><i class="fa-solid fa-database"></i> Codebase: <span id="modal-size">0 KB</span></div>
+        <div class="meta-item"><i class="fa-solid fa-clock"></i> Updated: <span id="modal-updated">--</span></div>
+        <div class="meta-item" style="display:none;"><span id="modal-stars">0</span><span id="modal-forks">0</span></div>
       </div>
 
       <div class="clone-box">
-        <label for="clone-url-input">Git Clone URL:</label>
+        <label for="clone-url-input">Git Clone Command:</label>
         <div class="clone-input-group">
           <input type="text" id="clone-url-input" readonly />
-          <button id="copy-clone-btn" class="btn btn-secondary btn-sm">
+          <button id="copy-clone-btn" type="button" class="btn btn-secondary btn-sm">
             <i class="fa-regular fa-copy"></i> Copy
           </button>
         </div>
-        <span id="copy-toast" class="toast-msg" style="display: none;">Copied to clipboard!</span>
+        <span id="copy-toast" class="toast-msg" style="display: none;"><i class="fa-solid fa-check"></i> Copied to clipboard!</span>
       </div>
 
       <div class="modal-actions">
         <a id="modal-github-link" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-          <i class="fa-brands fa-github"></i> Open on GitHub
+          <i class="fa-brands fa-github"></i> Inspect Source Code on GitHub
         </a>
       </div>
     </div>
   </div>
 
   <!-- Contact Modal -->
-  <div id="contact-modal" class="modal-overlay" style="display: none;">
+  <div id="contact-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="contact-modal-heading" style="display: none;">
     <div class="modal-card">
-      <button id="contact-modal-close" class="modal-close-btn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+      <button id="contact-modal-close" type="button" class="modal-close-btn" aria-label="Close contact modal"><i class="fa-solid fa-xmark"></i></button>
       <div class="modal-header">
-        <span class="lang-badge" style="background: rgba(56, 189, 248, 0.15); color: var(--accent-cyan);"><i class="fa-solid fa-envelope"></i> Get In Touch</span>
-        <h3 style="margin-top: 6px;">Contact Earl Chirchir</h3>
+        <span class="lang-pill lang-cyan"><i class="fa-solid fa-bolt"></i> Direct Engineering Inquiry</span>
+        <h3 id="contact-modal-heading">Contact Earl Chirchir</h3>
       </div>
-      <p class="modal-description">Looking for a Robotics & Embedded Systems Engineer, Firmware Developer, or Control Systems Specialist? Feel free to reach out via any channel below:</p>
+      <p class="modal-description">Hiring for a Robotics, Mechatronics, Control Systems, or Embedded Firmware role in the UK? Reach out directly via any channel below:</p>
 
       <div class="contact-modal-options">
-        <a href="mailto:earlchirchir@outlook.com" class="contact-option-btn option-email">
-          <div class="option-icon"><i class="fa-solid fa-envelope"></i></div>
+        <a href="mailto:earlchirchir@outlook.com" class="contact-option-btn">
+          <div class="option-icon icon-cyan"><i class="fa-solid fa-envelope"></i></div>
           <div class="option-info">
             <span class="option-label">Direct Email</span>
             <span class="option-val">earlchirchir@outlook.com</span>
           </div>
-        </a>
-        
-        <a href="tel:+447425243365" class="contact-option-btn option-phone">
-          <div class="option-icon"><i class="fa-solid fa-phone"></i></div>
-          <div class="option-info">
-            <span class="option-label">Direct Call / WhatsApp</span>
-            <span class="option-val">+44 7425 243365</span>
-          </div>
+          <i class="fa-solid fa-arrow-right option-arrow"></i>
         </a>
 
-        <a href="https://www.linkedin.com/in/earl-chirchir/" target="_blank" rel="noopener noreferrer" class="contact-option-btn option-linkedin">
-          <div class="option-icon"><i class="fa-brands fa-linkedin"></i></div>
+        <a href="tel:+447425243365" class="contact-option-btn">
+          <div class="option-icon icon-emerald"><i class="fa-solid fa-phone"></i></div>
           <div class="option-info">
-            <span class="option-label">LinkedIn Message</span>
+            <span class="option-label">Phone / WhatsApp (UK)</span>
+            <span class="option-val">+44 7425 243365</span>
+          </div>
+          <i class="fa-solid fa-arrow-right option-arrow"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/earl-chirchir/" target="_blank" rel="noopener noreferrer" class="contact-option-btn">
+          <div class="option-icon icon-blue"><i class="fa-brands fa-linkedin"></i></div>
+          <div class="option-info">
+            <span class="option-label">LinkedIn Profile</span>
             <span class="option-val">linkedin.com/in/earl-chirchir</span>
           </div>
+          <i class="fa-solid fa-arrow-up-right-from-square option-arrow"></i>
         </a>
       </div>
 
-      <div class="modal-meta" style="margin-top: 20px;">
+      <div class="modal-meta contact-modal-footer">
         <div class="meta-item"><i class="fa-solid fa-location-dot"></i> Swansea SA1 8BB, Wales, UK</div>
-        <div class="meta-item"><i class="fa-solid fa-passport"></i> UK Work Visa (Share Code: WJA R3P 7LZ • Full Work Rights)</div>
+        <div class="meta-item"><i class="fa-solid fa-passport"></i> UK Graduate Visa (Share Code: WJA R3P 7LZ)</div>
       </div>
     </div>
   </div>
 
   <footer class="footer">
     <div class="container footer-content">
-      <p>© <span id="year">2026</span> Earl Chirchir. Built with Vite, Vanilla CSS & GitHub REST API.</p>
+      <div class="footer-brand">
+        <span class="nav-avatar-mini">EC</span>
+        <p>© <span id="year">2026</span> <strong>Earl Chirchir</strong> • Mechatronics, Robotics &amp; Embedded Systems Engineer.</p>
+      </div>
       <div class="footer-links">
+        <a href="cv.html"><i class="fa-solid fa-id-card-clip"></i> Web CV</a>
+        <a href="Earl_Chirchir_CV.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-pdf"></i> PDF CV</a>
         <a href="mailto:earlchirchir@outlook.com"><i class="fa-solid fa-envelope"></i> Email</a>
-        <a href="tel:+447425243365"><i class="fa-solid fa-phone"></i> Phone</a>
-        <a id="footer-twitter-link" href="https://x.com/earl_cr" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i> X</a>
         <a id="footer-hackster-link" href="https://www.hackster.io/earl-chirchir" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-microchip"></i> Hackster.io</a>
         <a id="footer-linkedin-link" href="https://www.linkedin.com/in/earl-chirchir/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
         <a href="https://github.com/earlchirchir" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
