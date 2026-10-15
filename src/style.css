@@ -80,22 +80,22 @@ body {
   z-index: 1;
 }
 
-/* Academic Distinction & Highlights */
+/* Technical Systems & Highlights */
 .education-banner {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 14px;
-  margin-bottom: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
 }
 
 .edu-card {
   background: var(--bg-card);
   border: 1px solid var(--border-card);
-  border-radius: var(--radius-lg);
-  padding: 18px 20px;
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   box-shadow: var(--shadow-card), var(--card-inner-shadow);
   transition: transform var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
 }
@@ -107,22 +107,22 @@ body {
 }
 
 .edu-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: var(--radius-md);
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--text-main);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   flex-shrink: 0;
 }
 
 .edu-info h3 {
   font-family: var(--font-heading);
-  font-size: 0.98rem;
+  font-size: 0.94rem;
   font-weight: 600;
   color: var(--text-main);
   letter-spacing: -0.015em;
@@ -130,16 +130,16 @@ body {
 }
 
 .edu-info p {
-  font-size: 0.84rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
 }
 
 /* ==========================================================================
-   Header & Profile Section
+   Header & Profile Section (Compact Above-the-Fold Allocation)
    ========================================================================== */
 .header {
   position: relative;
-  padding: 44px 0 28px;
+  padding: 22px 0 18px;
   border-bottom: 1px solid var(--border-card);
   background-color: #0c121f;
   background-image: 
@@ -152,17 +152,16 @@ body {
 }
 
 .header-content {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
-  gap: 32px;
-  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .profile-main {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 18px;
 }
 
 .avatar-container {
@@ -171,20 +170,20 @@ body {
 }
 
 .avatar-img {
-  width: 104px;
-  height: 104px;
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  width: 78px;
+  height: 78px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
   object-fit: cover;
 }
 
 .status-indicator {
   position: absolute;
-  bottom: 4px;
-  right: 4px;
-  width: 14px;
-  height: 14px;
+  bottom: -2px;
+  right: -2px;
+  width: 12px;
+  height: 12px;
   background-color: var(--accent-emerald);
   border: 2px solid #0d1320;
   border-radius: var(--radius-full);
@@ -193,19 +192,19 @@ body {
 .profile-info {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 5px;
 }
 
 .name-badge-row {
   display: flex;
   align-items: baseline;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
 .name-badge-row h1 {
   font-family: var(--font-heading);
-  font-size: 2.1rem;
+  font-size: 1.75rem;
   font-weight: 700;
   letter-spacing: -0.025em;
   color: #ffffff;
@@ -705,16 +704,20 @@ body {
   background: rgba(245, 158, 11, 0.06);
 }
 
-.badge-dissertation {
-  color: #a78bfa;
-  border-color: rgba(167, 139, 250, 0.25);
-  background: rgba(167, 139, 250, 0.06);
+.badge-kinematics {
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.28);
+  background: rgba(56, 189, 248, 0.08);
 }
 
-.badge-grade {
+.badge-feature-metric {
   color: #34d399;
-  border-color: rgba(52, 211, 153, 0.25);
-  background: rgba(52, 211, 153, 0.06);
+  border-color: rgba(52, 211, 153, 0.28);
+  background: rgba(52, 211, 153, 0.08);
+}
+
+.featured-system-card {
+  border-color: rgba(56, 189, 248, 0.28);
 }
 
 .lang-pill {
@@ -977,9 +980,9 @@ body {
   color: var(--text-main);
 }
 
-/* MSc Dissertation Spotlight Section */
+/* Robotics Motion Control Spotlight Section */
 .spotlight-section {
-  margin-bottom: 36px;
+  margin-bottom: 24px;
 }
 
 .spotlight-card {
@@ -993,7 +996,7 @@ body {
   background-size: auto 135%;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-lg);
-  padding: 28px;
+  padding: 22px 24px;
   position: relative;
   overflow: hidden;
   box-shadow: var(--shadow-card), var(--card-inner-shadow);
@@ -1010,7 +1013,7 @@ body {
   align-items: center;
   flex-wrap: wrap;
   gap: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .spotlight-badge {
@@ -1034,44 +1037,44 @@ body {
 
 .spotlight-title {
   font-family: var(--font-heading);
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: var(--text-main);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   line-height: 1.35;
   letter-spacing: -0.02em;
 }
 
 .spotlight-desc {
   color: var(--text-muted);
-  font-size: 0.94rem;
-  max-width: 880px;
-  margin-bottom: 18px;
-  line-height: 1.55;
+  font-size: 0.92rem;
+  max-width: 920px;
+  margin-bottom: 14px;
+  line-height: 1.5;
 }
 
 .spotlight-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 14px;
-  margin-bottom: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
 .spotlight-metric {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--radius-md);
-  padding: 12px 16px;
+  padding: 12px 14px;
   display: flex;
   flex-direction: column;
 }
 
 .metric-val {
   font-family: var(--font-heading);
-  font-size: 1.35rem;
+  font-size: 1.08rem;
   font-weight: 700;
   color: var(--text-main);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.015em;
 }
 
 .metric-lbl {
@@ -1406,6 +1409,10 @@ body {
   color: #34d399 !important;
 }
 
+.highlight-cyan {
+  color: #38bdf8 !important;
+}
+
 .metric-tag {
   font-family: var(--font-mono);
   font-size: 0.68rem;
@@ -1426,35 +1433,29 @@ body {
 }
 
 /* ==========================================================================
-   Applied Systems & Engineering Foundation
+   Applied Systems & Technical Foundation (Consolidated, Minimal Padding)
    ========================================================================== */
 .applied-engineering-section {
-  margin-top: 48px;
-  margin-bottom: 36px;
+  margin-top: 28px;
+  margin-bottom: 24px;
 }
 
 .applied-edu-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 16px;
-  margin-top: 14px;
+  gap: 12px;
+  margin-top: 10px;
 }
 
 .applied-edu-card {
   background-color: var(--bg-card);
-  background-image: 
-    linear-gradient(to bottom, rgba(16, 23, 38, 0.94) 0%, rgba(16, 23, 38, 0.98) 100%),
-    url('/images/bg-embedded-mesh.svg');
-  background-repeat: no-repeat;
-  background-position: right -20px bottom -20px;
-  background-size: 320px auto;
   border: 1px solid var(--border-card);
-  border-radius: var(--radius-lg);
-  padding: 22px 24px;
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
   box-shadow: var(--shadow-card), var(--card-inner-shadow);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
   transition: border-color var(--transition-fast), background var(--transition-fast);
 }
 
@@ -1467,32 +1468,22 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
 .applied-edu-badge {
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   color: var(--text-dim);
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-}
-
-.applied-honors-pill {
+  gap: 5px;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: #93c5fd;
-  background: rgba(59, 130, 246, 0.08);
-  border: 1px solid rgba(59, 130, 246, 0.2);
-  padding: 2px 8px;
-  border-radius: var(--radius-xs);
 }
 
 .applied-degree-title {
   font-family: var(--font-heading);
-  font-size: 1.15rem;
+  font-size: 1.02rem;
   font-weight: 700;
   color: var(--text-main);
   letter-spacing: -0.015em;
@@ -1500,42 +1491,26 @@ body {
 }
 
 .applied-desc {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--text-muted);
-  line-height: 1.5;
+  line-height: 1.45;
   margin: 0;
-}
-
-.applied-concepts-block {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: var(--radius-md);
-  padding: 12px 14px;
-}
-
-.concepts-label {
-  font-size: 0.74rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--text-dim);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 8px;
 }
 
 .applied-concepts-list {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-sm);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 6px 12px;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 5px 10px;
 }
 
 .applied-concepts-list li {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--text-main);
   display: inline-flex;
   align-items: center;
@@ -1544,36 +1519,31 @@ body {
 
 .applied-concepts-list li i {
   color: #34d399;
-  font-size: 0.72rem;
-}
-
-.applied-doc-links {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: 4px;
+  font-size: 0.7rem;
 }
 
 /* ==========================================================================
-   Industry Commendations & References
+   Industry Commendations & Awards (Compact 3-Col / Horizontal Scroll Grid)
    ========================================================================== */
 .commendations-section {
-  margin-top: 48px;
-  margin-bottom: 36px;
+  margin-top: 28px;
+  margin-bottom: 24px;
 }
 
 .commendations-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 16px;
-  margin-top: 14px;
+  grid-template-columns: repeat(3, minmax(260px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+  overflow-x: auto;
+  padding-bottom: 4px;
 }
 
 .commendation-card {
   background: var(--bg-card);
   border: 1px solid var(--border-card);
-  border-radius: var(--radius-lg);
-  padding: 20px 22px;
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
   box-shadow: var(--shadow-card), var(--card-inner-shadow);
   display: flex;
   flex-direction: column;
@@ -1593,26 +1563,26 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 12px;
+  gap: 8px;
+  margin-bottom: 8px;
 }
 
 .commendation-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-md);
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-sm);
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--text-main);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .commendation-year {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: var(--text-dim);
   text-transform: uppercase;
   letter-spacing: 0.03em;
@@ -1620,11 +1590,11 @@ body {
 
 .commendation-title {
   font-family: var(--font-heading);
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   font-weight: 700;
   color: var(--text-main);
   letter-spacing: -0.015em;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1632,7 +1602,7 @@ body {
 }
 
 .commendation-arrow {
-  font-size: 0.72em;
+  font-size: 0.7em;
   opacity: 0.6;
   transition: opacity var(--transition-fast), transform var(--transition-fast);
 }
@@ -1643,22 +1613,22 @@ body {
 }
 
 .commendation-org {
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   font-weight: 600;
   color: #93c5fd;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .commendation-desc {
-  font-size: 0.82rem;
+  font-size: 0.79rem;
   color: var(--text-muted);
-  line-height: 1.5;
-  margin-bottom: 14px;
+  line-height: 1.45;
+  margin-bottom: 10px;
   flex-grow: 1;
 }
 
 .commendation-link-text {
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--text-dim);
   display: inline-flex;
@@ -1672,24 +1642,18 @@ body {
 }
 
 /* ==========================================================================
-   Compliance & Work Authorization (Discrete & Subdued)
+   Compliance & Work Authorization (Discrete & Subdued Above Footer)
    ========================================================================== */
 .compliance-section {
-  margin-top: 48px;
-  margin-bottom: 36px;
+  margin-top: 24px;
+  margin-bottom: 16px;
 }
 
 .compliance-card {
-  background-color: #0a0e18;
-  background-image: 
-    linear-gradient(to right, rgba(10, 14, 24, 0.96) 30%, rgba(10, 14, 24, 0.9) 100%),
-    url('/images/bg-tech-grid.svg');
-  background-repeat: repeat;
-  background-size: 80px 80px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: var(--radius-lg);
-  padding: 20px 24px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  background-color: #080c14;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
 }
 
 .compliance-header {

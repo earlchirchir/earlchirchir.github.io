@@ -114,27 +114,27 @@ const FALLBACK_REPOS = [
     id: 990000001,
     name: 'Automated-Shopping-Cart',
     html_url: 'https://github.com/earlchirchir/Automated-Shopping-Cart',
-    description: 'Autonomous retail automation system using ESP32, RFID item scanning, HX711 24-bit load-cell tare verification, and MQTT telemetry protocol for synchronized automated billing.',
+    description: 'Autonomous retail automation system on ESP32 utilizing SPI MFRC522 RFID interrupts, HX711 24-bit ADC load-cell tare verification, and asynchronous MQTT/HTTP REST telemetry for deterministic automated billing.',
     language: 'C++',
     stargazers_count: 0,
     forks_count: 0,
     size: 850,
     updated_at: '2024-05-15T12:00:00Z',
     clone_url: 'https://github.com/earlchirchir/Automated-Shopping-Cart.git',
-    topics: ['rfid', 'load-cell', 'embedded-systems', 'cplusplus', 'automation']
+    topics: ['rfid', 'mqtt', 'http-rest', 'hx711', 'esp32', 'cplusplus']
   },
   {
     id: 990000002,
     name: 'Odi2-Deafblind-Assistive-Device',
     html_url: 'https://github.com/earlchirchir/Odi2-Deafblind-Assistive-Device',
-    description: 'Tactile assistive hardware interface featuring ERM/LRA haptic feedback drivers via I2C, capacitive sensor matrix, and low-latency audio synthesis protocols for deafblind communication.',
+    description: 'Tactile assistive embedded interface featuring I2C ERM/LRA haptic feedback drivers, non-blocking capacitive touch matrix scanning, and low-latency UART/I2S audio synthesis protocols for deafblind communication.',
     language: 'C++',
     stargazers_count: 0,
     forks_count: 0,
     size: 620,
     updated_at: '2024-03-20T12:00:00Z',
     clone_url: 'https://github.com/earlchirchir/Odi2-Deafblind-Assistive-Device.git',
-    topics: ['assistive-tech', 'haptics', 'embedded', 'accessibility', 'sensors']
+    topics: ['i2c', 'haptics', 'embedded-c', 'uart', 'capacitive-touch']
   },
   {
     id: 990000003,
@@ -353,10 +353,10 @@ async function fetchUserRepos() {
           r.description = 'Managed FreeRTOS task scheduling and LVGL v9 rendering constraints on the ESP32 Cheap Yellow Display (CYD) for high-speed RF visualization.';
         }
         if (r.name.toLowerCase().includes('automated-shopping-cart')) {
-          r.description = 'Autonomous retail automation system using ESP32, RFID item scanning, HX711 24-bit load-cell tare verification, and MQTT telemetry protocol for synchronized automated billing.';
+          r.description = 'Autonomous retail automation system on ESP32 utilizing SPI MFRC522 RFID interrupts, HX711 24-bit ADC load-cell tare verification, and asynchronous MQTT/HTTP REST telemetry for deterministic automated billing.';
         }
         if (r.name.toLowerCase().includes('odi2-deafblind-assistive-device')) {
-          r.description = 'Tactile assistive hardware interface featuring ERM/LRA haptic feedback drivers via I2C, capacitive sensor matrix, and low-latency audio synthesis protocols for deafblind communication.';
+          r.description = 'Tactile assistive embedded interface featuring I2C ERM/LRA haptic feedback drivers, non-blocking capacitive touch matrix scanning, and low-latency UART/I2S audio synthesis protocols for deafblind communication.';
         }
         if (r.name.toLowerCase().includes('iot-weighing-solution-for-bulk-bins')) {
           r.description = 'Industrial IoT weight sensing telemetry platform using load cells, HX711 amplifier, and cloud MQTT integration.';
@@ -396,7 +396,7 @@ function renderRepos() {
     if (currentSearch.trim() !== '') {
       const q = currentSearch.toLowerCase();
       const nameMatch = repo.name.toLowerCase().includes(q);
-      const descMatch = repo.description && repo.description.toLowerCase().includes(q);
+      const descMatch = repo.description && repo.description.toLowerCase().toLowerCase().includes(q);
       const langMatch = repo.language && repo.language.toLowerCase().includes(q);
       const topicMatch = repo.topics && repo.topics.some(t => t.toLowerCase().includes(q));
       if (!nameMatch && !descMatch && !langMatch && !topicMatch) return false;
@@ -405,16 +405,17 @@ function renderRepos() {
     return true;
   });
 
-  // Sort
+  // Sort: Default prioritizes Featured Projects & Codebase Complexity
   filtered.sort((a, b) => {
-    // Always place earlchirchir.github.io at the very bottom
     const isPortfolioA = a.name.toLowerCase().includes('earlchirchir.github.io');
     const isPortfolioB = b.name.toLowerCase().includes('earlchirchir.github.io');
     if (isPortfolioA && !isPortfolioB) return 1;
     if (!isPortfolioA && isPortfolioB) return -1;
 
     if (currentSort === 'featured') {
-      return getSignificanceRank(a.name) - getSignificanceRank(b.name);
+      const rankDiff = getSignificanceRank(a.name) - getSignificanceRank(b.name);
+      if (rankDiff !== 0) return rankDiff;
+      return (b.size || 0) - (a.size || 0);
     } else if (currentSort === 'updated') {
       return new Date(b.updated_at) - new Date(a.updated_at);
     } else if (currentSort === 'stars') {
@@ -441,11 +442,15 @@ function renderRepos() {
   }
 
   reposContainer.innerHTML = filtered.map(repo => {
-    const isDissertation = repo.name.toLowerCase().includes('abb-crb-15000');
-    const isPinned = repo.is_pinned || ['esp32-spectrum-radar', 'abb-crb-15000'].some(p => repo.name.toLowerCase().includes(p));
+    const lowerName = repo.name.toLowerCase();
+    const isAbb = lowerName.includes('abb-crb-15000');
+    const isRadar = lowerName.includes('esp32-spectrum-radar');
+    const isCart = lowerName.includes('automated-shopping-cart');
+    const isOdi2 = lowerName.includes('odi2');
+    const isPinned = repo.is_pinned || ['esp32-spectrum-radar', 'abb-crb-15000', 'automated-shopping-cart', 'odi2'].some(p => lowerName.includes(p));
 
     return `
-    <article class="repo-card ${isDissertation ? 'dissertation-card' : ''}" data-id="${repo.id}">
+    <article class="repo-card ${isAbb ? 'featured-system-card' : ''}" data-id="${repo.id}">
       <div class="repo-card-header">
         <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="repo-title-link">
           ${repo.name}
@@ -454,10 +459,22 @@ function renderRepos() {
       </div>
 
       <div class="card-tags-row">
-        ${isPinned ? `<span class="tag-badge badge-pinned"><i class="fa-solid fa-thumbtack"></i> Pinned</span>` : ''}
-        ${isDissertation ? `
-          <span class="tag-badge badge-dissertation"><i class="fa-solid fa-robot"></i> Kinematics & Dynamics</span>
-          <span class="tag-badge badge-grade"><i class="fa-solid fa-gauge-high"></i> ~25% Cycle Gain</span>
+        ${isPinned ? `<span class="tag-badge badge-pinned"><i class="fa-solid fa-microchip"></i> Featured System</span>` : ''}
+        ${isAbb ? `
+          <span class="tag-badge badge-feature-metric"><i class="fa-solid fa-gauge-high"></i> ~25% Cycle Efficiency Gain</span>
+          <span class="tag-badge badge-kinematics"><i class="fa-solid fa-cube"></i> RoboDK 3D Trajectory Verification</span>
+        ` : ''}
+        ${isRadar ? `
+          <span class="tag-badge badge-kinematics"><i class="fa-solid fa-layer-group"></i> FreeRTOS Dual-Core</span>
+          <span class="tag-badge badge-feature-metric"><i class="fa-solid fa-display"></i> LVGL v9 CYD</span>
+        ` : ''}
+        ${isCart ? `
+          <span class="tag-badge badge-kinematics"><i class="fa-solid fa-tower-broadcast"></i> MQTT / HTTP Telemetry</span>
+          <span class="tag-badge badge-feature-metric"><i class="fa-solid fa-weight-scale"></i> HX711 24-Bit ADC</span>
+        ` : ''}
+        ${isOdi2 ? `
+          <span class="tag-badge badge-kinematics"><i class="fa-solid fa-wave-square"></i> I2C ERM/LRA Haptics</span>
+          <span class="tag-badge badge-feature-metric"><i class="fa-solid fa-microchip"></i> Capacitive Matrix ISR</span>
         ` : ''}
       </div>
 
@@ -465,11 +482,11 @@ function renderRepos() {
 
       <div class="repo-footer">
         <div class="repo-stats">
+          <span class="repo-stat-item" title="Codebase Complexity / Size"><i class="fa-solid fa-database"></i> ${repo.size || 0} KB</span>
           <span class="repo-stat-item" title="Stars"><i class="fa-solid fa-star"></i> ${repo.stargazers_count || 0}</span>
-          <span class="repo-stat-item" title="Forks"><i class="fa-solid fa-code-fork"></i> ${repo.forks_count || 0}</span>
         </div>
         <button class="details-btn" data-id="${repo.id}">
-          Details <i class="fa-solid fa-arrow-right"></i>
+          Architecture Specs <i class="fa-solid fa-arrow-right"></i>
         </button>
       </div>
     </article>
@@ -482,8 +499,7 @@ function renderRepos() {
       const repoId = card.getAttribute('data-id');
       const repo = repositories.find(r => String(r.id) === String(repoId));
       
-      // If clicking directly on external title link, expandable details summary, or PDF link
-      if (e.target.closest('.repo-title-link') || e.target.closest('.dissertation-expandable-details') || e.target.closest('a')) {
+      if (e.target.closest('.repo-title-link') || e.target.closest('a')) {
         return;
       }
 
@@ -504,23 +520,23 @@ function renderBlogArticles() {
           <span style="font-size: 0.78rem; color: var(--text-dim);">${article.publishedDate}</span>
         </div>
 
-        <h3 style="font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 8px; line-height: 1.3;">
+        <h3 style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.3;">
           ${article.title}
         </h3>
 
-        <p class="repo-desc" style="font-size: 0.88rem; color: var(--text-dim); margin-bottom: 12px; line-height: 1.5;">
+        <p class="repo-desc" style="font-size: 0.85rem; color: var(--text-dim); margin-bottom: 10px; line-height: 1.45;">
           ${article.elevatorPitch}
         </p>
 
-        <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px;">
-          ${article.tags.map(t => `<span style="background: rgba(255,255,255,0.05); color: #94a3b8; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem;">#${t}</span>`).join('')}
+        <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px;">
+          ${article.tags.map(t => `<span style="background: rgba(255,255,255,0.05); color: #94a3b8; padding: 2px 6px; border-radius: 4px; font-size: 0.72rem;">#${t}</span>`).join('')}
         </div>
       </div>
 
-      <div class="repo-footer" style="padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.06); margin-top: auto;">
-        <span style="font-size: 0.8rem; color: var(--text-dim);"><i class="fa-solid fa-clock"></i> ${article.readTime}</span>
-        <button class="details-btn" style="color: #00a8e8;">
-          Read Article Overlay <i class="fa-solid fa-book-open"></i>
+      <div class="repo-footer" style="padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.06); margin-top: auto;">
+        <span style="font-size: 0.78rem; color: var(--text-dim);"><i class="fa-solid fa-clock"></i> ${article.readTime}</span>
+        <button class="details-btn" style="color: #38bdf8;">
+          Read Technical Brief <i class="fa-solid fa-book-open"></i>
         </button>
       </div>
     </article>
@@ -541,8 +557,8 @@ function parseMarkdown(mdText) {
 
   let html = mdText
     .replace(/^# (.*$)/gim, '<h1 style="color: #fff; font-size: 1.4rem; font-weight: 700; margin: 20px 0 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px;">$1</h1>')
-    .replace(/^## (.*$)/gim, '<h2 style="color: #c084fc; font-size: 1.2rem; font-weight: 600; margin: 18px 0 8px 0;">$1</h2>')
-    .replace(/^### (.*$)/gim, '<h3 style="color: #38bdf8; font-size: 1.05rem; font-weight: 600; margin: 14px 0 6px 0;">$1</h3>')
+    .replace(/^## (.*$)/gim, '<h2 style="color: #38bdf8; font-size: 1.2rem; font-weight: 600; margin: 18px 0 8px 0;">$1</h2>')
+    .replace(/^### (.*$)/gim, '<h3 style="color: #34d399; font-size: 1.05rem; font-weight: 600; margin: 14px 0 6px 0;">$1</h3>')
     .replace(/---/g, '<hr style="border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0;" />')
     .replace(/\*\*(.*?)\*\*/g, '<strong style="color: #fff; font-weight: 600;">$1</strong>')
     .replace(/`([^`]+)`/g, '<code style="background: rgba(255,255,255,0.1); color: #38bdf8; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 0.88em;">$1</code>')
@@ -608,27 +624,58 @@ window.resetFilters = function() {
 function openModal(repo) {
   modalTitle.textContent = repo.name;
   
-  const isDissertation = repo.name.toLowerCase().includes('abb-crb-15000');
-  if (isDissertation) {
+  const lowerName = repo.name.toLowerCase();
+  if (lowerName.includes('abb-crb-15000')) {
     modalDescription.innerHTML = `
-      <p style="margin-bottom: 12px;">Formulated mathematical kinematic solvers, inverse dynamics, and time-optimal velocity profiles for the ABB GoFa collaborative arm. Reduced robot joint jerk and cycle execution time through MATLAB trajectory formulation and RoboDK 3D simulation validation.</p>
+      <p style="margin-bottom: 12px;">Optimized cycle execution time by ~25% for the ABB GoFa collaborative arm. Formulated mathematical kinematic solvers, inverse dynamics, and bang-coast-bang time-optimal velocity profiles. Validated trajectory constraints through MATLAB and RoboDK 3D.</p>
       
-      <div style="background: rgba(147, 51, 234, 0.1); border: 1px solid rgba(147, 51, 234, 0.3); border-radius: 8px; padding: 12px; margin-bottom: 16px;">
-        <h4 style="color: #c084fc; margin-bottom: 8px; font-size: 0.95rem;"><i class="fa-solid fa-graduation-cap"></i> MSc Dissertation Overview</h4>
-        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-dim);">
-          <li><strong>Score / Grade:</strong> <span style="color: #34d399; font-weight: 600;">81% (Grade A / Passed with Distinction)</span></li>
-          <li><strong>Institution:</strong> Kingston University London (2024 &ndash; 2025)</li>
-          <li><strong>Tech Stack & Theory:</strong> MATLAB, RoboDK 3D, Bang-Coast-Bang Time Law, Inverse Kinematics</li>
-          <li><strong>Key Performance Metrics:</strong> ~25% Cycle Time Reduction & Joint Jerk Minimization on ABB GoFa cobot</li>
+      <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.28); border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+        <h4 style="color: #34d399; margin-bottom: 8px; font-size: 0.92rem;"><i class="fa-solid fa-robot"></i> System Architecture & Performance Metrics</h4>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 1.6; color: var(--text-muted);">
+          <li><strong>Primary Throughput ROI:</strong> <span style="color: #34d399; font-weight: 600;">~25% Cycle Efficiency Gain</span> via bang-coast-bang time-optimal velocity scaling</li>
+          <li><strong>3D Digital Twin Validation:</strong> <span style="color: #38bdf8; font-weight: 600;">RoboDK 3D Trajectory Verification</span> across all 6 rotational joints</li>
+          <li><strong>Kinematic Formulation:</strong> Analytical & numerical forward/inverse kinematics and Jacobian velocity mapping in MATLAB</li>
+          <li><strong>Actuator Protection:</strong> Continuous acceleration blending with zero boundary discontinuities under joint torque limits</li>
         </ul>
-        <div style="margin-top: 10px;">
-          <a href="Kingston_University_MSc_HEAR_Transcript.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.8rem;">
-            <i class="fa-solid fa-file-pdf"></i> View Official Kingston HEAR Transcript (PDF)
-          </a>
-        </div>
       </div>
     `;
-  } else if (repo.name.toLowerCase().includes('iot-weighing-solution-for-bulk-bins')) {
+  } else if (lowerName.includes('esp32-spectrum-radar')) {
+    modalDescription.innerHTML = `
+      <p style="margin-bottom: 12px;">Managed FreeRTOS task scheduling and LVGL v9 rendering constraints on the ESP32 Cheap Yellow Display (CYD) for high-speed RF visualization.</p>
+      <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.28); border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+        <h4 style="color: #38bdf8; margin-bottom: 8px; font-size: 0.92rem;"><i class="fa-solid fa-microchip"></i> Firmware & Hardware Constraints</h4>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 1.6; color: var(--text-muted);">
+          <li><strong>Target MCU & Display:</strong> ESP32-2432S022C (Dual-Core Xtensa LX6) driving 240x320 ILI9341/ST7789 TFT over SPI</li>
+          <li><strong>RTOS Concurrency:</strong> Core 0 pinned to non-blocking 2.4GHz promiscuous/RSSI sweep; Core 1 pinned to LVGL v9 60 FPS frame buffer flush</li>
+          <li><strong>Memory Optimization:</strong> Static DMA double-buffering within tight internal SRAM limits to eliminate SPI bus contention</li>
+        </ul>
+      </div>
+    `;
+  } else if (lowerName.includes('automated-shopping-cart')) {
+    modalDescription.innerHTML = `
+      <p style="margin-bottom: 12px;">Autonomous retail automation system on ESP32 utilizing SPI MFRC522 RFID interrupts, HX711 24-bit ADC load-cell tare verification, and asynchronous MQTT/HTTP REST telemetry for deterministic automated billing.</p>
+      <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.28); border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+        <h4 style="color: #38bdf8; margin-bottom: 8px; font-size: 0.92rem;"><i class="fa-solid fa-network-wired"></i> Telemetry & Hardware Bus Specifications</h4>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 1.6; color: var(--text-muted);">
+          <li><strong>Acquisition Bus:</strong> SPI MFRC522 RFID reader + UART barcode scanner with hardware interrupt debouncing</li>
+          <li><strong>Gravimetric Verification:</strong> HX711 24-bit sigma-delta ADC reading strain-gauge bridge for real-time item mass cross-check</li>
+          <li><strong>Billing Protocol:</strong> JSON payload serialization over Wi-Fi MQTT pub/sub and HTTP REST endpoints for zero-queue ledger sync</li>
+        </ul>
+      </div>
+    `;
+  } else if (lowerName.includes('odi2-deafblind-assistive-device')) {
+    modalDescription.innerHTML = `
+      <p style="margin-bottom: 12px;">Tactile assistive embedded interface featuring I2C ERM/LRA haptic feedback drivers, non-blocking capacitive touch matrix scanning, and low-latency UART/I2S audio synthesis protocols for deafblind communication.</p>
+      <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.28); border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+        <h4 style="color: #34d399; margin-bottom: 8px; font-size: 0.92rem;"><i class="fa-solid fa-wave-square"></i> Embedded Signal & Bus Architecture</h4>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 1.6; color: var(--text-muted);">
+          <li><strong>Haptic Actuation:</strong> I2C-addressed ERM/LRA motor driver stage encoding Braille/tactile token patterns</li>
+          <li><strong>Input Matrix:</strong> Non-blocking capacitive touch sensor polling with finite-state-machine gesture decoding</li>
+          <li><strong>Audio & Serial Link:</strong> Low-latency UART/I2S voice synthesis interface for bidirectional deafblind translation</li>
+        </ul>
+      </div>
+    `;
+  } else if (lowerName.includes('iot-weighing-solution-for-bulk-bins')) {
     modalDescription.innerHTML = `
       <p style="margin-bottom: 12px;">Industrial IoT data logging and telemetry platform for industrial machinery and bulk weighing bins, improving remote data accuracy by ~40% and feeding real-time production metrics to SQL databases and Power BI dashboards.</p>
       <div style="background: rgba(14, 165, 233, 0.1); border: 1px solid rgba(14, 165, 233, 0.3); border-radius: 8px; padding: 12px; margin-bottom: 16px;">
@@ -636,12 +683,12 @@ function openModal(repo) {
         <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-dim);">
           <li><strong>Hardware Stack:</strong> ESP32 / Arduino Nano, HX711 24-bit ADC amplifier, Strain Gauge Load Cells</li>
           <li><strong>Telemetry Protocols:</strong> JSON-based data payload over Wi-Fi / MQTT / HTTP to remote web servers</li>
-          <li><strong>HMI Integration:</strong> Nextion touchscreen HMI for real-time operator machine communication</li>
+          <li><strong>HMI Integration:</strong> Nextion UART touchscreen HMI for real-time operator machine communication</li>
           <li><strong>Industrial Impact:</strong> Increased machine uptime, eliminated manual weighing errors, and automated batch logging</li>
         </ul>
       </div>
     `;
-  } else if (repo.name.toLowerCase().includes('load-sensor-modules-pcb')) {
+  } else if (lowerName.includes('load-sensor-modules-pcb')) {
     modalDescription.innerHTML = `
       <p style="margin-bottom: 12px;">Custom-designed printed circuit board accommodating modular multi-channel load sensor interfaces for industrial weighing and telemetry platforms.</p>
       <div style="background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 8px; padding: 12px; margin-bottom: 16px;">
@@ -653,14 +700,14 @@ function openModal(repo) {
         </ul>
       </div>
     `;
-  } else if (repo.name.toLowerCase().includes('eggcellent-automated-chicken-coop')) {
+  } else if (lowerName.includes('eggcellent-automated-chicken-coop')) {
     modalDescription.innerHTML = `
       <p style="margin-bottom: 12px;">1st Place Award-Winning smart agricultural IoT coop environment controller with automated climate regulation, motorized door actuators, and feed level telemetry.</p>
       <div style="background: rgba(234, 179, 8, 0.1); border: 1px solid rgba(234, 179, 8, 0.3); border-radius: 8px; padding: 12px; margin-bottom: 16px;">
         <h4 style="color: #facc15; margin-bottom: 8px; font-size: 0.95rem;"><i class="fa-solid fa-trophy"></i> 1st Place Intervarsity Award Winner</h4>
         <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-dim);">
           <li><strong>Recognition:</strong> 1st Place Engineering Innovator — Riara University Intervarsity Competition</li>
-          <li><strong>Hardware:</strong> ESP32 / Arduino Nano, L298N motor driver, DS3231 RTC, DHT22 sensors, ultrasonic level sensing</li>
+          <li><strong>Hardware:</strong> ESP32 / Arduino Nano, L298N H-bridge motor driver, DS3231 I2C RTC, DHT22, ultrasonic level sensing</li>
           <li><strong>Firmware:</strong> C++ finite state machine controlling automated scheduled & light-dependent actuation</li>
         </ul>
       </div>
@@ -820,12 +867,13 @@ function setupEventListeners() {
 function setupStickyNav() {
   const navLinks = document.querySelectorAll('#nav-links a[href^="#"]');
   const sections = [
-    document.getElementById('overview-highlights'),
-    document.getElementById('credentials-ribbon'),
-    document.getElementById('trajectory-simulator'),
+    document.getElementById('spotlight-section'),
     document.getElementById('skills-matrix'),
     document.getElementById('repos-section'),
-    document.getElementById('blog-section')
+    document.getElementById('blog-section'),
+    document.getElementById('industry-commendations'),
+    document.getElementById('applied-engineering'),
+    document.getElementById('compliance-section')
   ].filter(Boolean);
 
   // Smooth scroll with offset for sticky nav (60px)
