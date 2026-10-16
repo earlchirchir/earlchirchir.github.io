@@ -2,44 +2,117 @@
 
 const GITHUB_USERNAME = 'earlchirchir';
 
-// Hydrated Fallback Repositories Data with Engineering Highlights
+// Hydrated Fallback Repositories Data (Updated with Title-Case Names)
 const FALLBACK_REPOS = [
   {
     id: 1309916364,
     name: 'ABB-CRB-15000-Robotic-Arm-Kinematics-Trajectory-Planning',
-    display_title: 'ABB GoFa CRB 15000 Kinematics & Trajectory Solver',
     html_url: 'https://github.com/earlchirchir/ABB-CRB-15000-Robotic-Arm-Kinematics-Trajectory-Planning',
-    description: 'Optimized cycle execution time by ~25% for the 6-DOF ABB GoFa collaborative arm. Formulated closed-form kinematic solvers, inverse dynamics, and bang-coast-bang time-optimal velocity profiles in MATLAB & RoboDK 3D.',
+    description: 'Optimized cycle execution time by ~25% for the ABB GoFa collaborative arm. Formulated mathematical kinematic solvers, inverse dynamics, and bang-coast-bang time-optimal velocity profiles. Validated trajectory constraints through MATLAB and RoboDK 3D.',
     language: 'MATLAB',
     stargazers_count: 0,
     forks_count: 0,
     size: 26027,
     updated_at: '2026-07-23T13:22:55Z',
     clone_url: 'https://github.com/earlchirchir/ABB-CRB-15000-Robotic-Arm-Kinematics-Trajectory-Planning.git',
-    topics: ['6-DOF Kinematics', 'Bang-Coast-Bang', 'MATLAB', 'RoboDK 3D', 'ABB GoFa'],
-    metric_badge: '~25% Cycle Gain',
+    topics: ['robotics', 'kinematics', 'matlab', 'cobot', 'trajectory-planning'],
     is_pinned: true
   },
   {
     id: 1310065999,
     name: 'ESP32-Spectrum-Radar',
-    display_title: 'ESP32 2.4GHz Wi-Fi Spectrum Radar & Inspector',
     html_url: 'https://github.com/earlchirchir/ESP32-Spectrum-Radar',
-    description: 'Engineered dual-core FreeRTOS task scheduling and 60FPS LVGL v9 touch GUI on the ESP32 Cheap Yellow Display (CYD) for real-time 13-channel 2.4GHz RF congestion telemetry.',
+    description: 'Managed FreeRTOS task scheduling and LVGL v9 rendering constraints on the ESP32 Cheap Yellow Display (CYD) for high-speed RF visualization.',
     language: 'C++',
     stargazers_count: 0,
     forks_count: 0,
     size: 420,
     updated_at: '2026-07-23T15:08:59Z',
     clone_url: 'https://github.com/earlchirchir/ESP32-Spectrum-Radar.git',
-    topics: ['ESP32', 'FreeRTOS', 'LVGL v9', 'RF Telemetry', 'SPI Touch GUI'],
-    metric_badge: '60 FPS Dual-Core',
+    topics: ['esp32', 'firmware', 'radar', 'cplusplus', 'embedded'],
     is_pinned: true
+  },
+  {
+    id: 577751420,
+    name: 'Onboard-Monitoring-System',
+    html_url: 'https://github.com/earlchirchir/Onboard-Monitoring-System',
+    description: 'Real-time telemetry and on-board sensor monitoring dashboard web interface for embedded hardware.',
+    language: 'JavaScript',
+    stargazers_count: 0,
+    forks_count: 0,
+    size: 569,
+    updated_at: '2026-07-19T02:11:24Z',
+    clone_url: 'https://github.com/earlchirchir/Onboard-Monitoring-System.git',
+    topics: ['telemetry', 'javascript', 'monitoring', 'embedded-ui']
+  },
+  {
+    id: 1300808846,
+    name: 'Spatial-RPR-Robot',
+    html_url: 'https://github.com/earlchirchir/Spatial-RPR-Robot',
+    description: 'Spatial RPR (Revolute-Prismatic-Revolute) manipulator workspace analysis and kinematic model.',
+    language: 'MATLAB',
+    stargazers_count: 0,
+    forks_count: 0,
+    size: 615,
+    updated_at: '2026-07-14T18:27:26Z',
+    clone_url: 'https://github.com/earlchirchir/Spatial-RPR-Robot.git',
+    topics: ['matlab', 'robotics', 'manipulator', 'spatial-kinematics']
+  },
+  {
+    id: 738944382,
+    name: 'Home-Renovation-Impact-Analysis',
+    html_url: 'https://github.com/earlchirchir/Home-Renovation-Impact-Analysis',
+    description: 'Machine learning model and data analysis pipeline for house price prediction and valuation impact.',
+    language: 'Jupyter Notebook',
+    stargazers_count: 0,
+    forks_count: 0,
+    size: 12425,
+    updated_at: '2026-07-14T14:52:38Z',
+    clone_url: 'https://github.com/earlchirchir/Home-Renovation-Impact-Analysis.git',
+    topics: ['python', 'machine-learning', 'jupyter-notebook', 'data-analysis']
+  },
+  {
+    id: 1300505120,
+    name: 'ESP32-2432S022C-Capabilities-Showcase-Firmware',
+    html_url: 'https://github.com/earlchirchir/ESP32-2432S022C-Capabilities-Showcase-Firmware',
+    description: 'Feature-rich firmware demonstrating capacitive touch display, BLE, and WiFi features on ESP32-2432S022C.',
+    language: 'C++',
+    stargazers_count: 0,
+    forks_count: 0,
+    size: 651,
+    updated_at: '2026-07-14T13:31:30Z',
+    clone_url: 'https://github.com/earlchirchir/ESP32-2432S022C-Capabilities-Showcase-Firmware.git',
+    topics: ['esp32', 'touch-display', 'cplusplus', 'ble', 'embedded-systems']
+  },
+  {
+    id: 716050464,
+    name: 'IoT-Weighing-Solution-for-Bulk-Bins',
+    html_url: 'https://github.com/earlchirchir/IoT-Weighing-Solution-for-Bulk-Bins',
+    description: 'Industrial IoT weight sensing telemetry platform using load cells, HX711 amplifier, and cloud MQTT integration.',
+    language: 'C++',
+    stargazers_count: 0,
+    forks_count: 0,
+    size: 1120,
+    updated_at: '2026-07-10T11:20:00Z',
+    clone_url: 'https://github.com/earlchirchir/IoT-Weighing-Solution-for-Bulk-Bins.git',
+    topics: ['iot', 'sensors', 'mqtt', 'esp32', 'cplusplus']
+  },
+  {
+    id: 716050465,
+    name: 'Load-Sensor-Modules-PCB',
+    html_url: 'https://github.com/earlchirchir/Load-Sensor-Modules-PCB',
+    description: 'Custom PCB layout accommodating 6 load sensor modules for modular plug-and-play hardware sensing.',
+    language: 'Hardware',
+    stargazers_count: 0,
+    forks_count: 0,
+    size: 229,
+    updated_at: '2026-07-09T18:23:56Z',
+    clone_url: 'https://github.com/earlchirchir/Load-Sensor-Modules-PCB.git',
+    topics: ['pcb-design', 'hardware', 'electronics', 'load-cell', 'sensors']
   },
   {
     id: 990000001,
     name: 'Automated-Shopping-Cart',
-    display_title: 'Autonomous Retail Smart Cart & Load-Cell Billing',
     html_url: 'https://github.com/earlchirchir/Automated-Shopping-Cart',
     description: 'Autonomous retail automation system using ESP32, RFID item scanning, HX711 24-bit load-cell tare verification, and MQTT telemetry protocol for synchronized automated billing.',
     language: 'C++',
@@ -48,13 +121,11 @@ const FALLBACK_REPOS = [
     size: 850,
     updated_at: '2024-05-15T12:00:00Z',
     clone_url: 'https://github.com/earlchirchir/Automated-Shopping-Cart.git',
-    topics: ['ESP32', 'RFID', 'HX711 24-Bit ADC', 'MQTT', 'Sensor Fusion'],
-    metric_badge: '24-Bit Tare Sync'
+    topics: ['rfid', 'load-cell', 'embedded-systems', 'cplusplus', 'automation']
   },
   {
     id: 990000002,
     name: 'Odi2-Deafblind-Assistive-Device',
-    display_title: 'Odi2 Tactile Haptic Deafblind Assistive Interface',
     html_url: 'https://github.com/earlchirchir/Odi2-Deafblind-Assistive-Device',
     description: 'Tactile assistive hardware interface featuring ERM/LRA haptic feedback drivers via I2C, capacitive sensor matrix, and low-latency audio synthesis protocols for deafblind communication.',
     language: 'C++',
@@ -63,114 +134,20 @@ const FALLBACK_REPOS = [
     size: 620,
     updated_at: '2024-03-20T12:00:00Z',
     clone_url: 'https://github.com/earlchirchir/Odi2-Deafblind-Assistive-Device.git',
-    topics: ['ERM/LRA Haptics', 'I2C Bus', 'Capacitive Matrix', 'Embedded C++'],
-    metric_badge: 'Low-Latency I2C'
-  },
-  {
-    id: 716050464,
-    name: 'IoT-Weighing-Solution-for-Bulk-Bins',
-    display_title: 'Industrial IoT Weighing Telemetry for Bulk Bins',
-    html_url: 'https://github.com/earlchirchir/IoT-Weighing-Solution-for-Bulk-Bins',
-    description: 'Industrial IoT weight sensing telemetry platform using strain-gauge load cells, HX711 amplifier, Nextion HMI, and cloud SQL/MQTT integration—improving remote data accuracy by ~40%.',
-    language: 'C++',
-    stargazers_count: 0,
-    forks_count: 0,
-    size: 1120,
-    updated_at: '2026-07-10T11:20:00Z',
-    clone_url: 'https://github.com/earlchirchir/IoT-Weighing-Solution-for-Bulk-Bins.git',
-    topics: ['Industrial IoT', 'Nextion HMI', 'Load Cells', 'MQTT / SQL'],
-    metric_badge: '+40% Accuracy',
-    is_pinned: true
-  },
-  {
-    id: 1300808846,
-    name: 'Spatial-RPR-Robot',
-    display_title: 'Spatial RPR Manipulator Workspace & Kinematic Model',
-    html_url: 'https://github.com/earlchirchir/Spatial-RPR-Robot',
-    description: 'Mathematical formulation and 3D workspace envelope simulation for a 3-DOF Spatial RPR (Revolute-Prismatic-Revolute) robotic manipulator in MATLAB.',
-    language: 'MATLAB',
-    stargazers_count: 0,
-    forks_count: 0,
-    size: 615,
-    updated_at: '2026-07-14T18:27:26Z',
-    clone_url: 'https://github.com/earlchirchir/Spatial-RPR-Robot.git',
-    topics: ['DH Parameters', 'Spatial Kinematics', 'MATLAB', '3D Workspace'],
-    metric_badge: '3-DOF Solver'
+    topics: ['assistive-tech', 'haptics', 'embedded', 'accessibility', 'sensors']
   },
   {
     id: 990000003,
     name: 'Eggcellent-Automated-Chicken-Coop',
-    display_title: 'Eggcellent Automated Smart Agricultural Coop',
     html_url: 'https://github.com/earlchirchir/Eggcellent-Automated-Chicken-Coop',
-    description: '1st Place Award-Winning smart agricultural IoT coop controller featuring automated climate regulation, scheduled door linear actuators, load-cell egg logging, and off-grid solar management.',
+    description: 'Smart agricultural IoT coop environment controller with climate regulation, scheduled door actuators, and feeder monitoring.',
     language: 'C++',
     stargazers_count: 0,
     forks_count: 0,
     size: 490,
     updated_at: '2023-11-10T12:00:00Z',
     clone_url: 'https://github.com/earlchirchir/Eggcellent-Automated-Chicken-Coop.git',
-    topics: ['Finite State Machine', 'L298N Actuators', 'DHT22', 'Solar Power'],
-    metric_badge: '1st Place Award'
-  },
-  {
-    id: 716050465,
-    name: 'Load-Sensor-Modules-PCB',
-    display_title: '6-Channel Modular Load Sensor Array PCB',
-    html_url: 'https://github.com/earlchirchir/Load-Sensor-Modules-PCB',
-    description: 'Custom 2-layer FR-4 PCB layout designed in KiCAD & Eagle accommodating 6 load sensor modules with analog signal conditioning for industrial weighing.',
-    language: 'Hardware',
-    stargazers_count: 0,
-    forks_count: 0,
-    size: 229,
-    updated_at: '2026-07-09T18:23:56Z',
-    clone_url: 'https://github.com/earlchirchir/Load-Sensor-Modules-PCB.git',
-    topics: ['KiCAD', 'Autodesk Eagle', 'FR-4 PCB', 'Analog Conditioning'],
-    metric_badge: '6-Ch PCB Layout'
-  },
-  {
-    id: 577751420,
-    name: 'Onboard-Monitoring-System',
-    display_title: 'Real-Time Embedded Onboard Telemetry Dashboard',
-    html_url: 'https://github.com/earlchirchir/Onboard-Monitoring-System',
-    description: 'Real-time sensor telemetry and on-board diagnostics web interface for embedded hardware monitoring over asynchronous serial and WebSockets.',
-    language: 'JavaScript',
-    stargazers_count: 0,
-    forks_count: 0,
-    size: 569,
-    updated_at: '2026-07-19T02:11:24Z',
-    clone_url: 'https://github.com/earlchirchir/Onboard-Monitoring-System.git',
-    topics: ['Web Telemetry', 'Serial Diagnostics', 'JavaScript', 'Embedded UI'],
-    metric_badge: 'Live Telemetry'
-  },
-  {
-    id: 1300505120,
-    name: 'ESP32-2432S022C-Capabilities-Showcase-Firmware',
-    display_title: 'ESP32-2432S022C Touch & Wireless BSP Firmware',
-    html_url: 'https://github.com/earlchirchir/ESP32-2432S022C-Capabilities-Showcase-Firmware',
-    description: 'Hardware board support package (BSP) and capability showcase demonstrating capacitive touch, BLE, and Wi-Fi peripheral drivers on the ESP32-2432S022C.',
-    language: 'C++',
-    stargazers_count: 0,
-    forks_count: 0,
-    size: 651,
-    updated_at: '2026-07-14T13:31:30Z',
-    clone_url: 'https://github.com/earlchirchir/ESP32-2432S022C-Capabilities-Showcase-Firmware.git',
-    topics: ['ESP32 BSP', 'SPI Display', 'BLE / Wi-Fi', 'Capacitive Touch'],
-    metric_badge: 'Hardware BSP'
-  },
-  {
-    id: 738944382,
-    name: 'Home-Renovation-Impact-Analysis',
-    display_title: 'Property Valuation ML & Feature Impact Pipeline',
-    html_url: 'https://github.com/earlchirchir/Home-Renovation-Impact-Analysis',
-    description: 'End-to-end Python machine learning regression pipeline and exploratory statistical analysis quantifying renovation ROI on residential property valuations.',
-    language: 'Jupyter Notebook',
-    stargazers_count: 0,
-    forks_count: 0,
-    size: 12425,
-    updated_at: '2026-07-14T14:52:38Z',
-    clone_url: 'https://github.com/earlchirchir/Home-Renovation-Impact-Analysis.git',
-    topics: ['Python', 'Scikit-Learn', 'Regression ML', 'Data Pipeline'],
-    metric_badge: 'ML Pipeline'
+    topics: ['smart-agriculture', 'iot', 'sensors', 'actuators', 'cplusplus']
   }
 ];
 
@@ -178,9 +155,9 @@ const FALLBACK_REPOS = [
 const PROJECT_SIGNIFICANCE_ORDER = [
   'abb-crb-15000',
   'esp32-spectrum-radar',
-  'iot-weighing-solution-for-bulk-bins',
   'automated-shopping-cart',
   'odi2-deafblind-assistive-device',
+  'iot-weighing-solution-for-bulk-bins',
   'spatial-rpr-robot',
   'eggcellent-automated-chicken-coop',
   'load-sensor-modules-pcb',
@@ -193,18 +170,12 @@ const PROJECT_SIGNIFICANCE_ORDER = [
 const HACKSTER_ARTICLES = [
   {
     id: 'esp32-spectrum-radar-article',
-    title: 'ESP32 2.4GHz Wi-Fi Spectrum Analyzer & Touch Network Inspector',
-    elevatorPitch: 'Formulated a real-time 2.4GHz Wi-Fi RF congestion visualizer and interactive touch network inspector using the ESP32 Cheap Yellow Display (CYD), LVGL v9, and FreeRTOS dual-core task scheduling.',
+    title: 'ESP32 2.4GHz Wi-Fi Spectrum Analyzer & Network Inspector',
+    elevatorPitch: 'Formulated real-time 2.4GHz Wi-Fi RF congestion visualizer and touch network inspector using the ESP32 Cheap Yellow Display (CYD), LVGL v9, and FreeRTOS dual-core task scheduling.',
     publishedDate: 'July 2026',
     readTime: '4 min read',
     hacksterUrl: 'https://www.hackster.io/earl-chirchir',
-    repoUrl: 'https://github.com/earlchirchir/ESP32-Spectrum-Radar',
-    tags: ['ESP32', 'FreeRTOS Dual-Core', 'LVGL v9', '2.4GHz RF', 'SPI Touch HMI'],
-    highlights: [
-      { label: 'Core 0 Task', val: 'Promiscuous 13-Ch Wi-Fi RSSI Scanner' },
-      { label: 'Core 1 Task', val: 'LVGL v9 60 FPS Touch GUI Engine' },
-      { label: 'Hardware BOM', val: '< £15 Handheld RF Analyzer (CYD)' }
-    ],
+    tags: ['ESP32', 'Wi-Fi', 'Spectrum Analyzer', 'LVGL v9', 'FreeRTOS'],
     markdownContent: `
 # ESP32 2.4GHz Wi-Fi Spectrum Analyzer & Network Inspector
 
@@ -334,13 +305,7 @@ const articleHacksterLink = document.getElementById('article-hackster-link');
 function formatDate(isoString) {
   if (!isoString) return 'N/A';
   const date = new Date(isoString);
-  return date.toLocaleDateString('en-GB', { month: 'short', year: 'numeric' });
-}
-
-// Helper: Format Human-Readable Repo Title
-function formatRepoTitle(repo) {
-  if (repo.display_title) return repo.display_title;
-  return (repo.name || '').replace(/-/g, ' ');
+  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 }
 
 // Helper: Get Language Class
@@ -349,7 +314,6 @@ function getLanguageClass(lang) {
   const lower = lang.toLowerCase();
   if (lower.includes('c++')) return 'lang-cpp';
   if (lower.includes('matlab')) return 'lang-matlab';
-  if (lower.includes('hardware') || lower.includes('pcb')) return 'lang-hardware';
   if (lower.includes('javascript') || lower.includes('js')) return 'lang-javascript';
   if (lower.includes('jupyter') || lower.includes('python')) return 'lang-jupyter';
   return 'lang-default';
@@ -357,112 +321,120 @@ function getLanguageClass(lang) {
 
 // Update Stats Cards
 function updateStats() {
-  const visibleCount = repositories.filter(r => {
-    const n = r.name.toLowerCase();
-    return !n.includes('earlchirchir.github.io') && !n.includes('nexora_care_flow_forecast');
-  }).length;
-
-  if (statRepos) statRepos.textContent = visibleCount;
-  if (statLanguages) statLanguages.textContent = 'Robotics • Firmware • PCB';
-  if (statStars) {
-    const totalStars = repositories.reduce((acc, r) => acc + (r.stargazers_count || 0), 0);
-    statStars.textContent = totalStars;
-  }
+  statRepos.textContent = repositories.length;
+  
+  const langs = new Set(repositories.map(r => r.language).filter(Boolean));
+  statLanguages.textContent = `${langs.size} Tech Stack`;
+  
+  const totalStars = repositories.reduce((acc, r) => acc + (r.stargazers_count || 0), 0);
+  statStars.textContent = totalStars;
 }
 
-// Fetch GitHub Repositories Live & Enrich with Engineering Metadata
+// Fetch GitHub Repositories Live
 async function fetchUserRepos() {
   try {
-    if (statStatus) statStatus.textContent = 'SYNCING';
+    if (statStatus) statStatus.textContent = 'Syncing...';
     const res = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`);
     if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-
+    
     const liveData = await res.json();
     if (Array.isArray(liveData) && liveData.length > 0) {
-      const fallbackMap = new Map(FALLBACK_REPOS.map(f => [f.name.toLowerCase(), f]));
+      // Merge live GitHub API data with custom Google Sites project showcases
       const liveNames = new Set(liveData.map(r => r.name.toLowerCase()));
       const customShowcases = FALLBACK_REPOS.filter(r => !liveNames.has(r.name.toLowerCase()));
+      repositories = [...liveData, ...customShowcases];
 
-      const enrichedLive = liveData.map(liveRepo => {
-        const fb = fallbackMap.get(liveRepo.name.toLowerCase());
-        if (fb) {
-          return {
-            ...liveRepo,
-            display_title: fb.display_title,
-            description: fb.description,
-            language: fb.language || liveRepo.language,
-            topics: fb.topics && fb.topics.length ? fb.topics : (liveRepo.topics || []),
-            metric_badge: fb.metric_badge,
-            is_pinned: fb.is_pinned
-          };
+      // Explicitly clean descriptions for key projects
+      repositories.forEach(r => {
+        if (r.name.toLowerCase().includes('abb-crb-15000')) {
+          r.description = 'Optimized cycle execution time by ~25% for the ABB GoFa collaborative arm. Formulated mathematical kinematic solvers, inverse dynamics, and bang-coast-bang time-optimal velocity profiles. Validated trajectory constraints through MATLAB and RoboDK 3D.';
         }
-        return liveRepo;
+        if (r.name.toLowerCase().includes('esp32-spectrum-radar')) {
+          r.description = 'Managed FreeRTOS task scheduling and LVGL v9 rendering constraints on the ESP32 Cheap Yellow Display (CYD) for high-speed RF visualization.';
+        }
+        if (r.name.toLowerCase().includes('automated-shopping-cart')) {
+          r.description = 'Autonomous retail automation system using ESP32, RFID item scanning, HX711 24-bit load-cell tare verification, and MQTT telemetry protocol for synchronized automated billing.';
+        }
+        if (r.name.toLowerCase().includes('odi2-deafblind-assistive-device')) {
+          r.description = 'Tactile assistive hardware interface featuring ERM/LRA haptic feedback drivers via I2C, capacitive sensor matrix, and low-latency audio synthesis protocols for deafblind communication.';
+        }
+        if (r.name.toLowerCase().includes('iot-weighing-solution-for-bulk-bins')) {
+          r.description = 'Industrial IoT weight sensing telemetry platform using load cells, HX711 amplifier, and cloud MQTT integration.';
+        }
+        if (r.name.toLowerCase().includes('load-sensor-modules-pcb')) {
+          r.description = 'Custom PCB layout accommodating 6 load sensor modules for modular plug-and-play hardware sensing.';
+        }
       });
 
-      repositories = [...enrichedLive, ...customShowcases];
-      if (statStatus) statStatus.textContent = 'LIVE';
+      if (statStatus) statStatus.textContent = 'Live (Sync)';
     }
   } catch (err) {
     console.warn('GitHub API fetch failed or rate-limited. Using hydrated fallback data.', err);
-    if (statStatus) statStatus.textContent = 'VERIFIED';
+    if (statStatus) statStatus.textContent = 'Hydrated Cache';
   } finally {
     updateStats();
     renderRepos();
-    initSpotlightCards();
   }
 }
 
 // Render Repositories Grid
 function renderRepos() {
   let filtered = repositories.filter(repo => {
-    const lowerName = repo.name.toLowerCase();
-    if (lowerName.includes('earlchirchir.github.io')) return false;
-    if (lowerName.includes('nexora_care_flow_forecast')) return false;
+    // Hide website portfolio and unfinished repos from the project grid
+    if (repo.name.toLowerCase().includes('earlchirchir.github.io')) return false;
+    if (repo.name.toLowerCase().includes('nexora_care_flow_forecast')) return false;
 
+    // Filter by language chip
     if (currentFilter !== 'all') {
       if (currentFilter === 'C++' && repo.language !== 'C++') return false;
       if (currentFilter === 'MATLAB' && repo.language !== 'MATLAB') return false;
-      if (currentFilter === 'Hardware' && repo.language !== 'Hardware') return false;
       if (currentFilter === 'JavaScript' && repo.language !== 'JavaScript') return false;
       if (currentFilter === 'Jupyter Notebook' && repo.language !== 'Jupyter Notebook') return false;
     }
-
+    
+    // Filter by search query
     if (currentSearch.trim() !== '') {
       const q = currentSearch.toLowerCase();
-      const nameMatch = repo.name.toLowerCase().includes(q) || (repo.display_title && repo.display_title.toLowerCase().includes(q));
+      const nameMatch = repo.name.toLowerCase().includes(q);
       const descMatch = repo.description && repo.description.toLowerCase().includes(q);
       const langMatch = repo.language && repo.language.toLowerCase().includes(q);
       const topicMatch = repo.topics && repo.topics.some(t => t.toLowerCase().includes(q));
       if (!nameMatch && !descMatch && !langMatch && !topicMatch) return false;
     }
-
+    
     return true;
   });
 
   // Sort
   filtered.sort((a, b) => {
+    // Always place earlchirchir.github.io at the very bottom
+    const isPortfolioA = a.name.toLowerCase().includes('earlchirchir.github.io');
+    const isPortfolioB = b.name.toLowerCase().includes('earlchirchir.github.io');
+    if (isPortfolioA && !isPortfolioB) return 1;
+    if (!isPortfolioA && isPortfolioB) return -1;
+
     if (currentSort === 'featured') {
       return getSignificanceRank(a.name) - getSignificanceRank(b.name);
     } else if (currentSort === 'updated') {
       return new Date(b.updated_at) - new Date(a.updated_at);
+    } else if (currentSort === 'stars') {
+      return (b.stargazers_count || 0) - (a.stargazers_count || 0);
     } else if (currentSort === 'name') {
-      return formatRepoTitle(a).localeCompare(formatRepoTitle(b));
+      return a.name.localeCompare(b.name);
     } else if (currentSort === 'size') {
       return (b.size || 0) - (a.size || 0);
     }
     return 0;
   });
 
-  if (repoCountBadge) {
-    repoCountBadge.textContent = `${filtered.length} ${filtered.length === 1 ? 'Project' : 'Projects'}`;
-  }
+  repoCountBadge.textContent = `${filtered.length} Repositories`;
 
   if (filtered.length === 0) {
     reposContainer.innerHTML = `
       <div class="empty-state">
-        <i class="fa-solid fa-folder-open empty-icon"></i>
-        <p>No engineering projects match your current filter or search criteria.</p>
-        <button type="button" class="btn btn-secondary btn-sm" onclick="resetFilters()">Reset Filters</button>
+        <i class="fa-solid fa-folder-open" style="font-size: 2.5rem; color: var(--text-dim);"></i>
+        <p>No repositories match your current filter or search criteria.</p>
+        <button class="btn btn-secondary btn-sm" onclick="resetFilters()">Reset Filters</button>
       </div>
     `;
     return;
@@ -470,68 +442,54 @@ function renderRepos() {
 
   reposContainer.innerHTML = filtered.map(repo => {
     const isDissertation = repo.name.toLowerCase().includes('abb-crb-15000');
-    const isPinned = repo.is_pinned || ['esp32-spectrum-radar', 'abb-crb-15000', 'iot-weighing-solution-for-bulk-bins'].some(p => repo.name.toLowerCase().includes(p));
-    const topics = (repo.topics || []).slice(0, 4);
+    const isPinned = repo.is_pinned || ['esp32-spectrum-radar', 'abb-crb-15000'].some(p => repo.name.toLowerCase().includes(p));
 
     return `
-    <article class="repo-card spotlight-surface ${isDissertation ? 'dissertation-card' : ''}" data-id="${repo.id}" tabindex="0" role="button" aria-label="Inspect ${formatRepoTitle(repo)}">
-      <div class="repo-card-top">
-        <div class="repo-card-header">
-          <div class="card-tags-row">
-            <span class="lang-pill ${getLanguageClass(repo.language)}">${repo.language || 'Engineering'}</span>
-            ${repo.metric_badge ? `<span class="tag-badge badge-grade"><i class="fa-solid fa-bolt"></i> ${repo.metric_badge}</span>` : ''}
-            ${isPinned ? `<span class="tag-badge badge-pinned"><i class="fa-solid fa-star"></i> Featured</span>` : ''}
-          </div>
-          <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="repo-ext-icon" title="Open repository on GitHub" aria-label="Open ${repo.name} on GitHub">
-            <i class="fa-brands fa-github"></i>
-          </a>
-        </div>
-
-        <h3 class="repo-card-title">
-          <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="repo-title-link">
-            ${formatRepoTitle(repo)}
-          </a>
-        </h3>
-
-        <p class="repo-desc">${repo.description || 'Engineering implementation and source repository.'}</p>
+    <article class="repo-card ${isDissertation ? 'dissertation-card' : ''}" data-id="${repo.id}">
+      <div class="repo-card-header">
+        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="repo-title-link">
+          ${repo.name}
+        </a>
+        <span class="lang-pill ${getLanguageClass(repo.language)}">${repo.language || 'Code'}</span>
       </div>
 
-      <div class="repo-card-bottom">
-        ${topics.length > 0 ? `
-          <div class="repo-topics-row">
-            ${topics.map(t => `<span class="topic-chip">${t}</span>`).join('')}
-          </div>
+      <div class="card-tags-row">
+        ${isPinned ? `<span class="tag-badge badge-pinned"><i class="fa-solid fa-thumbtack"></i> Pinned</span>` : ''}
+        ${isDissertation ? `
+          <span class="tag-badge badge-dissertation"><i class="fa-solid fa-robot"></i> Kinematics & Dynamics</span>
+          <span class="tag-badge badge-grade"><i class="fa-solid fa-gauge-high"></i> ~25% Cycle Gain</span>
         ` : ''}
+      </div>
 
-        <div class="repo-footer">
-          <span class="repo-meta-code"><i class="fa-regular fa-folder-open"></i> ${repo.name}</span>
-          <span class="details-btn" data-id="${repo.id}">
-            Architecture &amp; Specs <i class="fa-solid fa-arrow-right"></i>
-          </span>
+      <p class="repo-desc">${repo.description || 'No description provided.'}</p>
+
+      <div class="repo-footer">
+        <div class="repo-stats">
+          <span class="repo-stat-item" title="Stars"><i class="fa-solid fa-star"></i> ${repo.stargazers_count || 0}</span>
+          <span class="repo-stat-item" title="Forks"><i class="fa-solid fa-code-fork"></i> ${repo.forks_count || 0}</span>
         </div>
+        <button class="details-btn" data-id="${repo.id}">
+          Details <i class="fa-solid fa-arrow-right"></i>
+        </button>
       </div>
     </article>
     `;
   }).join('');
 
-  document.querySelectorAll('#repos-container .repo-card').forEach(card => {
-    const activateCard = (e) => {
-      if (e.target.closest('a')) return;
+  // Attach event listeners to entire repo card tabs
+  document.querySelectorAll('.repo-card').forEach(card => {
+    card.addEventListener('click', (e) => {
       const repoId = card.getAttribute('data-id');
       const repo = repositories.find(r => String(r.id) === String(repoId));
-      if (repo) openModal(repo);
-    };
-
-    card.addEventListener('click', activateCard);
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        activateCard(e);
+      
+      // If clicking directly on external title link, expandable details summary, or PDF link
+      if (e.target.closest('.repo-title-link') || e.target.closest('.dissertation-expandable-details') || e.target.closest('a')) {
+        return;
       }
+
+      if (repo) openModal(repo);
     });
   });
-
-  initSpotlightCards();
 }
 
 // Render Hackster Blog Section
@@ -539,79 +497,37 @@ function renderBlogArticles() {
   if (!blogContainer) return;
 
   blogContainer.innerHTML = HACKSTER_ARTICLES.map(article => `
-    <article class="blog-feature-card spotlight-surface" data-article-id="${article.id}">
-      <div class="blog-feature-content">
-        <div class="blog-meta-header">
-          <span class="lang-pill lang-cpp"><i class="fa-solid fa-microchip"></i> Hackster.io Featured Hardware Guide</span>
-          <span class="blog-meta-pill"><i class="fa-regular fa-calendar"></i> ${article.publishedDate}</span>
-          <span class="blog-meta-pill"><i class="fa-regular fa-clock"></i> ${article.readTime}</span>
+    <article class="repo-card blog-card" data-article-id="${article.id}" style="cursor: pointer; display: flex; flex-direction: column; justify-content: space-between;">
+      <div>
+        <div class="repo-card-header" style="margin-bottom: 8px;">
+          <span class="lang-pill lang-cpp" style="font-size: 0.78rem;"><i class="fa-solid fa-microchip"></i> Hackster.io</span>
+          <span style="font-size: 0.78rem; color: var(--text-dim);">${article.publishedDate}</span>
         </div>
 
-        <h3 class="blog-feature-title">${article.title}</h3>
-        <p class="blog-feature-pitch">${article.elevatorPitch}</p>
+        <h3 style="font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 8px; line-height: 1.3;">
+          ${article.title}
+        </h3>
 
-        <div class="blog-highlights-grid">
-          ${(article.highlights || []).map(h => `
-            <div class="blog-hl-box">
-              <span class="blog-hl-lbl">${h.label}</span>
-              <span class="blog-hl-val">${h.val}</span>
-            </div>
-          `).join('')}
-        </div>
+        <p class="repo-desc" style="font-size: 0.88rem; color: var(--text-dim); margin-bottom: 12px; line-height: 1.5;">
+          ${article.elevatorPitch}
+        </p>
 
-        <div class="blog-tags-wrap">
-          ${article.tags.map(t => `<span class="topic-chip">#${t}</span>`).join('')}
-        </div>
-
-        <div class="blog-actions-row">
-          <button type="button" class="btn btn-primary btn-read-article" data-article-id="${article.id}">
-            <i class="fa-solid fa-book-open"></i> Read Technical Article &amp; Pinout
-          </button>
-          <a href="${article.repoUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-            <i class="fa-brands fa-github"></i> View Firmware Source
-          </a>
-          <a href="${article.hacksterUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> Hackster.io Profile
-          </a>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px;">
+          ${article.tags.map(t => `<span style="background: rgba(255,255,255,0.05); color: #94a3b8; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem;">#${t}</span>`).join('')}
         </div>
       </div>
 
-      <!-- Interactive RF Spectrum Preview Schematic -->
-      <div class="blog-rf-schematic" aria-hidden="true">
-        <div class="cyd-bezel">
-          <div class="cyd-screen">
-            <div class="cyd-topbar">
-              <span>ESP32-2432S022C // 2.4GHz RF</span>
-              <span class="cyd-fps">60 FPS LVGL9</span>
-            </div>
-            <div class="cyd-bars">
-              <div class="rf-bar" style="--h: 28%"><span>1</span></div>
-              <div class="rf-bar" style="--h: 18%"><span>2</span></div>
-              <div class="rf-bar" style="--h: 42%"><span>3</span></div>
-              <div class="rf-bar" style="--h: 22%"><span>4</span></div>
-              <div class="rf-bar" style="--h: 35%"><span>5</span></div>
-              <div class="rf-bar rf-warn" style="--h: 88%"><span>6</span></div>
-              <div class="rf-bar" style="--h: 30%"><span>7</span></div>
-              <div class="rf-bar" style="--h: 16%"><span>8</span></div>
-              <div class="rf-bar" style="--h: 25%"><span>9</span></div>
-              <div class="rf-bar" style="--h: 20%"><span>10</span></div>
-              <div class="rf-bar rf-mid" style="--h: 64%"><span>11</span></div>
-              <div class="rf-bar" style="--h: 14%"><span>12</span></div>
-              <div class="rf-bar rf-opt" style="--h: 10%"><span>13</span></div>
-            </div>
-            <div class="cyd-footer">
-              <span>CH 1 / 6 / 11 TELEMETRY</span>
-              <span class="cyd-opt-tag">OPTIMAL: CH 13</span>
-            </div>
-          </div>
-        </div>
+      <div class="repo-footer" style="padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.06); margin-top: auto;">
+        <span style="font-size: 0.8rem; color: var(--text-dim);"><i class="fa-solid fa-clock"></i> ${article.readTime}</span>
+        <button class="details-btn" style="color: #00a8e8;">
+          Read Article Overlay <i class="fa-solid fa-book-open"></i>
+        </button>
       </div>
     </article>
   `).join('');
 
-  document.querySelectorAll('.blog-feature-card').forEach(card => {
-    card.addEventListener('click', (e) => {
-      if (e.target.closest('a')) return;
+  document.querySelectorAll('.blog-card').forEach(card => {
+    card.addEventListener('click', () => {
       const artId = card.getAttribute('data-article-id');
       const article = HACKSTER_ARTICLES.find(a => a.id === artId);
       if (article) openArticleModal(article);
@@ -619,32 +535,33 @@ function renderBlogArticles() {
   });
 }
 
-// Markdown Parser Helper (Clean CSS classes, no clashing neon purple)
+// Markdown Parser Helper
 function parseMarkdown(mdText) {
   if (!mdText) return '';
 
   let html = mdText
-    .replace(/^# (.*$)/gim, '<h1 class="md-h1">$1</h1>')
-    .replace(/^## (.*$)/gim, '<h2 class="md-h2">$1</h2>')
-    .replace(/^### (.*$)/gim, '<h3 class="md-h3">$1</h3>')
-    .replace(/---/g, '<hr class="md-hr" />')
-    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    .replace(/`([^`]+)`/g, '<code class="md-inline-code">$1</code>')
-    .replace(/```(.*?)\n([\s\S]*?)```/g, '<pre class="md-pre"><code>$2</code></pre>')
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="md-link">$1</a>')
-    .replace(/^\- (.*$)/gim, '<li class="md-li">$1</li>')
-    .replace(/^\d+\. (.*$)/gim, '<li class="md-li-num">$1</li>');
+    .replace(/^# (.*$)/gim, '<h1 style="color: #fff; font-size: 1.4rem; font-weight: 700; margin: 20px 0 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px;">$1</h1>')
+    .replace(/^## (.*$)/gim, '<h2 style="color: #c084fc; font-size: 1.2rem; font-weight: 600; margin: 18px 0 8px 0;">$1</h2>')
+    .replace(/^### (.*$)/gim, '<h3 style="color: #38bdf8; font-size: 1.05rem; font-weight: 600; margin: 14px 0 6px 0;">$1</h3>')
+    .replace(/---/g, '<hr style="border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0;" />')
+    .replace(/\*\*(.*?)\*\*/g, '<strong style="color: #fff; font-weight: 600;">$1</strong>')
+    .replace(/`([^`]+)`/g, '<code style="background: rgba(255,255,255,0.1); color: #38bdf8; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 0.88em;">$1</code>')
+    .replace(/```(.*?)\n([\s\S]*?)```/g, '<pre style="background: #0f172a; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 12px; overflow-x: auto; font-family: monospace; color: #34d399; font-size: 0.85rem; margin: 12px 0;"><code>$2</code></pre>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: underline;">$1</a>')
+    .replace(/^\- (.*$)/gim, '<li style="margin-bottom: 4px; list-style-type: disc; margin-left: 20px;">$1</li>')
+    .replace(/^\d+\. (.*$)/gim, '<li style="margin-bottom: 4px; list-style-type: decimal; margin-left: 20px;">$1</li>');
 
+  // Convert markdown tables
   html = html.replace(/\|(.+)\|/g, (match) => {
     const cells = match.split('|').filter(c => c.trim() !== '');
     if (cells.some(c => c.includes('---'))) return '';
     const isHeader = match.includes('Peripheral');
     const cellTag = isHeader ? 'th' : 'td';
-    const rowContent = cells.map(c => `<${cellTag}>${c.trim()}</${cellTag}>`).join('');
-    return `<tr class="${isHeader ? 'md-tr-head' : ''}">${rowContent}</tr>`;
+    const rowContent = cells.map(c => `<${cellTag} style="padding: 8px 12px; border: 1px solid rgba(255,255,255,0.1); text-align: left;">${c.trim()}</${cellTag}>`).join('');
+    return `<tr style="${isHeader ? 'background: rgba(255,255,255,0.05); font-weight: 600; color: #fff;' : ''}">${rowContent}</tr>`;
   });
 
-  html = html.replace(/(<tr.*?>.*?<\/tr>)+/gs, '<table class="md-table">$&</table>');
+  html = html.replace(/(<tr.*?>.*?<\/tr>)+/gs, '<table style="width: 100%; border-collapse: collapse; margin: 16px 0; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; overflow: hidden;">$&</table>');
 
   return html;
 }
@@ -680,104 +597,89 @@ window.resetFilters = function() {
   currentSearch = '';
   searchInput.value = '';
   clearSearchBtn.style.display = 'none';
-
+  
   document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-  const allChip = document.querySelector('.chip[data-filter="all"]');
-  if (allChip) allChip.classList.add('active');
-
+  document.querySelector('.chip[data-filter="all"]').classList.add('active');
+  
   renderRepos();
 };
 
 // Open Modal Dialog
 function openModal(repo) {
-  modalTitle.textContent = formatRepoTitle(repo);
-
-  const lower = repo.name.toLowerCase();
-  if (lower.includes('abb-crb-15000')) {
+  modalTitle.textContent = repo.name;
+  
+  const isDissertation = repo.name.toLowerCase().includes('abb-crb-15000');
+  if (isDissertation) {
     modalDescription.innerHTML = `
-      <p class="modal-lead">Formulated closed-form analytical kinematic solvers, inverse dynamics, and time-optimal velocity profiles for the 6-DOF ABB GoFa CRB 15000 collaborative arm. Reduced cycle execution time by ~25% and minimized joint jerk through MATLAB trajectory formulation and RoboDK 3D digital twin validation.</p>
-      <div class="modal-spec-box spec-cyan">
-        <h4><i class="fa-solid fa-graduation-cap"></i> MSc Dissertation Engineering Overview</h4>
-        <ul>
-          <li><strong>Academic Distinction:</strong> <span class="highlight-green">81% (Grade A • Passed with Distinction)</span></li>
-          <li><strong>Institution:</strong> Kingston University London (2024 – 2025)</li>
-          <li><strong>Mathematical Stack:</strong> MATLAB, RoboDK 3D, Bang-Coast-Bang Time Law, Closed-Form 6-DOF Inverse Kinematics</li>
-          <li><strong>Verified Impact:</strong> ~25% cycle time reduction with zero acceleration discontinuity across joint boundaries</li>
+      <p style="margin-bottom: 12px;">Formulated mathematical kinematic solvers, inverse dynamics, and time-optimal velocity profiles for the ABB GoFa collaborative arm. Reduced robot joint jerk and cycle execution time through MATLAB trajectory formulation and RoboDK 3D simulation validation.</p>
+      
+      <div style="background: rgba(147, 51, 234, 0.1); border: 1px solid rgba(147, 51, 234, 0.3); border-radius: 8px; padding: 12px; margin-bottom: 16px;">
+        <h4 style="color: #c084fc; margin-bottom: 8px; font-size: 0.95rem;"><i class="fa-solid fa-graduation-cap"></i> MSc Dissertation Overview</h4>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-dim);">
+          <li><strong>Score / Grade:</strong> <span style="color: #34d399; font-weight: 600;">81% (Grade A / Passed with Distinction)</span></li>
+          <li><strong>Institution:</strong> Kingston University London (2024 &ndash; 2025)</li>
+          <li><strong>Tech Stack & Theory:</strong> MATLAB, RoboDK 3D, Bang-Coast-Bang Time Law, Inverse Kinematics</li>
+          <li><strong>Key Performance Metrics:</strong> ~25% Cycle Time Reduction & Joint Jerk Minimization on ABB GoFa cobot</li>
         </ul>
-        <div class="modal-spec-actions">
-          <a href="Kingston_University_MSc_HEAR_Transcript.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+        <div style="margin-top: 10px;">
+          <a href="Kingston_University_MSc_HEAR_Transcript.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.8rem;">
             <i class="fa-solid fa-file-pdf"></i> View Official Kingston HEAR Transcript (PDF)
           </a>
         </div>
       </div>
     `;
-  } else if (lower.includes('esp32-spectrum-radar')) {
+  } else if (repo.name.toLowerCase().includes('iot-weighing-solution-for-bulk-bins')) {
     modalDescription.innerHTML = `
-      <p class="modal-lead">Portable 2.4GHz RF spectrum analyzer and interactive touch network inspector built on the ESP32-2432S022C (Cheap Yellow Display) using FreeRTOS and LVGL v9.</p>
-      <div class="modal-spec-box spec-emerald">
-        <h4><i class="fa-solid fa-microchip"></i> Dual-Core Firmware Architecture</h4>
-        <ul>
-          <li><strong>Core 0 (RF Task):</strong> Continuous 13-channel Wi-Fi promiscuous RSSI scanning and co-channel interference classification</li>
-          <li><strong>Core 1 (HMI Task):</strong> Deterministic 60 FPS LVGL v9 touch UI rendering via high-speed SPI DMA</li>
-          <li><strong>Inspector Diagnostics:</strong> Real-time BSSID, center frequency (GHz), WPA2/WPA3 security detection, and dBm bar metering</li>
+      <p style="margin-bottom: 12px;">Industrial IoT data logging and telemetry platform for industrial machinery and bulk weighing bins, improving remote data accuracy by ~40% and feeding real-time production metrics to SQL databases and Power BI dashboards.</p>
+      <div style="background: rgba(14, 165, 233, 0.1); border: 1px solid rgba(14, 165, 233, 0.3); border-radius: 8px; padding: 12px; margin-bottom: 16px;">
+        <h4 style="color: #38bdf8; margin-bottom: 8px; font-size: 0.95rem;"><i class="fa-solid fa-industry"></i> Industrial Deployment Highlights</h4>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-dim);">
+          <li><strong>Hardware Stack:</strong> ESP32 / Arduino Nano, HX711 24-bit ADC amplifier, Strain Gauge Load Cells</li>
+          <li><strong>Telemetry Protocols:</strong> JSON-based data payload over Wi-Fi / MQTT / HTTP to remote web servers</li>
+          <li><strong>HMI Integration:</strong> Nextion touchscreen HMI for real-time operator machine communication</li>
+          <li><strong>Industrial Impact:</strong> Increased machine uptime, eliminated manual weighing errors, and automated batch logging</li>
         </ul>
       </div>
     `;
-  } else if (lower.includes('iot-weighing-solution-for-bulk-bins')) {
+  } else if (repo.name.toLowerCase().includes('load-sensor-modules-pcb')) {
     modalDescription.innerHTML = `
-      <p class="modal-lead">Industrial IoT data logging and telemetry platform for tea-picking machinery and bulk weighing bins, improving remote data accuracy by ~40% and streaming live metrics to SQL databases and Power BI dashboards.</p>
-      <div class="modal-spec-box spec-cyan">
-        <h4><i class="fa-solid fa-industry"></i> Industrial Deployment Specifications</h4>
-        <ul>
-          <li><strong>Hardware Stack:</strong> ESP32 / Arduino Nano, HX711 24-bit Sigma-Delta ADC amplifier, strain-gauge load cells</li>
-          <li><strong>Telemetry Protocols:</strong> JSON payload interchange over Wi-Fi / MQTT / HTTP REST APIs</li>
-          <li><strong>Operator HMI:</strong> Nextion industrial touchscreen interface for tare calibration and batch diagnostics</li>
+      <p style="margin-bottom: 12px;">Custom-designed printed circuit board accommodating modular multi-channel load sensor interfaces for industrial weighing and telemetry platforms.</p>
+      <div style="background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 8px; padding: 12px; margin-bottom: 16px;">
+        <h4 style="color: #4ade80; margin-bottom: 8px; font-size: 0.95rem;"><i class="fa-solid fa-microchip"></i> Hardware Design Specifications</h4>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-dim);">
+          <li><strong>CAD / EDA Tools:</strong> KiCAD & Autodesk Eagle for schematic capture and multi-layer PCB layout</li>
+          <li><strong>Sensor Interface:</strong> 6 modular load-cell terminal headers with onboard analog filtering and conditioning</li>
+          <li><strong>Manufacturing & Assembly:</strong> 2-layer FR-4 fabrication, surface-mount and through-hole precision soldering</li>
         </ul>
       </div>
     `;
-  } else if (lower.includes('load-sensor-modules-pcb')) {
+  } else if (repo.name.toLowerCase().includes('eggcellent-automated-chicken-coop')) {
     modalDescription.innerHTML = `
-      <p class="modal-lead">Custom-designed 2-layer printed circuit board accommodating 6 modular load sensor channels for industrial weighing and telemetry platforms.</p>
-      <div class="modal-spec-box spec-emerald">
-        <h4><i class="fa-solid fa-drafting-compass"></i> Hardware &amp; EDA Specifications</h4>
-        <ul>
-          <li><strong>EDA Toolchain:</strong> KiCAD &amp; Autodesk Eagle schematic capture and multi-layer PCB routing</li>
-          <li><strong>Signal Integrity:</strong> 6 modular load-cell terminal headers with dedicated analog filtering and power decoupling</li>
-          <li><strong>Fabrication:</strong> FR-4 2-layer fabrication with SMD and through-hole assembly</li>
-        </ul>
-      </div>
-    `;
-  } else if (lower.includes('eggcellent-automated-chicken-coop')) {
-    modalDescription.innerHTML = `
-      <p class="modal-lead">1st Place Award-Winning smart agricultural IoT coop environment controller with automated climate regulation, motorized door actuators, and feed level telemetry.</p>
-      <div class="modal-spec-box spec-amber">
-        <h4><i class="fa-solid fa-trophy"></i> 1st Place Intervarsity Award Winner</h4>
-        <ul>
+      <p style="margin-bottom: 12px;">1st Place Award-Winning smart agricultural IoT coop environment controller with automated climate regulation, motorized door actuators, and feed level telemetry.</p>
+      <div style="background: rgba(234, 179, 8, 0.1); border: 1px solid rgba(234, 179, 8, 0.3); border-radius: 8px; padding: 12px; margin-bottom: 16px;">
+        <h4 style="color: #facc15; margin-bottom: 8px; font-size: 0.95rem;"><i class="fa-solid fa-trophy"></i> 1st Place Intervarsity Award Winner</h4>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-dim);">
           <li><strong>Recognition:</strong> 1st Place Engineering Innovator — Riara University Intervarsity Competition</li>
-          <li><strong>Hardware:</strong> ESP32 / Arduino Nano, L298N H-bridge motor driver, DS3231 RTC, DHT22 climate sensors, ultrasonic level sensing</li>
-          <li><strong>Firmware:</strong> Deterministic C++ finite state machine governing scheduled and ambient-light actuation</li>
+          <li><strong>Hardware:</strong> ESP32 / Arduino Nano, L298N motor driver, DS3231 RTC, DHT22 sensors, ultrasonic level sensing</li>
+          <li><strong>Firmware:</strong> C++ finite state machine controlling automated scheduled & light-dependent actuation</li>
         </ul>
       </div>
     `;
   } else {
-    const topicsHtml = (repo.topics && repo.topics.length)
-      ? `<div class="repo-topics-row" style="margin-top:12px;">${repo.topics.map(t => `<span class="topic-chip">${t}</span>`).join('')}</div>`
-      : '';
-    modalDescription.innerHTML = `<p class="modal-lead">${repo.description || 'Engineering implementation and source code repository.'}</p>${topicsHtml}`;
+    modalDescription.textContent = repo.description || 'No detailed description available.';
   }
-
-  modalLanguageBadge.textContent = repo.language || 'Engineering';
+  modalLanguageBadge.textContent = repo.language || 'Code';
   modalLanguageBadge.className = `lang-pill ${getLanguageClass(repo.language)}`;
-
-  if (modalStars) modalStars.textContent = repo.stargazers_count || 0;
-  if (modalForks) modalForks.textContent = repo.forks_count || 0;
-  modalSize.textContent = `${repo.size || 450} KB`;
+  
+  modalStars.textContent = repo.stargazers_count || 0;
+  modalForks.textContent = repo.forks_count || 0;
+  modalSize.textContent = `${repo.size || 0} KB`;
   modalUpdated.textContent = formatDate(repo.updated_at);
-
+  
   const cloneUrl = repo.clone_url || `https://github.com/earlchirchir/${repo.name}.git`;
-  cloneUrlInput.value = `git clone ${cloneUrl}`;
+  cloneUrlInput.value = cloneUrl;
   modalGithubLink.href = repo.html_url;
-
+  
   copyToast.style.display = 'none';
   repoModal.style.display = 'flex';
   setTimeout(() => repoModal.classList.add('active'), 10);
@@ -791,24 +693,9 @@ function closeModal() {
   }, 250);
 }
 
-// Cursor-Tracking Spotlight Border Effect (Bento 2.0)
-function initSpotlightCards() {
-  const surfaces = document.querySelectorAll('.spotlight-surface');
-  surfaces.forEach(card => {
-    if (card.dataset.spotlightInit === 'true') return;
-    card.dataset.spotlightInit = 'true';
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      card.style.setProperty('--mouse-x', `${x}px`);
-      card.style.setProperty('--mouse-y', `${y}px`);
-    }, { passive: true });
-  });
-}
-
 // Setup Event Listeners
 function setupEventListeners() {
+  // Search input
   searchInput.addEventListener('input', (e) => {
     currentSearch = e.target.value;
     clearSearchBtn.style.display = currentSearch ? 'block' : 'none';
@@ -822,21 +709,23 @@ function setupEventListeners() {
     renderRepos();
   });
 
+  // Filter chips
   filterChips.addEventListener('click', (e) => {
-    const chip = e.target.closest('.chip');
-    if (chip) {
+    if (e.target.classList.contains('chip')) {
       document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      currentFilter = chip.getAttribute('data-filter');
+      e.target.classList.add('active');
+      currentFilter = e.target.getAttribute('data-filter');
       renderRepos();
     }
   });
 
+  // Sort dropdown
   sortSelect.addEventListener('change', (e) => {
     currentSort = e.target.value;
     renderRepos();
   });
 
+  // Refresh sync button
   if (refreshBtn) {
     refreshBtn.addEventListener('click', () => {
       fetchUserRepos();
@@ -849,17 +738,16 @@ function setupEventListeners() {
   const contactModalClose = document.getElementById('contact-modal-close');
 
   if (contactBtn && contactModal) {
-    const openContact = () => {
+    contactBtn.addEventListener('click', () => {
       contactModal.style.display = 'flex';
       setTimeout(() => contactModal.classList.add('active'), 10);
-    };
+    });
 
     const closeContactModal = () => {
       contactModal.classList.remove('active');
-      setTimeout(() => contactModal.style.display = 'none', 250);
+      setTimeout(() => contactModal.style.display = 'none', 300);
     };
 
-    contactBtn.addEventListener('click', openContact);
     if (contactModalClose) contactModalClose.addEventListener('click', closeContactModal);
     contactModal.addEventListener('click', (e) => {
       if (e.target === contactModal) closeContactModal();
@@ -867,13 +755,20 @@ function setupEventListeners() {
 
     const stickyNavContactBtn = document.getElementById('sticky-nav-contact-btn');
     if (stickyNavContactBtn) {
-      stickyNavContactBtn.addEventListener('click', openContact);
+      stickyNavContactBtn.addEventListener('click', () => {
+        contactModal.style.display = 'flex';
+        setTimeout(() => contactModal.classList.add('active'), 10);
+      });
     }
   }
 
+  // Sticky Navigation Smooth Scrolling & Scrollspy
   setupStickyNav();
+
+  // Interactive Bang-Coast-Bang Trajectory Simulator Engine
   initTrajectorySimulator();
 
+  // Article Modal events
   if (articleModalClose) articleModalClose.addEventListener('click', closeArticleModal);
   if (articleCloseBtnBottom) articleCloseBtnBottom.addEventListener('click', closeArticleModal);
   if (articleModal) {
@@ -882,33 +777,36 @@ function setupEventListeners() {
     });
   }
 
+  // Modal events
   modalClose.addEventListener('click', closeModal);
   repoModal.addEventListener('click', (e) => {
     if (e.target === repoModal) closeModal();
   });
-
+  
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       if (repoModal.classList.contains('active')) closeModal();
       if (articleModal && articleModal.classList.contains('active')) closeArticleModal();
       if (contactModal && contactModal.classList.contains('active')) {
         contactModal.classList.remove('active');
-        setTimeout(() => contactModal.style.display = 'none', 250);
+        setTimeout(() => contactModal.style.display = 'none', 300);
       }
     }
   });
 
+  // Copy Clone URL
   copyCloneBtn.addEventListener('click', async () => {
     try {
       await navigator.clipboard.writeText(cloneUrlInput.value);
-      copyToast.style.display = 'inline-flex';
+      copyToast.style.display = 'inline-block';
       setTimeout(() => {
         copyToast.style.display = 'none';
       }, 2500);
     } catch (err) {
+      // Fallback select copy
       cloneUrlInput.select();
       document.execCommand('copy');
-      copyToast.style.display = 'inline-flex';
+      copyToast.style.display = 'inline-block';
       setTimeout(() => {
         copyToast.style.display = 'none';
       }, 2500);
@@ -917,28 +815,27 @@ function setupEventListeners() {
 }
 
 // ==========================================================================
-// Feature 1: Sticky Navigation Bar & Accurate Scrollspy
+// Feature 1: Sticky Navigation Bar & Scrollspy
 // ==========================================================================
 function setupStickyNav() {
   const navLinks = document.querySelectorAll('#nav-links a[href^="#"]');
-  const sectionIds = [
-    'spotlight-section',
-    'skills-matrix',
-    'repos-section',
-    'blog-section',
-    'applied-engineering',
-    'industry-commendations',
-    'compliance-section'
-  ];
-  const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+  const sections = [
+    document.getElementById('overview-highlights'),
+    document.getElementById('credentials-ribbon'),
+    document.getElementById('trajectory-simulator'),
+    document.getElementById('skills-matrix'),
+    document.getElementById('repos-section'),
+    document.getElementById('blog-section')
+  ].filter(Boolean);
 
+  // Smooth scroll with offset for sticky nav (60px)
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const targetId = link.getAttribute('href').substring(1);
       const targetElem = document.getElementById(targetId);
       if (targetElem) {
-        const navOffset = 68;
+        const navOffset = 64;
         const targetTop = targetElem.getBoundingClientRect().top + window.pageYOffset - navOffset;
         window.scrollTo({
           top: targetTop,
@@ -948,23 +845,33 @@ function setupStickyNav() {
     });
   });
 
+  // Active link scrollspy
   const onScroll = () => {
-    const scrollPos = window.pageYOffset + 140;
-    let currentId = sections[0] ? sections[0].id : '';
+    const scrollPos = window.pageYOffset + 110;
+    let currentId = '';
 
     for (const section of sections) {
-      if (scrollPos >= section.offsetTop) {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      if (scrollPos >= top && scrollPos < top + height) {
         currentId = section.id;
+        break;
       }
     }
 
-    navLinks.forEach(link => {
-      if (link.getAttribute('href') === `#${currentId}`) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
+    if (!currentId && sections.length > 0 && scrollPos < sections[0].offsetTop) {
+      currentId = sections[0].id;
+    }
+
+    if (currentId) {
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === `#${currentId}`) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
   };
 
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -1015,46 +922,54 @@ function initTrajectorySimulator() {
   const endEffector = document.getElementById('arm-end-effector');
   const toolTip = document.getElementById('arm-tool-tip');
 
+  // Preset Configurations
   const presets = {
     'fast-transfer': { deg: 90, vel: 2.2, acc: 5.5, mode: 'optimal' },
     'precision': { deg: 45, vel: 0.9, acc: 2.0, mode: 'optimal' },
     'heavy-payload': { deg: 180, vel: 2.6, acc: 6.0, mode: 'optimal' }
   };
 
+  // Target Parameters (driven by user inputs / presets)
   let targetDeg = parseFloat(displacementSlider.value) || 90;
-  let targetVMax = parseFloat(velocitySlider.value) || 1.8;
-  let targetAMax = parseFloat(accelSlider.value) || 4.0;
-  let targetModeWeight = 1.0;
+  let targetVMax = parseFloat(velocitySlider.value) || 2.2;
+  let targetAMax = parseFloat(accelSlider.value) || 5.5;
+  let targetModeWeight = 1.0; // 1.0 = optimal bang-coast-bang, 0.0 = unoptimized
   let mode = 'optimal';
 
+  // Current Rendered / Interpolated Parameters (for buttery-smooth morphing)
   let currDeg = targetDeg;
   let currVMax = targetVMax;
   let currAMax = targetAMax;
   let currModeWeight = targetModeWeight;
 
+  // Simulation Timeline State
   let simTime = 0;
   let currSimTime = 0;
   let isPlaying = false;
   let isAnimating = false;
   let lastFrameTs = performance.now();
+  let animId = null;
 
+  // Compute kinematic parameters given angular displacement, max velocity, and max acceleration
   function computeKinematics(deg = currDeg, vel = currVMax, acc = currAMax, modeW = currModeWeight) {
     const D_rad = (deg * Math.PI) / 180;
     const safeAcc = Math.max(0.05, acc);
     const safeVel = Math.max(0.05, vel);
     let t_a = safeVel / safeAcc;
-    const d_acc = safeAcc * Math.pow(t_a, 2);
+    const d_acc = safeAcc * Math.pow(t_a, 2); // = v^2 / a
 
     let v_peak = safeVel;
     let t_c = 0;
     let T = 0;
 
     if (D_rad < d_acc) {
+      // Triangular profile (trajectory doesn't reach target max velocity)
       v_peak = Math.sqrt(Math.max(0.0001, D_rad * safeAcc));
       t_a = v_peak / safeAcc;
       t_c = 0;
       T = 2 * t_a;
     } else {
+      // Full trapezoidal profile (Bang-Coast-Bang)
       v_peak = safeVel;
       const d_coast = D_rad - d_acc;
       t_c = d_coast / safeVel;
@@ -1062,7 +977,7 @@ function initTrajectorySimulator() {
     }
 
     const T_optimal = T;
-    const T_unopt = T * 1.33; // ~25% cycle gain baseline
+    const T_unopt = T * 1.28;
     const effT = T_unopt * (1 - modeW) + T_optimal * modeW;
     const efficiencyGain = ((T_unopt - T_optimal) / Math.max(0.001, T_unopt)) * 100 * modeW;
 
@@ -1082,12 +997,14 @@ function initTrajectorySimulator() {
     };
   }
 
+  // Calculate kinematics at instant time t
   function evaluateAtTime(t, k) {
     const { D_rad, t_a, t_c, T, v_peak, aMax, modeW = 1 } = k;
     let s_opt = 0;
     let v_opt = 0;
     let a_opt = 0;
 
+    // Optimal Bang-Coast-Bang
     if (t <= 0) {
       s_opt = 0; v_opt = 0; a_opt = 0;
     } else if (t <= t_a) {
@@ -1109,6 +1026,7 @@ function initTrajectorySimulator() {
       a_opt = 0;
     }
 
+    // Unoptimized constant speed with abrupt jerk pulses
     let s_unopt = 0;
     let v_unopt = 0;
     let a_unopt = 0;
@@ -1122,6 +1040,7 @@ function initTrajectorySimulator() {
       a_unopt = (t < 0.12 || t > T - 0.12) ? aMax * 1.5 : 0;
     }
 
+    // Smooth profile blending based on mode weight
     const s = s_unopt * (1 - modeW) + s_opt * modeW;
     const v = v_unopt * (1 - modeW) + v_opt * modeW;
     const a = a_unopt * (1 - modeW) + a_opt * modeW;
@@ -1130,13 +1049,13 @@ function initTrajectorySimulator() {
     if (t <= 0) {
       statusText = 'Ready (Standby)';
     } else if (t >= T - 0.001) {
-      statusText = modeW > 0.5 ? 'Target Waypoint Reached' : 'Completed (High Jerk)';
+      statusText = modeW > 0.5 ? 'Target Waypoint Reached' : 'Cycle Completed (High Jerk Spikes)';
     } else if (modeW > 0.5) {
       if (t <= t_a) statusText = 'Accelerating (+A)';
-      else if (t <= t_a + t_c) statusText = 'Coasting (Vmax)';
+      else if (t <= t_a + t_c) statusText = 'Coasting (Coast Phase)';
       else statusText = 'Decelerating (-A)';
     } else {
-      statusText = 'Unblended Step Velocity';
+      statusText = 'Constant Speed Movement';
     }
 
     return { s, v, a, statusText };
@@ -1154,7 +1073,7 @@ function initTrajectorySimulator() {
     const dpr = window.devicePixelRatio || 1;
     canvas.width = rect.width * dpr;
     canvas.height = rect.height * dpr;
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.setTransform(1, 0, 0, 1, 0, 0); // reset scale
     ctx.scale(dpr, dpr);
   }
 
@@ -1174,19 +1093,24 @@ function initTrajectorySimulator() {
 
     if (plotW <= 0 || plotH <= 0) return;
 
+    // Background phase regions smoothly tracking t_a and t_c
     const safeT = Math.max(0.001, k.T);
     const xAccel = padLeft + Math.min(1, Math.max(0, k.t_a / safeT)) * plotW;
     const xCoast = padLeft + Math.min(1, Math.max(0, (k.t_a + k.t_c) / safeT)) * plotW;
 
+    // Accel background tint
     ctx.fillStyle = 'rgba(52, 211, 153, 0.04)';
     ctx.fillRect(padLeft, padTop, Math.max(0, xAccel - padLeft), plotH);
 
+    // Coast background tint
     ctx.fillStyle = 'rgba(56, 189, 248, 0.03)';
     ctx.fillRect(xAccel, padTop, Math.max(0, xCoast - xAccel), plotH);
 
+    // Decel background tint
     ctx.fillStyle = 'rgba(251, 191, 36, 0.04)';
     ctx.fillRect(xCoast, padTop, Math.max(0, padLeft + plotW - xCoast), plotH);
 
+    // Horizontal Grid lines
     ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
     ctx.lineWidth = 1;
     for (let i = 0; i <= 4; i++) {
@@ -1197,7 +1121,8 @@ function initTrajectorySimulator() {
       ctx.stroke();
     }
 
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.14)';
+    // Phase partition lines
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
     ctx.moveTo(xAccel, padTop);
@@ -1207,23 +1132,25 @@ function initTrajectorySimulator() {
     ctx.stroke();
     ctx.setLineDash([]);
 
-    ctx.font = '10px "JetBrains Mono", monospace';
+    // Phase text labels
+    ctx.font = '10px Inter, sans-serif';
     ctx.fillStyle = '#64748b';
     ctx.textAlign = 'center';
-    if (k.t_a > 0.05) ctx.fillText('ACCEL (ta)', (padLeft + xAccel) / 2, padTop - 10);
-    if (k.t_c > 0.1) ctx.fillText('COAST (tc)', (xAccel + xCoast) / 2, padTop - 10);
-    ctx.fillText('DECEL (td)', (xCoast + padLeft + plotW) / 2, padTop - 10);
+    if (k.t_a > 0.05) ctx.fillText('Accel (ta)', (padLeft + xAccel) / 2, padTop - 10);
+    if (k.t_c > 0.1) ctx.fillText('Coast (tc)', (xAccel + xCoast) / 2, padTop - 10);
+    ctx.fillText('Decel (td)', (xCoast + padLeft + plotW) / 2, padTop - 10);
 
+    // Time Axis Marks
     ctx.textAlign = 'center';
     ctx.fillStyle = '#94a3b8';
-    ctx.fillText('0.0s', padLeft, padTop + plotH + 16);
-    ctx.fillText((k.T / 2).toFixed(2) + 's', padLeft + plotW / 2, padTop + plotH + 16);
-    ctx.fillText(k.T.toFixed(2) + 's', padLeft + plotW, padTop + plotH + 16);
+    ctx.fillText('0s', padLeft, padTop + plotH + 16);
+    ctx.fillText((k.T / 2).toFixed(1) + 's', padLeft + plotW / 2, padTop + plotH + 16);
+    ctx.fillText(k.T.toFixed(1) + 's', padLeft + plotW, padTop + plotH + 16);
 
     const steps = 120;
     const dt = safeT / steps;
 
-    // 1. Displacement s(t) [Cyan]
+    // 1. Draw Displacement Curve s(t) [Cyan]
     ctx.strokeStyle = '#38bdf8';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
@@ -1237,7 +1164,7 @@ function initTrajectorySimulator() {
     }
     ctx.stroke();
 
-    // 2. Velocity v(t) [Emerald]
+    // 2. Draw Velocity Profile v(t) [Emerald]
     ctx.strokeStyle = '#34d399';
     ctx.lineWidth = 2;
     ctx.beginPath();
@@ -1251,7 +1178,7 @@ function initTrajectorySimulator() {
     }
     ctx.stroke();
 
-    // 3. Acceleration a(t) [Amber]
+    // 3. Draw Acceleration Profile a(t) [Amber]
     ctx.strokeStyle = '#fbbf24';
     ctx.lineWidth = 1.75;
     ctx.beginPath();
@@ -1266,10 +1193,12 @@ function initTrajectorySimulator() {
     }
     ctx.stroke();
 
+    // Current State Sample Points at Scrubber Position
     const curNorm = Math.min(1, Math.max(0, currentT / safeT));
     const curX = padLeft + curNorm * plotW;
     const { s: curS, v: curV, a: curA } = evaluateAtTime(currentT, k);
 
+    // Glowing Point on Displacement Curve
     const curY_s = padTop + plotH - (curS / Math.max(0.001, k.D_rad)) * plotH * 0.9;
     ctx.beginPath();
     ctx.arc(curX, curY_s, 4, 0, Math.PI * 2);
@@ -1279,6 +1208,7 @@ function initTrajectorySimulator() {
     ctx.strokeStyle = '#ffffff';
     ctx.stroke();
 
+    // Glowing Point on Velocity Curve
     const curY_v = padTop + plotH - (curV / Math.max(0.001, k.v_peak * 1.35)) * plotH;
     ctx.beginPath();
     ctx.arc(curX, curY_v, 4, 0, Math.PI * 2);
@@ -1288,6 +1218,7 @@ function initTrajectorySimulator() {
     ctx.strokeStyle = '#ffffff';
     ctx.stroke();
 
+    // Glowing Point on Acceleration Curve
     const curY_a = zeroAccY - (curA / Math.max(0.001, k.aMax * 1.25)) * (plotH * 0.35);
     ctx.beginPath();
     ctx.arc(curX, curY_a, 4, 0, Math.PI * 2);
@@ -1297,6 +1228,7 @@ function initTrajectorySimulator() {
     ctx.strokeStyle = '#ffffff';
     ctx.stroke();
 
+    // Update Scrubber line DOM element smoothly
     if (scrubberLine) {
       scrubberLine.style.left = `${curX}px`;
     }
@@ -1305,23 +1237,28 @@ function initTrajectorySimulator() {
   function updateRobotArm(radFraction, currentDeg) {
     if (!link1 || !joint2 || !link2 || !joint3 || !endEffector || !toolTip) return;
 
+    // Forward Kinematics 2D visualization of ABB GoFa 2-link representation
     const baseOriginX = 41;
     const baseOriginY = 95;
     const len1 = 52;
     const len2 = 56;
     const lenTool = 24;
 
-    const baseAngle = -Math.PI / 3;
+    // Angle of shoulder joint rotates with trajectory displacement
+    const baseAngle = -Math.PI / 3; // resting shoulder angle ~ -60 deg
     const maxDelta = (currentDeg * Math.PI) / 180;
     const curTheta1 = baseAngle + radFraction * maxDelta * 0.75;
     const curTheta2 = curTheta1 + 0.5 + radFraction * 0.3;
 
+    // Elbow position
     const elbowX = baseOriginX + len1 * Math.cos(curTheta1);
     const elbowY = baseOriginY + len1 * Math.sin(curTheta1);
 
+    // Wrist position
     const wristX = elbowX + len2 * Math.cos(curTheta2);
     const wristY = elbowY + len2 * Math.sin(curTheta2);
 
+    // Tool tip position
     const tipX = wristX + lenTool * Math.cos(curTheta2 + 0.15);
     const tipY = wristY + lenTool * Math.sin(curTheta2 + 0.15);
 
@@ -1368,10 +1305,12 @@ function initTrajectorySimulator() {
     updateRobotArm(k.D_rad > 0 ? s / k.D_rad : 0, k.deg);
   }
 
+  // Smooth Animation and Parameter Interpolation Loop
   function stepLoop(ts) {
     const dt = Math.min((ts - lastFrameTs) / 1000, 0.05);
     lastFrameTs = ts;
 
+    // Exponential smoothing rate (~220ms settling time, frame-rate independent)
     const smoothFactor = 1 - Math.exp(-15 * dt);
 
     currDeg += (targetDeg - currDeg) * smoothFactor;
@@ -1379,22 +1318,25 @@ function initTrajectorySimulator() {
     currAMax += (targetAMax - currAMax) * smoothFactor;
     currModeWeight += (targetModeWeight - currModeWeight) * smoothFactor;
 
+    // Step active simulation playback
     if (isPlaying) {
       simTime += dt;
       const activeK = computeKinematics(currDeg, currVMax, currAMax, currModeWeight);
       if (simTime >= activeK.T) {
         simTime = activeK.T;
         isPlaying = false;
-        btnPlaySim.innerHTML = '<i class="fa-solid fa-rotate-left"></i> Replay Trajectory';
+        btnPlaySim.innerHTML = '<i class="fa-solid fa-rotate-left"></i> Replay Simulation';
       }
       currSimTime = simTime;
     } else {
+      // Smoothly ease scrubbing position if target time changed
       currSimTime += (simTime - currSimTime) * Math.min(1, smoothFactor * 1.6);
     }
 
     const currentK = computeKinematics(currDeg, currVMax, currAMax, currModeWeight);
     renderState(currentK, currSimTime);
 
+    // Convergence check to sleep animation loop when idle
     const isSettled =
       !isPlaying &&
       Math.abs(targetDeg - currDeg) < 0.04 &&
@@ -1413,7 +1355,7 @@ function initTrajectorySimulator() {
       renderState(finalK, currSimTime);
       isAnimating = false;
     } else {
-      requestAnimationFrame(stepLoop);
+      animId = requestAnimationFrame(stepLoop);
     }
   }
 
@@ -1421,10 +1363,11 @@ function initTrajectorySimulator() {
     if (!isAnimating) {
       isAnimating = true;
       lastFrameTs = performance.now();
-      requestAnimationFrame(stepLoop);
+      animId = requestAnimationFrame(stepLoop);
     }
   }
 
+  // Adjust simTime smoothly preserving relative cycle progress when duration changes
   function adaptSimTimeForParamChange(newTargetDeg, newTargetVMax, newTargetAMax, newTargetModeWeight) {
     const oldK = computeKinematics(currDeg, currVMax, currAMax, currModeWeight);
     const newK = computeKinematics(newTargetDeg, newTargetVMax, newTargetAMax, newTargetModeWeight);
@@ -1451,12 +1394,15 @@ function initTrajectorySimulator() {
   }
 
   function resetSimulation() {
-    isPlaying = false;
+    if (isPlaying) {
+      isPlaying = false;
+    }
     simTime = 0;
     btnPlaySim.innerHTML = '<i class="fa-solid fa-play"></i> Run Trajectory Simulation';
     wakeAnimation();
   }
 
+  // Interactive timeline scrubbing directly on canvas wrapper
   let isDraggingScrubber = false;
 
   function scrubFromEvent(e) {
@@ -1495,6 +1441,7 @@ function initTrajectorySimulator() {
       isDraggingScrubber = false;
     });
 
+    // Mobile touch scrubbing
     canvasWrapper.addEventListener('touchstart', (e) => {
       isDraggingScrubber = true;
       scrubFromEvent(e);
@@ -1507,8 +1454,10 @@ function initTrajectorySimulator() {
     });
   }
 
+  // Slider change listeners with smooth parameter transitions
   displacementSlider.addEventListener('input', (e) => {
-    targetDeg = parseFloat(e.target.value);
+    const val = parseFloat(e.target.value);
+    targetDeg = val;
     valDisplacement.textContent = `${targetDeg}°`;
     presetBtns.forEach(b => b.classList.remove('active'));
     adaptSimTimeForParamChange(targetDeg, targetVMax, targetAMax, targetModeWeight);
@@ -1516,7 +1465,8 @@ function initTrajectorySimulator() {
   });
 
   velocitySlider.addEventListener('input', (e) => {
-    targetVMax = parseFloat(e.target.value);
+    const val = parseFloat(e.target.value);
+    targetVMax = val;
     valVelocity.textContent = `${targetVMax.toFixed(1)} rad/s`;
     presetBtns.forEach(b => b.classList.remove('active'));
     adaptSimTimeForParamChange(targetDeg, targetVMax, targetAMax, targetModeWeight);
@@ -1524,13 +1474,15 @@ function initTrajectorySimulator() {
   });
 
   accelSlider.addEventListener('input', (e) => {
-    targetAMax = parseFloat(e.target.value);
+    const val = parseFloat(e.target.value);
+    targetAMax = val;
     valAccel.textContent = `${targetAMax.toFixed(1)} rad/s²`;
     presetBtns.forEach(b => b.classList.remove('active'));
     adaptSimTimeForParamChange(targetDeg, targetVMax, targetAMax, targetModeWeight);
     wakeAnimation();
   });
 
+  // Profile comparison toggle with smooth blend
   btnProfileOptimal.addEventListener('click', () => {
     mode = 'optimal';
     targetModeWeight = 1.0;
@@ -1549,6 +1501,7 @@ function initTrajectorySimulator() {
     wakeAnimation();
   });
 
+  // Presets with smooth multi-parameter morphing
   presetBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const presetKey = btn.dataset.preset;
@@ -1589,6 +1542,7 @@ function initTrajectorySimulator() {
     renderState(k, currSimTime);
   });
 
+  // Initial render
   setTimeout(() => {
     resizeCanvas();
     const k = computeKinematics(currDeg, currVMax, currAMax, currModeWeight);
@@ -1602,5 +1556,4 @@ document.addEventListener('DOMContentLoaded', () => {
   updateStats();
   fetchUserRepos();
   renderBlogArticles();
-  initSpotlightCards();
 });
