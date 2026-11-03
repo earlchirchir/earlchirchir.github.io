@@ -22,7 +22,7 @@ const FALLBACK_REPOS = [
     id: 1310065999,
     name: 'ESP32-Spectrum-Radar',
     html_url: 'https://github.com/earlchirchir/ESP32-Spectrum-Radar',
-    description: 'Managed FreeRTOS task scheduling and LVGL v9 rendering constraints on the ESP32 Cheap Yellow Display (CYD) for high-speed RF visualization.',
+    description: 'High-speed RF spectrum visualizer firmware on the ESP32 Cheap Yellow Display (CYD) using C++ and PlatformIO, featuring dual-core task partitioning and optimized SPI display rendering.',
     language: 'C++',
     stargazers_count: 0,
     forks_count: 0,
@@ -88,14 +88,14 @@ const FALLBACK_REPOS = [
     id: 716050464,
     name: 'IoT-Weighing-Solution-for-Bulk-Bins',
     html_url: 'https://github.com/earlchirchir/IoT-Weighing-Solution-for-Bulk-Bins',
-    description: 'Industrial IoT weight sensing telemetry platform using load cells, HX711 amplifier, and cloud MQTT integration.',
+    description: 'Industrial IoT weight sensing telemetry platform using load cells, HX711 amplifier, and HTTP/REST cloud integration.',
     language: 'C++',
     stargazers_count: 0,
     forks_count: 0,
     size: 1120,
     updated_at: '2026-07-10T11:20:00Z',
     clone_url: 'https://github.com/earlchirchir/IoT-Weighing-Solution-for-Bulk-Bins.git',
-    topics: ['iot', 'sensors', 'mqtt', 'esp32', 'cplusplus']
+    topics: ['iot', 'sensors', 'telemetry', 'esp32', 'cplusplus']
   },
   {
     id: 716050465,
@@ -114,7 +114,7 @@ const FALLBACK_REPOS = [
     id: 990000001,
     name: 'Automated-Shopping-Cart',
     html_url: 'https://github.com/earlchirchir/Automated-Shopping-Cart',
-    description: 'Autonomous retail automation system using ESP32, RFID item scanning, HX711 24-bit load-cell tare verification, and MQTT telemetry protocol for synchronized automated billing.',
+    description: 'Autonomous retail automation system using ESP32, RFID item scanning, HX711 24-bit load-cell tare verification, and Wi-Fi REST/HTTP telemetry for synchronized automated billing.',
     language: 'C++',
     stargazers_count: 0,
     forks_count: 0,
@@ -171,15 +171,15 @@ const HACKSTER_ARTICLES = [
   {
     id: 'esp32-spectrum-radar-article',
     title: 'ESP32 2.4GHz Wi-Fi Spectrum Analyzer & Network Inspector',
-    elevatorPitch: 'Formulated real-time 2.4GHz Wi-Fi RF congestion visualizer and touch network inspector using the ESP32 Cheap Yellow Display (CYD), LVGL v9, and FreeRTOS dual-core task scheduling.',
+    elevatorPitch: 'Real-time 2.4GHz Wi-Fi RF congestion visualizer and touch network inspector on the ESP32 Cheap Yellow Display (CYD) using C++ and PlatformIO dual-core execution.',
     publishedDate: 'July 2026',
     readTime: '4 min read',
     hacksterUrl: 'https://www.hackster.io/earl-chirchir',
-    tags: ['ESP32', 'Wi-Fi', 'Spectrum Analyzer', 'LVGL v9', 'FreeRTOS'],
+    tags: ['ESP32', 'Wi-Fi', 'Spectrum Analyzer', 'PlatformIO', 'C++'],
     markdownContent: `
 # ESP32 2.4GHz Wi-Fi Spectrum Analyzer & Network Inspector
 
-**Technical Summary:** Formulated real-time 2.4GHz Wi-Fi RF congestion visualizer and touch network inspector using the ESP32 Cheap Yellow Display (CYD), LVGL v9, and FreeRTOS dual-core scheduling.
+**Technical Summary:** Real-time 2.4GHz Wi-Fi RF congestion visualizer and touch network inspector on the ESP32 Cheap Yellow Display (CYD) using C++ and PlatformIO dual-core execution.
 
 ---
 
@@ -213,7 +213,7 @@ Finding an uncongested Wi-Fi channel in crowded environments (offices, industria
   - **Center Frequency & Channel** (e.g. \`Ch 6 - 2.437 GHz\`)
   - **Security Encryption** (\`WPA2-PSK\`, \`WPA3-PSK\`, \`Open\`, \`Enterprise\`)
   - **Signal Strength Bar Meter** (\`-30 dBm\` to \`-100 dBm\`)
-- **Dual-Core FreeRTOS Architecture:** Core 0 runs continuous Wi-Fi scanning routines while Core 1 executes LVGL v9 rendering at a stable 60 FPS without buffer starvation.
+- **Dual-Core Architecture:** Core 0 runs continuous Wi-Fi scanning routines while Core 1 executes optimized display rendering at a stable 60 FPS without buffer starvation.
 
 ---
 
@@ -350,16 +350,16 @@ async function fetchUserRepos() {
           r.description = 'Optimized cycle execution time by ~25% for the ABB GoFa collaborative arm. Formulated mathematical kinematic solvers, inverse dynamics, and bang-coast-bang time-optimal velocity profiles. Validated trajectory constraints through MATLAB and RoboDK 3D.';
         }
         if (r.name.toLowerCase().includes('esp32-spectrum-radar')) {
-          r.description = 'Managed FreeRTOS task scheduling and LVGL v9 rendering constraints on the ESP32 Cheap Yellow Display (CYD) for high-speed RF visualization.';
+          r.description = 'High-speed RF spectrum visualizer firmware on the ESP32 Cheap Yellow Display (CYD) using C++ and PlatformIO, featuring dual-core task partitioning and optimized SPI display rendering.';
         }
         if (r.name.toLowerCase().includes('automated-shopping-cart')) {
-          r.description = 'Autonomous retail automation system using ESP32, RFID item scanning, HX711 24-bit load-cell tare verification, and MQTT telemetry protocol for synchronized automated billing.';
+          r.description = 'Autonomous retail automation system using ESP32, RFID item scanning, HX711 24-bit load-cell tare verification, and Wi-Fi REST/HTTP telemetry for synchronized automated billing.';
         }
         if (r.name.toLowerCase().includes('odi2-deafblind-assistive-device')) {
           r.description = 'Tactile assistive hardware interface featuring ERM/LRA haptic feedback drivers via I2C, capacitive sensor matrix, and low-latency audio synthesis protocols for deafblind communication.';
         }
         if (r.name.toLowerCase().includes('iot-weighing-solution-for-bulk-bins')) {
-          r.description = 'Industrial IoT weight sensing telemetry platform using load cells, HX711 amplifier, and cloud MQTT integration.';
+          r.description = 'Industrial IoT weight sensing telemetry platform using load cells, HX711 amplifier, and HTTP/REST cloud integration.';
         }
         if (r.name.toLowerCase().includes('load-sensor-modules-pcb')) {
           r.description = 'Custom PCB layout accommodating 6 load sensor modules for modular plug-and-play hardware sensing.';
@@ -635,7 +635,7 @@ function openModal(repo) {
         <h4 style="color: #38bdf8; margin-bottom: 8px; font-size: 0.95rem;"><i class="fa-solid fa-industry"></i> Industrial Deployment Highlights</h4>
         <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-dim);">
           <li><strong>Hardware Stack:</strong> ESP32 / Arduino Nano, HX711 24-bit ADC amplifier, Strain Gauge Load Cells</li>
-          <li><strong>Telemetry Protocols:</strong> JSON-based data payload over Wi-Fi / MQTT / HTTP to remote web servers</li>
+          <li><strong>Telemetry Protocols:</strong> JSON-based data payload over Wi-Fi / REST / HTTP to remote web servers</li>
           <li><strong>HMI Integration:</strong> Nextion touchscreen HMI for real-time operator machine communication</li>
           <li><strong>Industrial Impact:</strong> Increased machine uptime, eliminated manual weighing errors, and automated batch logging</li>
         </ul>
