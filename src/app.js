@@ -798,10 +798,12 @@ function setupEventListeners() {
   }
 
   // Modal events
-  modalClose.addEventListener('click', closeModal);
-  repoModal.addEventListener('click', (e) => {
-    if (e.target === repoModal) closeModal();
-  });
+  if (modalClose) modalClose.addEventListener('click', closeModal);
+  if (repoModal) {
+    repoModal.addEventListener('click', (e) => {
+      if (e.target === repoModal) closeModal();
+    });
+  }
   
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
@@ -815,7 +817,8 @@ function setupEventListeners() {
   });
 
   // Copy Clone URL
-  copyCloneBtn.addEventListener('click', async () => {
+  if (copyCloneBtn && cloneUrlInput) {
+    copyCloneBtn.addEventListener('click', async () => {
     try {
       await navigator.clipboard.writeText(cloneUrlInput.value);
       copyToast.style.display = 'inline-block';
@@ -832,6 +835,7 @@ function setupEventListeners() {
       }, 2500);
     }
   });
+  }
 }
 
 // ==========================================================================
