@@ -13,6 +13,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: 'index.html',
+        projects: 'projects.html',
+        experience: 'experience.html',
+        credentials: 'credentials.html',
         cv: 'cv.html',
       },
     },
