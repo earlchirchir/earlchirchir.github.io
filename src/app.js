@@ -321,13 +321,15 @@ function getLanguageClass(lang) {
 
 // Update Stats Cards
 function updateStats() {
-  statRepos.textContent = repositories.length;
-  
-  const langs = new Set(repositories.map(r => r.language).filter(Boolean));
-  statLanguages.textContent = `${langs.size} Tech Stack`;
-  
-  const totalStars = repositories.reduce((acc, r) => acc + (r.stargazers_count || 0), 0);
-  statStars.textContent = totalStars;
+  if (statRepos) statRepos.textContent = repositories.length;
+  if (statLanguages) {
+    const langs = new Set(repositories.map(r => r.language).filter(Boolean));
+    statLanguages.textContent = `${langs.size} Tech Stack`;
+  }
+  if (statStars) {
+    const totalStars = repositories.reduce((acc, r) => acc + (r.stargazers_count || 0), 0);
+    statStars.textContent = totalStars;
+  }
 }
 
 // Fetch GitHub Repositories Live
@@ -379,6 +381,7 @@ async function fetchUserRepos() {
 
 // Render Repositories Grid
 function renderRepos() {
+  if (!reposContainer) return;
   let filtered = repositories.filter(repo => {
     // Hide website portfolio and unfinished repos from the project grid
     if (repo.name.toLowerCase().includes('earlchirchir.github.io')) return false;
@@ -542,12 +545,12 @@ function parseMarkdown(mdText) {
   let html = mdText
     .replace(/^# (.*$)/gim, '<h1 style="color: #fff; font-size: 1.4rem; font-weight: 700; margin: 20px 0 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px;">$1</h1>')
     .replace(/^## (.*$)/gim, '<h2 style="color: #c084fc; font-size: 1.2rem; font-weight: 600; margin: 18px 0 8px 0;">$1</h2>')
-    .replace(/^### (.*$)/gim, '<h3 style="color: #38bdf8; font-size: 1.05rem; font-weight: 600; margin: 14px 0 6px 0;">$1</h3>')
+    .replace(/^### (.*$)/gim, '<h3 style="color: #3b82f6; font-size: 1.05rem; font-weight: 600; margin: 14px 0 6px 0;">$1</h3>')
     .replace(/---/g, '<hr style="border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0;" />')
     .replace(/\*\*(.*?)\*\*/g, '<strong style="color: #fff; font-weight: 600;">$1</strong>')
-    .replace(/`([^`]+)`/g, '<code style="background: rgba(255,255,255,0.1); color: #38bdf8; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 0.88em;">$1</code>')
+    .replace(/`([^`]+)`/g, '<code style="background: rgba(255,255,255,0.1); color: #3b82f6; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 0.88em;">$1</code>')
     .replace(/```(.*?)\n([\s\S]*?)```/g, '<pre style="background: #0f172a; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 12px; overflow-x: auto; font-family: monospace; color: #34d399; font-size: 0.85rem; margin: 12px 0;"><code>$2</code></pre>')
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: underline;">$1</a>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: underline;">$1</a>')
     .replace(/^\- (.*$)/gim, '<li style="margin-bottom: 4px; list-style-type: disc; margin-left: 20px;">$1</li>')
     .replace(/^\d+\. (.*$)/gim, '<li style="margin-bottom: 4px; list-style-type: decimal; margin-left: 20px;">$1</li>');
 
@@ -632,7 +635,7 @@ function openModal(repo) {
     modalDescription.innerHTML = `
       <p style="margin-bottom: 12px;">Industrial IoT data logging and telemetry platform for industrial machinery and bulk weighing bins, improving remote data accuracy by ~40% and feeding real-time production metrics to SQL databases and Power BI dashboards.</p>
       <div style="background: rgba(14, 165, 233, 0.1); border: 1px solid rgba(14, 165, 233, 0.3); border-radius: 8px; padding: 12px; margin-bottom: 16px;">
-        <h4 style="color: #38bdf8; margin-bottom: 8px; font-size: 0.95rem;"><i class="fa-solid fa-industry"></i> Industrial Deployment Highlights</h4>
+        <h4 style="color: #3b82f6; margin-bottom: 8px; font-size: 0.95rem;"><i class="fa-solid fa-industry"></i> Industrial Deployment Highlights</h4>
         <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-dim);">
           <li><strong>Hardware Stack:</strong> ESP32 / Arduino Nano, HX711 24-bit ADC amplifier, Strain Gauge Load Cells</li>
           <li><strong>Telemetry Protocols:</strong> JSON-based data payload over Wi-Fi / REST / HTTP to remote web servers</li>
@@ -695,22 +698,36 @@ function closeModal() {
 
 // Setup Event Listeners
 function setupEventListeners() {
+  // Mobile drawer toggle
+  const mobileToggle = document.querySelector('.nav-mobile-toggle');
+  const mobileDrawer = document.getElementById('mobile-drawer');
+  if (mobileToggle && mobileDrawer) {
+    mobileToggle.addEventListener('click', () => {
+      mobileDrawer.classList.toggle('active');
+    });
+  }
+
   // Search input
-  searchInput.addEventListener('input', (e) => {
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
     currentSearch = e.target.value;
     clearSearchBtn.style.display = currentSearch ? 'block' : 'none';
-    renderRepos();
-  });
+      renderRepos();
+    });
+  }
 
-  clearSearchBtn.addEventListener('click', () => {
-    searchInput.value = '';
-    currentSearch = '';
-    clearSearchBtn.style.display = 'none';
-    renderRepos();
-  });
+  if (clearSearchBtn) {
+    clearSearchBtn.addEventListener('click', () => {
+      if (searchInput) searchInput.value = '';
+      currentSearch = '';
+      clearSearchBtn.style.display = 'none';
+      renderRepos();
+    });
+  }
 
   // Filter chips
-  filterChips.addEventListener('click', (e) => {
+  if (filterChips) {
+    filterChips.addEventListener('click', (e) => {
     if (e.target.classList.contains('chip')) {
       document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
       e.target.classList.add('active');
@@ -718,12 +735,15 @@ function setupEventListeners() {
       renderRepos();
     }
   });
+  }
 
   // Sort dropdown
-  sortSelect.addEventListener('change', (e) => {
+  if (sortSelect) {
+    sortSelect.addEventListener('change', (e) => {
     currentSort = e.target.value;
-    renderRepos();
-  });
+      renderRepos();
+    });
+  }
 
   // Refresh sync button
   if (refreshBtn) {
@@ -1150,8 +1170,8 @@ function initTrajectorySimulator() {
     const steps = 120;
     const dt = safeT / steps;
 
-    // 1. Draw Displacement Curve s(t) [Cyan]
-    ctx.strokeStyle = '#38bdf8';
+    // 1. Draw Displacement Curve s(t) [Precision Cobalt]
+    ctx.strokeStyle = '#3b82f6';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     for (let i = 0; i <= steps; i++) {
@@ -1178,8 +1198,8 @@ function initTrajectorySimulator() {
     }
     ctx.stroke();
 
-    // 3. Draw Acceleration Profile a(t) [Amber]
-    ctx.strokeStyle = '#fbbf24';
+    // 3. Draw Acceleration Profile a(t) [Machined Slate]
+    ctx.strokeStyle = '#94a3b8';
     ctx.lineWidth = 1.75;
     ctx.beginPath();
     const zeroAccY = padTop + plotH * 0.55;
@@ -1202,7 +1222,7 @@ function initTrajectorySimulator() {
     const curY_s = padTop + plotH - (curS / Math.max(0.001, k.D_rad)) * plotH * 0.9;
     ctx.beginPath();
     ctx.arc(curX, curY_s, 4, 0, Math.PI * 2);
-    ctx.fillStyle = '#38bdf8';
+    ctx.fillStyle = '#3b82f6';
     ctx.fill();
     ctx.lineWidth = 1.5;
     ctx.strokeStyle = '#ffffff';
@@ -1212,7 +1232,7 @@ function initTrajectorySimulator() {
     const curY_v = padTop + plotH - (curV / Math.max(0.001, k.v_peak * 1.35)) * plotH;
     ctx.beginPath();
     ctx.arc(curX, curY_v, 4, 0, Math.PI * 2);
-    ctx.fillStyle = '#34d399';
+    ctx.fillStyle = '#f97316';
     ctx.fill();
     ctx.lineWidth = 1.5;
     ctx.strokeStyle = '#ffffff';
@@ -1222,7 +1242,7 @@ function initTrajectorySimulator() {
     const curY_a = zeroAccY - (curA / Math.max(0.001, k.aMax * 1.25)) * (plotH * 0.35);
     ctx.beginPath();
     ctx.arc(curX, curY_a, 4, 0, Math.PI * 2);
-    ctx.fillStyle = '#fbbf24';
+    ctx.fillStyle = '#94a3b8';
     ctx.fill();
     ctx.lineWidth = 1.5;
     ctx.strokeStyle = '#ffffff';
@@ -1296,7 +1316,7 @@ function initTrajectorySimulator() {
     if (readoutVel) readoutVel.textContent = `${v.toFixed(2)} rad/s`;
     if (readoutStatus) {
       readoutStatus.textContent = statusText;
-      readoutStatus.style.color = t >= k.T - 0.001 ? '#34d399' : '#38bdf8';
+      readoutStatus.style.color = t >= k.T - 0.001 ? '#22c55e' : '#f97316';
     }
     if (liveTimeIndicator) {
       liveTimeIndicator.textContent = `t = ${t.toFixed(2)}s / ${k.T.toFixed(2)}s`;
