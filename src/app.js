@@ -114,7 +114,7 @@ const FALLBACK_REPOS = [
     id: 990000001,
     name: 'Automated-Shopping-Cart',
     html_url: 'https://github.com/earlchirchir/Automated-Shopping-Cart',
-    description: 'Autonomous retail automation system using ESP32, RFID item scanning, HX711 24-bit load-cell tare verification, and Wi-Fi REST/HTTP telemetry for synchronized automated billing.',
+    description: 'Autonomous retail checkout system using Arduino Mega 2560 & Arduino Uno, RC522 RFID scanners, and HX711 24-bit load-cell tare verification for automated billing.',
     language: 'C++',
     stargazers_count: 0,
     forks_count: 0,
@@ -191,8 +191,8 @@ const HACKSTER_ARTICLES = [
 
 ### Firmware & Libraries
 1. **PlatformIO / Arduino C++ Toolchain**
-2. **LVGL v9** (Light and Versatile Graphics Library)
-3. **FreeRTOS** (Dual-core task management)
+2. **Hardware SPI Display Drivers & Frame Buffer Rendering**
+3. **ESP32 Dual-Core Architecture (Scanning & UI Task Separation)**
 4. **ESP32 Wi-Fi SDK (Promiscuous Mode / RSSI scanning)**
 
 ---
@@ -355,7 +355,7 @@ async function fetchUserRepos() {
           r.description = 'High-speed RF spectrum visualizer firmware on the ESP32 Cheap Yellow Display (CYD) using C++ and PlatformIO, featuring dual-core task partitioning and optimized SPI display rendering.';
         }
         if (r.name.toLowerCase().includes('automated-shopping-cart')) {
-          r.description = 'Autonomous retail automation system using ESP32, RFID item scanning, HX711 24-bit load-cell tare verification, and Wi-Fi REST/HTTP telemetry for synchronized automated billing.';
+          r.description = 'Autonomous retail checkout system using Arduino Mega 2560 & Arduino Uno, RC522 RFID scanners, and HX711 24-bit load-cell tare verification for automated billing.';
         }
         if (r.name.toLowerCase().includes('odi2-deafblind-assistive-device')) {
           r.description = 'Tactile assistive hardware interface featuring ERM/LRA haptic feedback drivers via I2C, capacitive sensor matrix, and low-latency audio synthesis protocols for deafblind communication.';
