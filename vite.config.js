@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: './',
+  base: '/',
   server: {
     host: '0.0.0.0',
     port: 3000,
@@ -9,7 +9,6 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: true,
     rollupOptions: {
       input: {
         main: 'index.html',
@@ -17,6 +16,7 @@ export default defineConfig({
         experience: 'experience.html',
         credentials: 'credentials.html',
         cv: 'cv.html',
+        notFound: '404.html',
       },
     },
   },
