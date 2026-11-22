@@ -622,13 +622,7 @@ function openModal(repo) {
           <li><strong>Score / Grade:</strong> <span style="color: #34d399; font-weight: 600;">81% (Grade A / Passed with Distinction)</span></li>
           <li><strong>Institution:</strong> Kingston University London (2024 &ndash; 2025)</li>
           <li><strong>Tech Stack & Theory:</strong> MATLAB, RoboDK 3D, Bang-Coast-Bang Time Law, Inverse Kinematics</li>
-          <li><strong>Key Performance Metrics:</strong> ~25% Cycle Time Reduction & Joint Jerk Minimization on ABB GoFa cobot</li>
         </ul>
-        <div style="margin-top: 10px;">
-          <a href="Kingston_University_MSc_HEAR_Transcript.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.8rem;">
-            <i class="fa-solid fa-file-pdf"></i> View Official Kingston HEAR Transcript (PDF)
-          </a>
-        </div>
       </div>
     `;
   } else if (repo.name.toLowerCase().includes('iot-weighing-solution-for-bulk-bins')) {
