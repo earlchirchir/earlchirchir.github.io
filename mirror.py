@@ -46,6 +46,15 @@ def clean_html(html):
     return html.replace(SOURCE, SITE)
 
 
+def add_canonical(html, page):
+    """Tell link previews (LinkedIn, Google) the address is earlchirchir.github.io."""
+    url = SITE + ("/" if page == "/" else page + "/")
+    html = re.sub(r"<link[^>]*rel=\"canonical\"[^>]*>", "", html)
+    html = re.sub(r"<meta[^>]*property=\"og:url\"[^>]*>", "", html)
+    tags = f'<link rel="canonical" href="{url}"/><meta property="og:url" content="{url}"/>'
+    return html.replace("</head>", tags + "</head>", 1)
+
+
 def save(path, data):
     rel = urllib.parse.unquote(path.lstrip("/"))
     dest = os.path.join(OUT, *rel.split("/"))
@@ -89,7 +98,7 @@ def main():
             seen_pages.add(link)
             pages.append(link)
         out = "/index.html" if page == "/" else page + "/index.html"
-        save(out, clean_html(html).encode("utf-8"))
+        save(out, add_canonical(clean_html(html), page).encode("utf-8"))
         print("page", page)
 
     raw, _ = fetch("/__not-found__", allow_404=True)
