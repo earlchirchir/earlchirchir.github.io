@@ -1,14 +1,9 @@
 {
-  "name": "earlchirchir-portfolio",
+  "name": "earlchirchir-github-io",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host 0.0.0.0 --port 3000",
-    "build": "vite build && node copy-routes.js",
-    "preview": "vite preview --host 0.0.0.0 --port 3000"
-  },
-  "devDependencies": {
-    "vite": "^5.0.0"
+    "build": "node build.mjs"
   }
 }
