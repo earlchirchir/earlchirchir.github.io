@@ -1,8 +1,5 @@
 # earlchirchir.github.io
 
-Earl Chirchir's portfolio now lives at **https://earl-chirchir-workbook.lovable.app** (built and edited in Lovable).
+Earl Chirchir's engineering portfolio: **https://earlchirchir.github.io**
 
-This repository only publishes a redirect, so the address on his CV and LinkedIn, https://earlchirchir.github.io, keeps working. Every path is forwarded to the same path on the new site (for example `/projects` and `/Earl_Chirchir_CV.pdf`).
-
-- `redirect/index.html` and `redirect/404.html`: the redirect page, with the new site's link-preview tags
-- `build.mjs`: copies `redirect/` to `dist/`, which the existing Pages workflow deploys
+The site is edited in Lovable. `mirror.py` copies the published Lovable site into GitHub Pages (without the Lovable badge or its tracking script) and rewrites its address to earlchirchir.github.io. The workflow in `.github/workflows/deploy.yml` runs it (`npm run build`) on every push and on demand (Actions > Deploy Portfolio to GitHub Pages > Run workflow): run it after publishing changes in Lovable. If the copy fails, the last good version stays live.

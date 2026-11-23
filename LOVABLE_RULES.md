@@ -9,7 +9,7 @@
 
 ## 1. Verified Profile & Identity
 - **Full Name:** Earl Chirchir
-- **Professional Title:** Robotics, Trajectory Planning & Embedded Systems Engineer
+- **Professional Title:** Graduate Mechatronics Engineer
 - **Statutory Registration:** **Registered Graduate Engineer** with the Engineers Board of Kenya (EBK Reg No. **B17202**).
   - *Rule:* NEVER call him a "Professional Engineer". His exact legal title is "Registered Graduate Engineer".
 - **Location:** Swansea, Wales, UK.
@@ -21,7 +21,7 @@
 ## 2. Verified Higher Education & Academic Record
 1. **MSc in Mechatronic Systems (With Distinction)**
    - **Institution:** Kingston University London (Graduated 2025).
-   - **Dissertation Research:** *"Trajectory Planning for an ABB CRB 15000 Robot Using a Bang-Coast-Bang Time Law"* (Grade: **81% / Grade A**). Formulated closed-form analytical inverse kinematics and bang-coast-bang time-optimal velocity profiles in MATLAB and RoboDK, achieving ~25% cycle efficiency gain.
+   - **Dissertation Research:** *"Trajectory Planning for an ABB CRB 15000 Robot Using a Bang-Coast-Bang Time Law"* (Grade: **81% / Grade A**). Denavit-Hartenberg forward kinematics, Jacobian-based numerical inverse kinematics and a bang-coast-bang velocity profile in MATLAB and RoboDK: a 1.0 m linear move in 1.5 s within 0.01 m tracking error.
    - **Key Modules:** Engineering Research Techniques (85% A+), Control Systems with Embedded Implementation (79% A), Mechatronic Design & Automation (63% B).
 
 2. **BSc in Mechatronic Engineering (Second Class Upper Division)**
@@ -33,7 +33,7 @@
 ## 3. Verified Projects (ONLY These Real Projects)
 1. **ABB-CRB-15000-Robotic-Arm-Kinematics-Trajectory-Planning:**
    - 6-DOF industrial collaborative robot trajectory optimization in MATLAB and RoboDK 3D.
-   - Closed-form inverse kinematics solvers, time-optimal bang-coast-bang velocity blending, ~25% cycle duration reduction, jerk minimization.
+   - Jacobian-based numerical inverse kinematics, bang-coast-bang velocity profile: a 1.0 m linear move in 1.5 s within 0.01 m tracking error.
 2. **ESP32-Spectrum-Radar:**
    - 2.4GHz Wi-Fi RF spectrum analyzer & network visualizer firmware on the ESP32 Cheap Yellow Display (CYD / ESP32-2432S022C).
    - Dual-core task partitioning (Core 0 Wi-Fi promiscuous scanning, Core 1 SPI display rendering), C++ on PlatformIO.
